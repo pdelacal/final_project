@@ -17,6 +17,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def add_friend
+  end
+
+  def request_friend
+  end
+
+  def remove_friend
+  end
+
   # GET /users/1/edit
   def edit
   end
