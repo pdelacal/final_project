@@ -31,14 +31,14 @@
   <div class="field">
     What's Your Monthly Budget:
     <%= label_tag :budget_min, "Min" %>
-    <%= range_field_tag :user, :budget_min, in: 0..10000, step: 50 %>
+    <%= range_field_tag :budget_min, in: 0..10000, step: 50 %>
     <%= label_tag :budget_max, "Max" %>
-    <%= range_field_tag :user, :budget_max, in: 0..10000, step: 50 %>
+    <%= range_field_tag :budget_max, in: 0..10000, step: 50 %>
   </div>
 
   <div class="field">
     <%= label_tag :move_in_date, "When Do You Want to Move In" %>
-    <%= date_field_tag :user, :move_in_date, min: Date.today %>
+    <%= date_field_tag :move_in_date, min: Date.today %>
   </div>
 
   <div class="field">
@@ -88,7 +88,7 @@
     <%= label_tag :bedtime_late, "Late (10PM-12AM)" %>
     <%= radio_button_tag :bedtime, "late" %>
     <%= label_tag :bedtime_night_owl, "Night Owl (12PM+)" %>
-    <%= radio_button_tag :bedtime, "late"%>
+    <%= radio_button_tag :bedtime, "night_owl"%>
   </div>
 
   <div class="field">
@@ -96,7 +96,7 @@
     <%= label_tag :work_standard, "Standard (9AM-5PM)" %>
     <%= radio_button_tag :work, "standard" %>
     <%= label_tag :work_nights, "Nights (7PM-2AM)" %>
-    <%= radio_button_tag :work, "mid" %>
+    <%= radio_button_tag :work, "nights" %>
     <%= label_tag :work_graveyard, "Graveyard (11PM-8AM)" %>
     <%= radio_button_tag :work, "graveyard"%>
   </div>
@@ -194,9 +194,9 @@
     <%= label_tag :drink_never, "Never" %>
     <%= radio_button_tag :drink, "never" %>
     <%= label_tag :drink_1_2_days, "1 or 2 Days a Week" %>
-    <%= radio_button_tag :drink, "1-2 days" %>
+    <%= radio_button_tag :drink, "1_2_days" %>
     <%= label_tag :drink_3_5_days, "3-5 Days a Week" %>
-    <%= radio_button_tag :drink, "3-5 days" %>
+    <%= radio_button_tag :drink, "3_5_days" %>
     <%= label_tag :drink_everyday, "Everyday" %>
     <%= radio_button_tag :drink, "everyday" %>
   </div>
