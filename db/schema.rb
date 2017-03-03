@@ -12,6 +12,25 @@
 
 ActiveRecord::Schema.define(version: 20170303060839) do
 
+  create_table "friendships", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "friend_user_id"
+    t.index ["friend_user_id", "user_id"], name: "index_friendships_on_friend_user_id_and_user_id", unique: true
+    t.index ["user_id", "friend_user_id"], name: "index_friendships_on_user_id_and_friend_user_id", unique: true
+  end
+
+  create_table "requests_from", id: false, force: :cascade do |t|
+    t.integer "from_user_id"
+    t.integer "to_user_id"
+    t.index ["from_user_id", "to_user_id"], name: "index_requests_from_on_from_user_id_and_to_user_id", unique: true
+    t.index ["to_user_id", "from_user_id"], name: "index_requests_from_on_to_user_id_and_from_user_id", unique: true
+  end
+
+  create_table "requests_to", force: :cascade do |t|
+    t.integer "from_user_id"
+    t.integer "to_user_id"
+  end
+
   create_table "responses", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "age_early_20s"

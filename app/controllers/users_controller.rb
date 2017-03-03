@@ -17,6 +17,29 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def request_friend #send request
+    user = User.find(params[:id])
+    current_user.requests_to << user
+    user.requests_from << current_user
+    redirect_to root_path
+  end
+
+  def add_friend #created association when confirmed
+    user = User.find(params[:id])
+    current_user.friends << user
+    current_user.requests_from.delete(user)
+    user.friends << current_user
+    user.requests_to.delete(current_user)
+    redirect_to root_path
+  end
+
+  def remove_friend #remove association
+    user = User.find(params[:id])
+    current_user.friends.delete(user)
+    user.friends.delete(current_user)
+    redirect_to root_path
+  end
+
   # GET /users/1/edit
   def edit
   end

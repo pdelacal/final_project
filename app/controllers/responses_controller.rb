@@ -1,10 +1,10 @@
 class ResponsesController < ApplicationController
   def new
-    @current_user.response = Response.new
+    current_user.response = Response.new
   end
 
   def create
-    @current_user.response = Response.new(response_params)
+    current_user.responses << Response.new(response_params)
     redirect_to root_path
   end
 end
