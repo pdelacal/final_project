@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'page#index'
 
+  get '/questionnaire' => 'responses#new'
+
   get '/register' => 'users#new'
   resources :users
 
