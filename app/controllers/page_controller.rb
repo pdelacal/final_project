@@ -1,5 +1,9 @@
 class PageController < ApplicationController
   def index
-    redirect_to register_path if session[:user_id].nil?
+    if session[:user_id].nil?
+      redirect_to register_path
+    else
+      @users = User.where.not(id: current_user.id)
+    end
   end
 end
