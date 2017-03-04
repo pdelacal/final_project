@@ -18,4 +18,5 @@ class User < ApplicationRecord
               join_table: :requests_to,
               foreign_key: :to_user_id,
               association_foreign_key: :from_user_id
+
 end
