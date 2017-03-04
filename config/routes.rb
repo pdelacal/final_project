@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   root 'page#index'
 
+  get '/questionnaire' => 'responses#new'
+  patch '/questionnaire' => 'responses#create'
+
   get '/register' => 'users#new'
   resources :users
+  resources :responses
 
 # routes for login form, logging in, and logging out
   get '/login' => 'sessions#new'
