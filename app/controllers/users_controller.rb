@@ -33,6 +33,20 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def cancel_request #cancel association
+    user = User.find(params[:id])
+    current_user.requests_to.delete(user)
+    user.requests_from.delete(current_user)
+    redirect_to root_path
+  end
+
+  def ignore_request #ignore send request association
+    user = User.find(params[:id])
+    current_user.requests_from.delete(user)
+    user.requests_to.delete(current_user)
+    redirect_to root_path
+  end
+
   def remove_friend #remove association
     user = User.find(params[:id])
     current_user.friends.delete(user)

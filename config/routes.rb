@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/request_friend/:id' => 'users#request_friend', as: 'request'
   get '/add_friend/:id' => 'users#add_friend', as: 'accept'
   get '/remove_friend/:id' => 'users#remove_friend', as: 'remove'
-
+  get '/cancel_request/:id' => 'users#cancel_request', as: 'cancel'
+  get '/ignore_request/:id' => 'users#ignore_request', as: 'ignore'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
