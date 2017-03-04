@@ -27,7 +27,9 @@ class User < ApplicationRecord
     facebook_id: auth['uid'],
     name: auth['info']['name'],
     email: auth['info']['email'],
-    user_likes: auth['info']['user_likes']
+    password: "facebook"
+    
+    # user_likes: auth['info']['user_likes']
   )
   end
 
