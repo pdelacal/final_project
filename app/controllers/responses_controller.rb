@@ -1,6 +1,6 @@
 class ResponsesController < ApplicationController
   def new
-    current_user.response = Response.new
+    @response = Response.new
   end
 
   def create
