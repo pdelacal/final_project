@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'page#index'
 
   get '/questionnaire' => 'responses#new'
-  patch '/questionnaire' => 'responses#create'
+  post '/questionnaire' => 'responses#create'
 
   get '/register' => 'users#new'
   resources :users
