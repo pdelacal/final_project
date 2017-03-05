@@ -33,6 +33,20 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def cancel_request #cancel association
+    user = User.find(params[:id])
+    current_user.requests_to.delete(user)
+    user.requests_from.delete(current_user)
+    redirect_to root_path
+  end
+
+  def ignore_request #ignore send request association
+    user = User.find(params[:id])
+    current_user.requests_from.delete(user)
+    user.requests_to.delete(current_user)
+    redirect_to root_path
+  end
+
   def remove_friend #remove association
     user = User.find(params[:id])
     current_user.friends.delete(user)
@@ -48,12 +62,23 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to questionnaire_path
-    else
+    if @user.name.empty?
+      flash[:notice] = "Name cannot be blank."
       redirect_to register_path
+   elsif
+     @user.password.nil?
+     flash[:notice] = "Password can't be blank."
+     redirect_to register_path
+   elsif
+     @user.password != @user.password_confirmation
+     flash[:notice] = "Passwords don't match."
+     redirect_to register_path
+   elsif @user.save
+     session[:user_id] = @user.id
+     redirect_to root_path
+   else
+     flash[:notice] = "Email is already registered."
+     redirect_to root_path
     end
   end
 

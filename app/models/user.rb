@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   # responses
   has_many :responses
+  validates :email, uniqueness: {case_sensitive: false}
 
   # friends
   has_and_belongs_to_many :friends,
@@ -28,9 +29,19 @@ class User < ApplicationRecord
     name: auth['info']['name'],
     email: auth['info']['email'],
     password: "facebook"
-    
+
     # user_likes: auth['info']['user_likes']
   )
   end
 
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
+  end
 end
