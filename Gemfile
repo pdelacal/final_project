@@ -9,6 +9,8 @@ end
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'test_helper'
+
 gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'

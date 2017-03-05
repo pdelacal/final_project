@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
+
   root 'page#index'
 
   get '/questionnaire' => 'responses#new'
   post '/questionnaire' => 'responses#create'
 
   get '/register' => 'users#new'
+  get '/signup',  to: 'users#new'
   resources :users
   resources :responses
+  resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
 # routes for login form, logging in, and logging out
   get '/login' => 'sessions#new'

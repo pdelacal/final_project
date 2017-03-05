@@ -1,3 +1,5 @@
+require 'digest'
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -64,6 +66,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.name.empty?
       flash[:notice] = "Name cannot be blank."
+      redirect_to register_path
+    elsif @user.email.empty?
+      flash[:notice] = "Email cannot be blank."
       redirect_to register_path
    elsif
      @user.password.nil?

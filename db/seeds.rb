@@ -14,6 +14,7 @@ users = 10.times.map do
     name: name,
     email: "#{name.downcase}@a.com",
     password: 'asdf',
+    activated: true,
   )
   user.save
   user

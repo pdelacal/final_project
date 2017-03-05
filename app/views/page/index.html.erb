@@ -1,5 +1,6 @@
 <h1>Welcome</h1>
 
+<% if current_user %>
 <% @users.each do |user| %>
   <% if current_user.friends.include?(user) %>
     <%= user.name %> | FRIENDS | <%=link_to "Remove Friend", remove_path(user), :data => {:confirm => "Are you sure you want to remove #{user.name} as your friend?"}%> <br>
@@ -12,6 +13,7 @@
     <%= link_to "Add Friend", request_path(user) %><br>
   <% end %>
 <% end %>
+<%end %>
 
 <br>
 
