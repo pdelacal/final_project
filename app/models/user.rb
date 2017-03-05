@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  validates :email, uniqueness: {case_sensitive: false}
+
   has_and_belongs_to_many :friends,
              class_name: "User",
              join_table: :friendships,
