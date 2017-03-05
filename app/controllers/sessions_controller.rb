@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(params[:email])
 # If the user exists AND the password entered is correct.
     if auth['provider'] == "facebook"
-      user = User.find_by(facebook_id: auth['uid']) ||
+      user = User.find_by(email: auth['info']['email']) ||
       User.create_from_facebook(auth)
       session[:user_id] = user.id
       redirect_to root_path
