@@ -43,4 +43,21 @@ class User < ApplicationRecord
       user.save!
     end
   end
+
+  def compare_to(user)
+    @matches = 0
+    @current_resp = self.responses.last.attributes
+    @compare_resp = user.responses.last.attributes
+    @current_resp.each do |my_response|
+      @compare_resp.each do |compare_response|
+        if my_response == compare_response
+          p "Match!"
+          @matches += 1
+        end
+      end
+    end
+    p @matches
+  end
+
+  
 end
