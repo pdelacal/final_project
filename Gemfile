@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # gem 'devise'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 
@@ -46,6 +47,9 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'capybara'
+
+  gem 'byebug', platform: :mri
+  gem 'dotenv-rails'
 end
 
 group :development do

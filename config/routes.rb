@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  get 'auth/:provider/callback' => 'sessions#create'
+  get 'auth/github', as: 'github_login'
+  get 'auth/facebook', as: 'facebook_login'
+
+  #friends
   get '/request_friend/:id' => 'users#request_friend', as: 'request'
   get '/add_friend/:id' => 'users#add_friend', as: 'accept'
   get '/remove_friend/:id' => 'users#remove_friend', as: 'remove'

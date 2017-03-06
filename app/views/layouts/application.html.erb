@@ -13,6 +13,7 @@
       Signed in as <%= current_user.name %> | <%= link_to "Logout", logout_path %>
     <% else %>
       <%= link_to 'Login', login_path %> | <%= link_to 'Register', register_path %>
+      | <%= link_to "Sign in with Facebook", facebook_login_path %>
     <% end %>
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
