@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303060839) do
+ActiveRecord::Schema.define(version: 20170305234328) do
 
   create_table "friendships", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "friend_user_id"
     t.index ["friend_user_id", "user_id"], name: "index_friendships_on_friend_user_id_and_user_id", unique: true
     t.index ["user_id", "friend_user_id"], name: "index_friendships_on_user_id_and_friend_user_id", unique: true
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "address"
+    t.string   "rent"
+    t.string   "amenities"
+    t.string   "rules"
+    t.string   "image_url"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "requests_from", id: false, force: :cascade do |t|
@@ -72,8 +85,13 @@ ActiveRecord::Schema.define(version: 20170303060839) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "reset_digest"
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+    t.datetime "activated_at"
+    t.datetime "reset_sent_at"
   end
 
 end

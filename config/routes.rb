@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :listings
   root 'page#index'
 
   get '/questionnaire' => 'responses#new'
