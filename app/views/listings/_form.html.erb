@@ -11,10 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :user_id %>
     <%= f.text_field :user_id %>
-  </div>
+  </div> -->
 
   <div class="field">
     <%= f.label :address %>
@@ -22,22 +22,163 @@
   </div>
 
   <div class="field">
-    <%= f.label :rent %>
+    <%= f.label :apt_number, 'Apt #' %>
+    <%= f.text_field :apt_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zipcode %>
+    <%= f.text_field :zipcode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rent, 'Monthly Rent' %>
     <%= f.text_field :rent %>
   </div>
 
   <div class="field">
-    <%= f.label :amenities %>
-    <%= f.text_field :amenities %>
+    <%= f.label :deposit %>
+    <%= f.text_field :deposit %>
   </div>
 
   <div class="field">
-    <%= f.label :rules %>
-    <%= f.text_field :rules %>
+    <%= f.label :move_in_date, 'Move-in Date' %>
+    <%= date_field_tag :move_in_date, min: Date.today %>
   </div>
 
   <div class="field">
-    <%= f.label :image_url %>
+    <%= f.label :stay_duration, 'Preferred Length of Stay' %>
+    <%= range_field_tag :stay_duration_min, in: 1..13, step: 1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :in_unit_washer, 'In-Unit Washer' %>
+    <%= f.text_field :in_unit_washer %>
+  </div>
+
+  <div class="field">
+    <%= f.label :wifi_included, 'Wi-fi Included' %>
+    <%= f.text_field :wifi_included %>
+  </div>
+
+  <div class="field">
+    <%= f.label :utilities_included, 'Utilities Included' %>
+    <%= f.text_field :utilities_included %>
+  </div>
+
+  <div class="field">
+    <%= f.label :furnished %>
+    <%= f.text_field :furnished %>
+  </div>
+
+  <div class="field">
+    <%= f.label :elevator %>
+    <%= f.text_field :elevator %>
+  </div>
+
+  <div class="field">
+    <%= f.label :doorman %>
+    <%= f.text_field :doorman %>
+  </div>
+
+  <div class="field">
+    <%= f.label :air_conditioning, 'Air Conditioning' %>
+    <%= f.text_field :air_conditioning %>
+  </div>
+
+  <div class="field">
+    <%= f.label :heating %>
+    <%= f.text_field :heating %>
+  </div>
+
+  <div class="field">
+    <%= f.label :month_to_month, 'Month-to-Month' %>
+    <%= f.text_field :month_to_month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gym %>
+    <%= f.text_field :gym %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tv, 'TV' %>
+    <%= f.text_field :tv %>
+  </div>
+
+  <div class="field">
+    <%= f.label :own_closet, 'Own Closet' %>
+    <%= f.text_field :own_closet %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pet_friendly, 'Pet Friendly' %>
+    <%= f.text_field :pet_friendly %>
+  </div>
+
+  <div class="field">
+    <%= f.label :private_bathroom, 'Private Bathroom' %>
+    <%= f.text_field :private_bathroom %>
+  </div>
+
+  <div class="field">
+    <%= f.label :kitchen %>
+    <%= f.text_field :kitchen %>
+  </div>
+
+  <div class="field">
+    <%= f.label :no_pets, 'No Pets' %>
+    <%= f.text_field :no_pets %>
+  </div>
+
+  <div class="field">
+    <%= f.label :no_smoking, 'No Smoking' %>
+    <%= f.text_field :no_smoking %>
+  </div>
+
+  <div class="field">
+    <%= f.label :no_drugs, 'No Drugs' %>
+    <%= f.text_field :no_drugs %>
+  </div>
+
+  <div class="field">
+    <%= f.label :no_drinking, 'No Drinking' %>
+    <%= f.text_field :no_drinking %>
+  </div>
+
+  <div class="field">
+    <%= f.label :no_loud_music, 'No Loud Music' %>
+    <%= f.text_field :no_loud_music %>
+  </div>
+
+  <div class="field">
+    <%= f.label :no_overnight_guests, 'No Overnight Guests' %>
+    <%= f.text_field :no_overnight_guests %>
+  </div>
+
+  <div class="field">
+    <%= f.label :no_late_nights, 'No Late Nights' %>
+    <%= f.text_field :no_late_nights %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :no_house_guests, 'No House Guests' %>
+    <%= f.text_field :no_house_guests %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image_url, 'What Does Your Apartment Look Like?' %>
     <%= f.text_field :image_url %>
   </div>
 
