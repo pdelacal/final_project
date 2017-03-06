@@ -45,24 +45,24 @@ class User < ApplicationRecord
   end
 
   def similarity_with(user)
-    @matches = 0
-    @current_resp = self.responses.last.attributes
-    @compare_resp = user.responses.last.attributes
-    @current_resp.each do |my_response|
-      @compare_resp.each do |compare_response|
-        if my_response == compare_response
-          @matches += 1
+    if self.responses.last && user.responses.last
+      @matches = 0
+      @current_resp = self.responses.last.attributes
+      @compare_resp = user.responses.last.attributes
+      @current_resp.each do |my_response|
+        @compare_resp.each do |compare_response|
+          if my_response == compare_response
+            @matches += 1 unless my_response[1].nil? || (my_response[1] == "" || "50") 
+          end
         end
       end
-    end
-    puts @matches
-    @total_responses = @current_resp.size - 4.0
-    puts @total_responses
-    compatibility = @matches/@total_responses*100.round(2)
-    if compatibility > 0
-      puts compatibility.round.to_s + "%"
-    else
-      puts "You are incompatible"
+      @total_responses = @current_resp.size - 4.0
+      @compatibility = @matches/@total_responses*100.round(2)
+      if @compatibility > 0
+        p "| Similarity #{@compatibility.round.to_s}% "
+      else
+        puts "You are incompatible"
+      end
     end
   end
 end
