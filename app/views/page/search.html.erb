@@ -1,18 +1,23 @@
 <h2>Search Results</h2>
 <br>
+<h3>Listings</h3>
+<% if @listings.empty? %>
+No results found.
+<% else %>
+<% @listings.each do |listing| %>
+<p>
+  <%= link_to listing.address, listing %>
+  <%= listing.city %>
+  <%= listing.state %>
+  <%= listing.zipcode %>
+</p>
+<% end %>
+<% end %>
 <h3>Users</h3>
 <% if @users.empty? %>
   No results found.
 <% else %>
   <% @users.each do |user| %>
     <p><%= link_to user.name, user %></p>
-  <% end %>
-<% end %>
-<h3>Listings</h3>
-<% if @listings.empty? %>
-  No results found.
-<% else %>
-  <% @listings.each do |listing| %>
-    <p><%= link_to listing.address, listing %></p>
   <% end %>
 <% end %>
