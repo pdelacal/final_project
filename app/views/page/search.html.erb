@@ -19,5 +19,10 @@ No results found.
 <% else %>
   <% @users.each do |user| %>
     <p><%= link_to user.name, user %></p>
+    <p>
+      <% if user.responses.last %>
+      | <%= link_to current_user.similarity_with(user), response_path(user) %>
+      <% end %>
+  </p>
   <% end %>
 <% end %>
