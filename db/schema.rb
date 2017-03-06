@@ -10,13 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304224225) do
+ActiveRecord::Schema.define(version: 20170306151327) do
 
   create_table "friendships", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "friend_user_id"
     t.index ["friend_user_id", "user_id"], name: "index_friendships_on_friend_user_id_and_user_id", unique: true
     t.index ["user_id", "friend_user_id"], name: "index_friendships_on_user_id_and_friend_user_id", unique: true
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "address"
+    t.string   "rent"
+    t.string   "amenities"
+    t.string   "image_url"
+    t.text     "description"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "apt_number"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "deposit"
+    t.string   "move_in_date"
+    t.string   "stay_duration"
+    t.string   "in_unit_washer"
+    t.string   "wifi_included"
+    t.string   "utilities_included"
+    t.string   "furnished"
+    t.string   "elevator"
+    t.string   "doorman"
+    t.string   "air_conditioning"
+    t.string   "heating"
+    t.string   "month_to_month"
+    t.string   "gym"
+    t.string   "tv"
+    t.string   "own_closet"
+    t.string   "pet_friendly"
+    t.string   "private_bathroom"
+    t.string   "kitchen"
+    t.string   "no_smoking"
+    t.string   "no_pets"
+    t.string   "no_loud_music"
+    t.string   "no_overnight_guests"
+    t.string   "no_drugs"
+    t.string   "no_late_nights"
+    t.string   "no_drinking"
+    t.string   "no_house_guests"
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "requests_from", id: false, force: :cascade do |t|
@@ -72,8 +114,13 @@ ActiveRecord::Schema.define(version: 20170304224225) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "reset_digest"
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+    t.datetime "activated_at"
+    t.datetime "reset_sent_at"
     t.string   "facebook_id"
   end
 

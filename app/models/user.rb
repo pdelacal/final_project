@@ -4,6 +4,8 @@ class User < ApplicationRecord
   # responses
   has_many :responses
   validates :email, uniqueness: {case_sensitive: false}
+  has_one :listing
+
   # friends
   has_and_belongs_to_many :friends,
              class_name: "User",

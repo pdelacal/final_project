@@ -11,6 +11,9 @@
     <%= label_tag :password %>
     <%= password_field_tag :password %>
   </div>
-  <%= submit_tag "Login" %>
+  <%= submit_tag "Login" %> | <%= link_to "Sign in with Facebook", facebook_login_path %>
+<br>
 
 <% end %>
+
+<%= link_to 'Return to Home Page', root_path %>
