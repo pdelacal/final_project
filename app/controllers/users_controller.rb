@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     current_user.requests_to << user
     user.requests_from << current_user
-    redirect_to root_path
+    redirect_to friends_path
   end
 
   def add_friend #created association when confirmed
@@ -30,28 +30,28 @@ class UsersController < ApplicationController
     current_user.requests_from.delete(user)
     user.friends << current_user
     user.requests_to.delete(current_user)
-    redirect_to root_path
+    redirect_to friends_path
   end
 
   def cancel_request #cancel association
     user = User.find(params[:id])
     current_user.requests_to.delete(user)
     user.requests_from.delete(current_user)
-    redirect_to root_path
+    redirect_to friends_path
   end
 
   def ignore_request #ignore send request association
     user = User.find(params[:id])
     current_user.requests_from.delete(user)
     user.requests_to.delete(current_user)
-    redirect_to root_path
+    redirect_to friends_path
   end
 
   def remove_friend #remove association
     user = User.find(params[:id])
     current_user.friends.delete(user)
     user.friends.delete(current_user)
-    redirect_to root_path
+    # redirect_to friends_path
   end
 
   # GET /users/1/edit
@@ -75,10 +75,10 @@ class UsersController < ApplicationController
      redirect_to register_path
    elsif @user.save
      session[:user_id] = @user.id
-     redirect_to root_path
+     redirect_to friends_path
    else
      flash[:notice] = "Email is already registered."
-     redirect_to root_path
+     redirect_to friends_path
     end
   end
 

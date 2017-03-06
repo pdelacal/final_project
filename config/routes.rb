@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'auth/facebook', as: 'facebook_login'
 
   #friends
+  get '/friends'=> 'page#friends'
   get '/request_friend/:id' => 'users#request_friend', as: 'request'
   get '/add_friend/:id' => 'users#add_friend', as: 'accept'
   get '/remove_friend/:id' => 'users#remove_friend', as: 'remove'
