@@ -14,9 +14,15 @@
       | Signed in as <%= link_to current_user.name, current_user %>
       | <%= link_to "Logout", logout_path %>
       | <%= link_to "Friends", friends_path %>
+      <% if current_user.listing %>
+      | <%= link_to 'Your Listing', current_user.listing %>
+      <% else %>
+        | <%= link_to 'List Your Apartment', new_listing_path  %>
+      <% end %>
     <% else %>
-      | <%= link_to "Sign in with Facebook", facebook_login_path %> |
-    <%= link_to 'List Your Apartment', '/listings/new' %> | <%= link_to 'Login', login_path %> | <%= link_to 'Register', register_path %>
+      | <%= link_to "Sign in with Facebook", facebook_login_path %>
+      | <%= link_to 'Login', login_path %>
+      | <%= link_to 'Register', register_path %>
     <% end %>
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>

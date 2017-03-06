@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :responses
   root 'page#index'
 
-  #search
+  # 
+
+  # search
   get 'page/search'
   post 'page/search'
 

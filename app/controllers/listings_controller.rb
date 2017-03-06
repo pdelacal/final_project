@@ -19,22 +19,35 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
+    current_user.listing = @listing
+    @listing = Listing.new(listing_params)
+
+    respond_to do |format|
+      if @listing.save
+        format.html { redirect_to @listing, notice: 'Listing was successfully edited.' }
+        format.json { render :show, status: :created, location: @listing }
+      else
+        format.html { render :edit }
+        format.json { render json: @listing.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /listings
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-    User.find_by(@listing.user_id).listing = @listing
-  #   respond_to do |format|
-  #     if @listing.save
-  #       format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
-  #       format.json { render :show, status: :created, location: @listing }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @listing.errors, status: :unprocessable_entity }
-  #     end
-  #   end
+    current_user.listing = @listing
+
+    respond_to do |format|
+      if @listing.save
+        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
+        format.json { render :show, status: :created, location: @listing }
+      else
+        format.html { render :new }
+        format.json { render json: @listing.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /listings/1
@@ -69,6 +82,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:id, :user_id, :address, :rent, :apt_number, :city, :state, :zipcode, :amenities, :rules, :image_url, :description)
+      params.permit(:address, :rent, :apt_number, :city, :state, :zipcode, :amenities, :rules, :image_url, :description)
     end
 end
