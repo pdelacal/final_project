@@ -64,6 +64,7 @@ class User < ApplicationRecord
       else
         p "| You are incompatible-#{@compatibility.round.to_s}%"
       end
+
     end
   end
 

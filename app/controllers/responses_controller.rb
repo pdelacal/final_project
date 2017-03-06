@@ -7,6 +7,9 @@ class ResponsesController < ApplicationController
     current_user.responses << Response.new(response_params)
     redirect_to root_path
   end
+
+  def show
+  end
 end
 
 private
