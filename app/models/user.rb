@@ -44,20 +44,25 @@ class User < ApplicationRecord
     end
   end
 
-  def compare_to(user)
+  def similarity_with(user)
     @matches = 0
     @current_resp = self.responses.last.attributes
     @compare_resp = user.responses.last.attributes
     @current_resp.each do |my_response|
       @compare_resp.each do |compare_response|
         if my_response == compare_response
-          p "Match!"
           @matches += 1
         end
       end
     end
-    p @matches
+    puts @matches
+    @total_responses = @current_resp.size - 4.0
+    puts @total_responses
+    compatibility = @matches/@total_responses*100.round(2)
+    if compatibility > 0
+      puts compatibility.round.to_s + "%"
+    else
+      puts "You are incompatible"
+    end
   end
-
-  
 end
