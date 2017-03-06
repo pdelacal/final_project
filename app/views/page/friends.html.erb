@@ -3,26 +3,34 @@
 <% if current_user %>
   <% other_users.each do |user| %>
     <% if current_user.friends.include?(user) %>
-      <%= user.name %>
-      <%= current_user.similarity_with(user) %>
-      | FRIENDS |
-      <%=link_to "Remove Friend", remove_path(user),
+      <%= link_to user.name, user %>
+      <% if user.responses.last %>
+      | <%= link_to current_user.similarity_with(user), response_path(user) %>
+      <% end %>
+      | FRIENDS
+      | <%=link_to "Remove Friend", remove_path(user),
         :data => {:confirm => "Are you sure you want to remove #{user.name} as your friend?"}%>
       <br>
     <% elsif current_user.requests_to.include?(user) %>
-      <%= user.name %>
-      <%= current_user.similarity_with(user) %>
+      <%= link_to user.name, user %>
+      <% if user.responses.last %>
+        | <%= link_to current_user.similarity_with(user), response_path(user) %>
+      <% end %>
       | Request Pending | <%=link_to "Cancel Request", cancel_path(user) %> <br>
     <% elsif current_user.requests_from.include?(user)%>
-      <%= user.name %>
-      <%= current_user.similarity_with(user) %>
+      <%= link_to user.name, user %>
+      <% if user.responses.last %>
+        | <%= link_to current_user.similarity_with(user), response_path(user) %>
+      <% end %>
       | <%= link_to "Accept", accept_path(user) %> | <%=link_to "Ignore Request", ignore_path(user) %> <br>
     <% else %>
-      <%= user.name %>
-      <%= current_user.similarity_with(user) %>
+      <%= link_to user.name, user %>
+      <% if user.responses.last %>
+  | <%= link_to current_user.similarity_with(user), response_path(user) %>
+<% end %>
       |<%= link_to "Add Friend", request_path(user) %><br>
     <% end %>
   <% end %>
 <% else %>
-  You need to login to get friends!
+  You need to login to have friends!
 <% end %>
