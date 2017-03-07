@@ -11,7 +11,7 @@
     <%= label_tag :password %>
     <%= password_field_tag :password %>
   </div>
-  <%= submit_tag "Login" %> | <%= link_to "Sign in with Facebook", facebook_login_path %>
+  <%= submit_tag "Login" %> | <%= link_to "Sign in with Facebook", facebook_login_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
 <br>
 
 <% end %>

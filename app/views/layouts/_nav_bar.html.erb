@@ -1,0 +1,55 @@
+<%= link_to "Home", root_path %> |
+<% if current_user %>
+  | Signed in as <%= link_to current_user.name, current_user %>
+  | <%= link_to "Logout", logout_path %>
+  | <%= link_to "Friends", friends_path %>
+<% else %>
+<%= link_to 'List Your Apartment', '/listings/new' %> | <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+  Login
+</button> | <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#signup">
+  Signup
+</button>
+<% end %>
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%>
+<hr>
+
+
+
+
+
+<!-- Signup modal -->
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signupLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="signupLabel">Hello and Welcome! <br>Please Signup</h4>
+      </div>
+      <div class="modal-body">
+        <%= link_to 'Signup', register_path %> <br> <%= link_to "Sign up with Facebook", facebook_login_path %> <br> Already have an account? <%= link_to 'Login', login_path %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Login Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Welcome Back, <br>Please Login</h4>
+      </div>
+      <div class="modal-body">
+        <%= link_to 'Login', login_path %> <br> <%= link_to "Sign in with Facebook", facebook_login_path %> <br> Don't have an account? <%= link_to 'Register', register_path %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

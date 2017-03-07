@@ -9,6 +9,7 @@ end
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'bootstrap-sass'
 
 gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
