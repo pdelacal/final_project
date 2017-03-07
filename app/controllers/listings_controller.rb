@@ -26,15 +26,15 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     User.find_by(@listing.user_id).listing = @listing
-  #   respond_to do |format|
-  #     if @listing.save
-  #       format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
-  #       format.json { render :show, status: :created, location: @listing }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @listing.errors, status: :unprocessable_entity }
-  #     end
-  #   end
+    respond_to do |format|
+      if @listing.save
+        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
+        format.json { render :show, status: :created, location: @listing }
+      else
+        format.html { render :new }
+        format.json { render json: @listing.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /listings/1

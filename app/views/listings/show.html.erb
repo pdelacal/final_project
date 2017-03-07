@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>User:</strong>
-  <%= @listing.user %>
+  <%= @listing.user.name %>
 </p>
 
 <p>
   <strong>Address:</strong>
-  <%= @listing.address %>
+  <%= @listing.address%>, <%= '#'+@listing.apt_number unless @listing.apt_number == nil%> <%= @listing.city%>, <%= @listing.state%>, <%= @listing.zipcode %>
 </p>
 
 <p>
@@ -22,12 +20,11 @@
 
 <p>
   <strong>Rules:</strong>
-  <%= @listing.rules %>
 </p>
 
 <p>
   <strong>Image url:</strong>
-  <%= @listing.image_url %>
+  <%= image_tag(@listing.image_url(:thumb).to_s) %>
 </p>
 
 <p>
@@ -35,5 +32,4 @@
   <%= @listing.description %>
 </p>
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
+<%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>

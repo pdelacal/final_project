@@ -15,4 +15,5 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :other_users
+
 end

@@ -2,5 +2,6 @@
 
 <%= render 'form', listing: @listing %>
 
-<%= link_to 'Show', @listing %> |
-<%= link_to 'Back', listings_path %>
+<td><%= link_to 'Back', listing_path %></td> |
+<td><%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %></td> |
+<td><%= link_to 'Delete Your Apartment', @listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>

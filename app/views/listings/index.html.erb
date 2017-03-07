@@ -23,7 +23,6 @@
         <td><%= listing.address %></td>
         <td><%= listing.rent %></td>
         <td><%= listing.amenities %></td>
-        <td><%= listing.rules %></td>
         <td><%= listing.image_url %></td>
         <td><%= listing.description %></td>
         <td><%= link_to 'Show', listing %></td>
@@ -36,4 +35,6 @@
 
 <br>
 
+<% unless current_user.listing %>
 <%= link_to 'New Listing', new_listing_path %>
+<% end %>
