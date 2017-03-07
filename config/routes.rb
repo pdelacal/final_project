@@ -1,21 +1,27 @@
 Rails.application.routes.draw do
   resources :listings
+  resources :users
+  resources :responses
   root 'page#index'
 
+  #search
+  get 'page/search'
+  post 'page/search'
+
+  # questionnaire
   get '/questionnaire' => 'responses#new'
   post '/questionnaire' => 'responses#create'
 
+  # registration
   get '/register' => 'users#new'
-  resources :users
-  resources :responses
 
-# routes for login form, logging in, and logging out
+  # routes for login form, logging in, and logging out
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  # facebook
   get 'auth/:provider/callback' => 'sessions#create'
-  get 'auth/github', as: 'github_login'
   get 'auth/facebook', as: 'facebook_login'
 
   #friends

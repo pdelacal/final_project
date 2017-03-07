@@ -2,15 +2,22 @@
 <% if @user == current_user %>
   <%= link_to 'Edit Questionnaire', questionnaire_path %>
 <% end %>
-<p>
-  <% @user.responses.last.attributes.each do |response| %>
-    <p>
-      <% unless response[0] == "id" || response[0] == "user_id" || response[0] == "created_at" || response[0] == "updated_at" %>
-      <%= response[0] %> : <%= response[1] %>
-      <% end %>
-    </p>
-  <% end %>
-</p>
+<% if @user.responses.last %>
+  <p>
+    <% @user.responses.last.attributes.each do |response| %>
+      <p>
+        <% unless response[0] == "id" || response[0] == "user_id" || response[0] == "created_at" || response[0] == "updated_at" %>
+        <%= response[0] %> : <%= response[1] %>
+        <% end %>
+      </p>
+    <% end %>
+  </p>
+<% else %>
+  Questionnaire hasn't been filled out.
+<% end %>
+
+<br>
+<br>
 
 <% if @user == current_user %>
   <%= link_to 'Edit Questionnaire', questionnaire_path %>

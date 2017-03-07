@@ -18,6 +18,26 @@ users = 10.times.map do
   user.save
   user
 end
+
 users.each do |user|
   puts "name: #{user.name} email: #{user.email}"
 end
+
+@user_id = User.last.id
+listings = 10.times.map do
+  listing = Listing.new(
+    user_id: @user_id,
+    address: "#{Faker::Address.street_address}",
+    apt_number: "#{Faker::Address.secondary_address}",
+    city: "#{Faker::Address.city}",
+    state: "#{Faker::Address.state_abbr}",
+    zipcode: "#{Faker::Address.zip_code}"
+  )
+  listing.save
+  listing
+  @user_id -= 1
+end
+#
+# listings.each do |listing|
+#   puts "#{listing.address}"
+# end
