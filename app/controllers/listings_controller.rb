@@ -19,18 +19,6 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
-    current_user.listing = @listing
-    @listing = Listing.new(listing_params)
-
-    respond_to do |format|
-      if @listing.save
-        format.html { redirect_to @listing, notice: 'Listing was successfully edited.' }
-        format.json { render :show, status: :created, location: @listing }
-      else
-        format.html { render :edit }
-        format.json { render json: @listing.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # POST /listings
@@ -53,6 +41,9 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1
   # PATCH/PUT /listings/1.json
   def update
+    @listing = Listing.new(listing_params)
+    current_user.listing = @listing
+    
     respond_to do |format|
       if @listing.update(listing_params)
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }

@@ -5,7 +5,17 @@ class ResponsesController < ApplicationController
 
   def create
     current_user.responses << Response.new(response_params)
-    redirect_to root_path
+    @response = current_user.responses.last
+
+    respond_to do |format|
+      if @response.save
+        format.html { redirect_to @response, notice: 'Listing was successfully edited.' }
+        format.json { render :show, status: :created, location: @response }
+      else
+        format.html { render :edit }
+        format.json { render json: @response.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def show
