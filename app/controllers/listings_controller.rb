@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /listings
   # GET /listings.json
@@ -20,7 +20,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
-    @listing = current_user.listing
+    @listing = current_user.listing.destroy
   end
 
   # POST /listings
@@ -62,7 +62,7 @@ class ListingsController < ApplicationController
   def destroy
     @listing.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Listing was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,12 +70,12 @@ class ListingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
-      @listing = Listing.find_by(user_id: params[:id])
+      @listing = Listing.find(params[:id])
     end
     #
-    def set_user
-      @user = current_user
-    end
+    # def set_user
+    #   @user = current_user
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
