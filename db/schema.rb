@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20170306151327) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "friendships", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "friend_user_id"
-    t.index ["friend_user_id", "user_id"], name: "index_friendships_on_friend_user_id_and_user_id", unique: true
-    t.index ["user_id", "friend_user_id"], name: "index_friendships_on_user_id_and_friend_user_id", unique: true
+    t.index ["friend_user_id", "user_id"], name: "index_friendships_on_friend_user_id_and_user_id", unique: true, using: :btree
+    t.index ["user_id", "friend_user_id"], name: "index_friendships_on_user_id_and_friend_user_id", unique: true, using: :btree
   end
 
   create_table "listings", force: :cascade do |t|
@@ -58,14 +61,14 @@ ActiveRecord::Schema.define(version: 20170306151327) do
     t.string   "no_late_nights"
     t.string   "no_drinking"
     t.string   "no_house_guests"
-    t.index ["user_id"], name: "index_listings_on_user_id"
+    t.index ["user_id"], name: "index_listings_on_user_id", using: :btree
   end
 
   create_table "requests_from", id: false, force: :cascade do |t|
     t.integer "from_user_id"
     t.integer "to_user_id"
-    t.index ["from_user_id", "to_user_id"], name: "index_requests_from_on_from_user_id_and_to_user_id", unique: true
-    t.index ["to_user_id", "from_user_id"], name: "index_requests_from_on_to_user_id_and_from_user_id", unique: true
+    t.index ["from_user_id", "to_user_id"], name: "index_requests_from_on_from_user_id_and_to_user_id", unique: true, using: :btree
+    t.index ["to_user_id", "from_user_id"], name: "index_requests_from_on_to_user_id_and_from_user_id", unique: true, using: :btree
   end
 
   create_table "requests_to", force: :cascade do |t|
@@ -107,7 +110,7 @@ ActiveRecord::Schema.define(version: 20170306151327) do
     t.string   "visitors"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.index ["user_id"], name: "index_responses_on_user_id"
+    t.index ["user_id"], name: "index_responses_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -119,4 +122,6 @@ ActiveRecord::Schema.define(version: 20170306151327) do
     t.string   "facebook_id"
   end
 
+  add_foreign_key "listings", "users"
+  add_foreign_key "responses", "users"
 end
