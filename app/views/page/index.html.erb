@@ -1,7 +1,50 @@
-<h1>Welcome</h1>
+<!-- <h1>Welcome</h1> -->
 
-<%= form_tag page_search_path do %>
+<!-- <%= form_tag page_search_path do %>
   <%= search_field_tag :term %>
   <%= submit_tag "Go!" %>
 <% end %>
-<%= params[:term] %>
+<%= params[:term] %> -->
+</head>
+<body>
+<div class="pac-card" id="pac-card">
+  <div>
+    <div id="title">
+      <!-- Autocomplete search -->
+    </div>
+    <span id="type-selector" class="pac-controls">
+      <input type="radio" name="type" id="changetype-all" checked="checked">
+      <label for="changetype-all">All</label>
+
+      <input type="radio" name="type" id="changetype-user">
+      <label for="changetype-user">User</label>
+
+      <input type="radio" name="type" id="changetype-address">
+      <label for="changetype-address">Address</label>
+
+      <input type="radio" name="type" id="changetype-geocode">
+      <label for="changetype-cities">City</label>
+    </span>
+    <!-- <div id="strict-bounds-selector" class="pac-controls">
+      <input type="checkbox" id="use-strict-bounds" value="">
+      <label for="use-strict-bounds">Strict Bounds</label>
+    </div> -->
+  </div>
+  <div id="pac-container" style="display:show">
+    <input id="pac-input" type="text"
+        onfocus="geolocate()"
+        placeholder="Enter a location">
+  </div>
+</div>
+<div id="map"></div>
+<div id="infowindow-content">
+  <img src="" width="16" height="16" id="place-icon">
+  <span id="place-name"  class="title"></span><br>
+  <span id="place-address"></span>
+</div>
+
+<script type="text/javascript" src="../../../assets/javascripts/google_maps.js">
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBewTpsFna1DWL5p3f3TClQmsuKwYsCQsU&libraries=places&callback=initAutocomplete"
+    async defer></script>

@@ -4,11 +4,16 @@ Rails.application.routes.draw do
   resources :responses
   root 'page#index'
 
-  # 
+  #
 
   # search
   get 'page/search'
   post 'page/search'
+  get '/assets/javascripts/google_maps.js' => 'page#search'
+  get "/assets/stylesheets/goog_maps.css" => 'page#search'
+  get '/assets/javascripts/google_maps.js' => 'page#search'
+  get '/assets/stylesheets/goog_maps.css' => 'page#search'
+
 
   # questionnaire
   get '/questionnaire' => 'responses#new'
