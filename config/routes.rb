@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #
 
   # search
+  get '/search' => 'page#search'
   get 'page/search'
   post 'page/search'
   get '/assets/javascripts/google_maps.js' => 'page#search'
