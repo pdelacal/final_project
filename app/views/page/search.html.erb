@@ -4,14 +4,20 @@
 <% if @listings.nil? %>
 No results found.
 <% else %>
+<script>
+  window.addresses = [];
+</script>
 <% @listings.each do |listing| %>
-<p>
-  <%= link_to User.find(listing.user_id).name, User.find(listing.user_id) %>
-  <%= link_to listing.address, listing %>
-  <%= listing.city %>
-  <%= listing.state %>
-  <%= listing.zipcode %>
-</p>
+  <script>
+    window.addresses.push("<%= [listing.address, listing.city, listing.state, listing.zipcode].join(",") %>");
+  </script>
+  <p>
+    <%= link_to User.find(listing.user_id).name, User.find(listing.user_id) %>
+    <%= link_to listing.address, listing %>
+    <%= listing.city %>
+    <%= listing.state %>
+    <%= listing.zipcode %>
+  </p>
 <% end %>
 <% end %>
 <!-- <h3>Users</h3>
@@ -30,8 +36,6 @@ No results found.
 
 
 <div id="map"></div>
-<script type="text/javascript" src="../../../assets/javascripts/google_maps.js">
-
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBewTpsFna1DWL5p3f3TClQmsuKwYsCQsU&libraries=places&callback=initMap"
     async defer></script>

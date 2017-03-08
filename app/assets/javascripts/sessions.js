@@ -1,10 +1,8 @@
 $(document).ready(function() {
-   $('#myModal').modal();
- });
+  //  $('#myModal').modal();
 });
 
 
 $(document).ready(function() {
-   $('#signup').modal();
- });
+  //  $('#signup').modal();
 });

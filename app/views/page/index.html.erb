@@ -1,7 +1,7 @@
 <h1>Welcome</h1>
-<%= form_tag page_search_path do %>
+<%= form_tag page_search_path, method: :get, class: 'search-form' do %>
 <div class="pac-card" id="pac-card">
-  <div>
+  <!-- <div>
     <span id="type-selector" class="pac-controls">
       <input type="radio" name="type" id="changetype-all" checked="checked">
       <label for="changetype-all">All</label>
@@ -14,7 +14,7 @@
 
       <input type="radio" name="type" id="changetype-geocode">
       <label for="changetype-cities">City</label>
-    </span>
+    </span> -->
 
 <div id="pac-container" style="display:show">
   <%= search_field_tag :term
@@ -40,8 +40,6 @@
   <span id="place-name"  class="title"></span><br>
   <span id="place-address"></span>
 </div>
-
-<script type="text/javascript" src="../../../assets/javascripts/google_maps.js">
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBewTpsFna1DWL5p3f3TClQmsuKwYsCQsU&libraries=places&callback=initAutocomplete"
