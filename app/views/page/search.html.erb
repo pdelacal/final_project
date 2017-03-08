@@ -6,6 +6,7 @@ No results found.
 <% else %>
 <% @listings.each do |listing| %>
 <p>
+  <%= link_to User.find(listing.user_id).name, User.find(listing.user_id) %>
   <%= link_to listing.address, listing %>
   <%= listing.city %>
   <%= listing.state %>
@@ -13,7 +14,7 @@ No results found.
 </p>
 <% end %>
 <% end %>
-<h3>Users</h3>
+<!-- <h3>Users</h3>
 <% if @users.nil? %>
   No results found.
 <% else %>
@@ -25,5 +26,12 @@ No results found.
       <% end %>
   </p>
   <% end %>
-<% end %>
+<% end %> -->
+
+
 <div id="map"></div>
+<script type="text/javascript" src="../../../assets/javascripts/google_maps.js">
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBewTpsFna1DWL5p3f3TClQmsuKwYsCQsU&libraries=places&callback=initMap"
+    async defer></script>
