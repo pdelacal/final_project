@@ -102,7 +102,7 @@ function initAutocomplete() {
   //     });
 }
 
-function initAutocomplete() {
+function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 25.802768, lng: -80.204458},
     zoom: 11
