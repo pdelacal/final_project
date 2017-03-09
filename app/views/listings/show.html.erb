@@ -37,5 +37,15 @@
   <%= @listing.description %>
 </p>
 
+<div id="map"></div>
+
+<script>
+  window.addresses = [];
+  window.addresses.push("<%= [@listing.address, @listing.city, @listing.state, @listing.zipcode].join(",") %>");
+</script>
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
+    async defer></script>
+
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>

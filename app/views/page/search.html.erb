@@ -12,7 +12,8 @@ No results found.
     window.addresses.push("<%= [listing.address, listing.city, listing.state, listing.zipcode].join(",") %>");
   </script>
   <p>
-    <%= link_to User.find(listing.user_id).name, User.find(listing.user_id) %>
+    <%= link_to User.find(listing.user_id).name, User.find(listing.user_id) %> |
+    <%= current_user.similarity_with(User.find(listing.user_id)) %> |
     <%= link_to listing.address, listing %>
     <%= listing.city %>
     <%= listing.state %>
@@ -37,5 +38,5 @@ No results found.
 
 <div id="map"></div>
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBewTpsFna1DWL5p3f3TClQmsuKwYsCQsU&libraries=places&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
     async defer></script>
