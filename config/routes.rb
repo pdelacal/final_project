@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :listings
   resources :users
   resources :responses
+  resources :listingphotos
+
   root 'page#index'
 
   #search

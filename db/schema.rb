@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306151327) do
+ActiveRecord::Schema.define(version: 20170308190122) do
 
   create_table "friendships", id: false, force: :cascade do |t|
     t.integer "user_id"
@@ -19,12 +19,22 @@ ActiveRecord::Schema.define(version: 20170306151327) do
     t.index ["user_id", "friend_user_id"], name: "index_friendships_on_user_id_and_friend_user_id", unique: true
   end
 
+  create_table "listingphotos", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "listing_id"
+    t.index ["listing_id"], name: "index_listingphotos_on_listing_id"
+  end
+
   create_table "listings", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "address"
     t.string   "rent"
     t.string   "amenities"
-    t.string   "image_url"
     t.text     "description"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false

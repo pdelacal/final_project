@@ -10,9 +10,8 @@ end
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bootstrap-sass'
-gem 'mini_magick'
 
-gem 'carrierwave', '~> 0.10.0'
+gem "paperclip", "~> 5.0.0"
 
 gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

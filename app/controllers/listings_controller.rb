@@ -10,26 +10,38 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @photos = current_user.listing.listingphotos
+    message = "photos is nil"
+    raise RuntimeError.new message unless @photos
   end
 
   # GET /listings/new
   def new
+    if current_user.listing
+      respond_to do |format|
+      format.html { redirect_to listing_path(current_user.listing.id), notice: 'You may only have one listing.' }
+    end
+    else
     @listing = Listing.new
+    @photo = Listingphoto.new
+    end
   end
 
   # GET /listings/1/edit
   def edit
+    @listingphoto = Listingphoto.new
   end
 
   # POST /listings
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-    User.find_by(@listing.user_id).listing = @listing
+    @listing.user_id = current_user.id
     respond_to do |format|
-      if @listing.save
+      if @listing.save!
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.json { render :show, status: :created, location: @listing }
+
       else
         format.html { render :new }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
@@ -44,6 +56,7 @@ class ListingsController < ApplicationController
       if @listing.update(listing_params)
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
+
       else
         format.html { render :edit }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
@@ -69,6 +82,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:id, :user_id, :address, :rent, :apt_number, :city, :state, :zipcode, :amenities, :rules, :image_url, :description)
+      params.require(:listing).permit(:id, :user_id, :address, :rent, :apt_number, :city, :state, :zipcode, :amenities, :rules, :photo, :description)
     end
 end

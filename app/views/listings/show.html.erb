@@ -23,8 +23,12 @@
 </p>
 
 <p>
-  <strong>Image url:</strong>
-  <%= image_tag(@listing.image_url(:thumb).to_s) %>
+  <strong>Apartment Photos:</strong> <br>
+  <% @listing.listingphotos.each do |image| %>
+  <div class="listing_preview col-md-3">
+    <%= link_to(image_tag(image.photo.url(:medium)), image) %>
+  </div>
+  <% end %>
 </p>
 
 <p>
@@ -33,3 +37,8 @@
 </p>
 
 <%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>
+<% if current_user.listing.listingphotos.size != 0 && current_user.listing.listingphotos.size < 12 %>
+| <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
+<% else %>
+| <%= link_to 'Edit Your Apartment Photos', listingphoto_path %>
+<% end %>

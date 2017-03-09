@@ -1,0 +1,34 @@
+// Place all the styles related to the listingphotos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.listing_preview {
+  height: 300px;
+}
+
+.preview.modal-dialog {
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+.preview.modal-content {
+  width: auto;
+  background-color: transparent;
+}
+
+.preview.modal-header {
+  border-bottom: none;
+}
+.preview.modal-body {
+  width: auto;
+}
+.preview.modal-body img {
+  display: block;
+  margin: auto;
+  max-height: 80vh;
+}
+
+.preview.close {
+  font-size: 5rem;
+  color: white;
+}

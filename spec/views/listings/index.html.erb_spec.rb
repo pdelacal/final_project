@@ -9,7 +9,7 @@ RSpec.describe "listings/index", type: :view do
         :rent => "Rent",
         :amenities => "Amenities",
         :rules => "Rules",
-        :image_url => "Image Url",
+        :photo => "Image Url",
         :description => "MyText"
       ),
       Listing.create!(
@@ -18,7 +18,7 @@ RSpec.describe "listings/index", type: :view do
         :rent => "Rent",
         :amenities => "Amenities",
         :rules => "Rules",
-        :image_url => "Image Url",
+        :photo => "Image Url",
         :description => "MyText"
       )
     ])
