@@ -1,8 +1,12 @@
 class SessionsController < ApplicationController
   def new
-    respond_to do |format|
-      format.html
-      format.js
+    if current_user
+      redirect_to root_path
+    else
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 
