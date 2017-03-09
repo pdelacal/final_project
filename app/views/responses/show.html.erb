@@ -8,8 +8,8 @@
   <p>
     <% @user.responses.last.attributes.each do |response| %>
       <p>
-        <% unless response[0] == "id" || response[0] == "user_id" || response[0] == "created_at" || response[0] == "updated_at" %>
-        <%= response[0] %> : <%= response[1] %>
+        <% unless response[0] == "id" || response[0] == "user_id" || response[0] == "created_at" || response[0] == "updated_at" || response[1] == nil %>
+          <%= response[0].gsub("_", " ").capitalize %> : <%= response[1].gsub("_", " ").capitalize %>
         <% end %>
       </p>
     <% end %>
