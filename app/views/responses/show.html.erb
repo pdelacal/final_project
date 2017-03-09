@@ -20,7 +20,7 @@
   </p>
 <% end %>
 
-<% if @user == current_user %>
+<% if @user == current_user && current_user.responses.last%>
   <%= link_to 'Edit Questionnaire', questionnaire_path %>
 <% end %>
 

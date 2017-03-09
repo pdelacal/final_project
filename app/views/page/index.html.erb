@@ -1,6 +1,6 @@
 <h1>Welcome</h1>
 <%= form_tag page_search_path, method: :get, class: 'search-form' do %>
-<div class="pac-card" id="pac-card">
+<!-- <div class="pac-card" id="pac-card"> -->
   <!-- <div>
     <span id="type-selector" class="pac-controls">
       <input type="radio" name="type" id="changetype-all" checked="checked">
@@ -16,7 +16,7 @@
       <label for="changetype-cities">City</label>
     </span> -->
 
-<div id="pac-container" style="display:show">
+<!-- <div id="pac-container" style="display:show"> -->
   <%= search_field_tag :term
     # onfocus:"geolocate()",
     # placeholder: "Enter a location"
@@ -25,12 +25,12 @@
       <input type="checkbox" id="use-strict-bounds" value="">
       <label for="use-strict-bounds">Strict Bounds</label>
     </div> -->
-  </div>
+  <!-- </div> -->
     <!-- <input id="pac-input" type="text"
         onfocus="geolocate()"
         placeholder="Enter a location">
   </div> -->
-</div>
+<!-- </div> -->
 <% end %>
 <%= params[:term] %>
 
