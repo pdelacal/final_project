@@ -1,38 +1,14 @@
-<h1>Welcome</h1>
-<%= form_tag page_search_path, method: :get, class: 'search-form' do %>
-<!-- <div class="pac-card" id="pac-card"> -->
-  <!-- <div>
-    <span id="type-selector" class="pac-controls">
-      <input type="radio" name="type" id="changetype-all" checked="checked">
-      <label for="changetype-all">All</label>
-
-      <input type="radio" name="type" id="changetype-user">
-      <label for="changetype-user">User</label>
-
-      <input type="radio" name="type" id="changetype-address">
-      <label for="changetype-address">Address</label>
-
-      <input type="radio" name="type" id="changetype-geocode">
-      <label for="changetype-cities">City</label>
-    </span> -->
-
-<!-- <div id="pac-container" style="display:show"> -->
-  <%= search_field_tag :term
-    # onfocus:"geolocate()",
-    # placeholder: "Enter a location"
-  %>
-    <!-- <div id="strict-bounds-selector" class="pac-controls">
-      <input type="checkbox" id="use-strict-bounds" value="">
-      <label for="use-strict-bounds">Strict Bounds</label>
-    </div> -->
-  <!-- </div> -->
-    <!-- <input id="pac-input" type="text"
-        onfocus="geolocate()"
-        placeholder="Enter a location">
-  </div> -->
-<!-- </div> -->
-<% end %>
-<%= params[:term] %>
+<div class="jumbotron jumbotron-fluid homepageimg">
+  <div class="container">
+    <h1 id="hometitle">Live in Harmony</h1>
+    <h4 id="homebody">Find Your Ideal Roommate, Your Ideal Apartment</h4>
+    <%= form_tag page_search_path, method: :get, class: 'search-form' do %>
+    <%= search_field_tag :term, nil, class: 'form-control' %>
+    <%= submit_tag nil, class: "glyphicon glyphicon-search" %>
+    <% end %>
+    <%= params[:term] %>
+  </div>
+</div>
 
 <div id="map"></div>
 <div id="infowindow-content">
