@@ -22,3 +22,7 @@ $('#myModal').on('shown.bs.modal', function () {
 $('#signup').on('shown.bs.modal', function () {
   $('#myInput').focus()
 })
+
+$('#signupmodal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})

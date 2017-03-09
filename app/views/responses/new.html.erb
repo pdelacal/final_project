@@ -31,9 +31,9 @@
   <div class="field">
     What's Your Monthly Budget:
     <%= label_tag :budget_min, "Min" %>
-    <%= range_field_tag :budget_min, in: 0..10000, step: 50 %>
+    <%= number_field_tag :budget_min, in: 0..10000, step: 50 %>
     <%= label_tag :budget_max, "Max" %>
-    <%= range_field_tag :budget_max, in: 0..10000, step: 50 %>
+    <%= number_field_tag :budget_max, in: 0..10000, step: 50 %>
   </div>
 
   <div class="field">
