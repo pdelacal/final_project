@@ -8,10 +8,16 @@
   <% end %>
   | <%= link_to "Logout", logout_path %>
   | <%= link_to "Friends", friends_path %>
+  <% if current_user.listing %>
+    | <%= link_to 'Your Listing', listing_path(current_user.listing) %>
+  <% else %>
+    | <%= link_to 'List Your Apartment', new_listing_path %>
+  <% end %>
 <% else %>
-<%= link_to 'List Your Apartment', '/listings/new' %> | <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Login
-</button> | <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#signup">
+</button> |
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#signup">
   Signup
 </button>
 <% end %>

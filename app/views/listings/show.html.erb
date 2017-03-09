@@ -1,6 +1,12 @@
+<p id="notice"><%= notice %></p>
+<p>
+<% if @listing = current_user.listing %>
+  <%= link_to "Edit Your Listing", edit_listing_path %>
+<% end %>
+</p>
 <p>
   <strong>User:</strong>
-  <%= @listing.user.name %>
+  <%= User.find(@listing.user_id).name %>
 </p>
 
 <p>
@@ -35,6 +41,18 @@
   <strong>Description:</strong>
   <%= @listing.description %>
 </p>
+
+
+<div id="map"></div>
+
+<script>
+  window.addresses = [];
+  window.addresses.push("<%= [@listing.address, @listing.city, @listing.state, @listing.zipcode].join(",") %>");
+</script>
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
+    async defer></script>
+
 
 <%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>
 <% if current_user.listing.listingphotos.size != 0 && current_user.listing.listingphotos.size < 12 %>

@@ -6,9 +6,17 @@ Rails.application.routes.draw do
 
   root 'page#index'
 
-  #search
+  #
+
+  # search
+  get '/search' => 'page#search'
   get 'page/search'
   post 'page/search'
+  get '/assets/javascripts/google_maps.js' => 'page#search'
+  get "/assets/stylesheets/goog_maps.css" => 'page#search'
+  get '/assets/javascripts/google_maps.js' => 'page#search'
+  get '/assets/stylesheets/goog_maps.css' => 'page#search'
+
 
   # questionnaire
   get '/questionnaire' => 'responses#new'

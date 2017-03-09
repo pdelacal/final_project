@@ -42,7 +42,7 @@ $(document).on('turbolinks:load', function() {
           console.error("Please login to Facebook!");
         }
       },
-      {scope: 'public_profile,email,user_friends'}
+      {scope: 'public_profile,email,user_likes'}
     );
   });
 });

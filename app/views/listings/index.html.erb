@@ -19,7 +19,11 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
-        <td><%= listing.user %></td>
+        <td>
+          <% unless listing.user_id.nil? %>
+            <%= User.find(listing.user_id).name %>
+          <% end %>
+        </td>
         <td><%= listing.address %></td>
         <td><%= listing.rent %></td>
         <td><%= listing.amenities %></td>
