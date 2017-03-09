@@ -8,7 +8,7 @@ RSpec.describe "listings/edit", type: :view do
       :rent => "MyString",
       :amenities => "MyString",
       :rules => "MyString",
-      :image_url => "MyString",
+      :photo => "MyString",
       :description => "MyText"
     ))
   end
@@ -28,7 +28,7 @@ RSpec.describe "listings/edit", type: :view do
 
       assert_select "input#listing_rules[name=?]", "listing[rules]"
 
-      assert_select "input#listing_image_url[name=?]", "listing[image_url]"
+      assert_select "input#listing_photo[name=?]", "listing[photo]"
 
       assert_select "textarea#listing_description[name=?]", "listing[description]"
     end

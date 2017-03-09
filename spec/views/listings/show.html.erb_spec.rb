@@ -8,7 +8,7 @@ RSpec.describe "listings/show", type: :view do
       :rent => "Rent",
       :amenities => "Amenities",
       :rules => "Rules",
-      :image_url => "Image Url",
+      :photo => "Image Url",
       :description => "MyText"
     ))
   end

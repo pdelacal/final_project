@@ -11,8 +11,7 @@
 
 <p>
   <strong>Address:</strong>
-  <%= @listing.address %><br>
-  <%= @listing.city %>, <%= @listing.state %>   <%= @listing.zipcode %>
+  <%= @listing.address%>, <%= '#'+@listing.apt_number unless @listing.apt_number == nil%> <%= @listing.city%>, <%= @listing.state%>, <%= @listing.zipcode %>
 </p>
 
 <p>
@@ -25,17 +24,24 @@
   <%= @listing.amenities %>
 </p>
 
-
+<p>
+  <strong>Rules:</strong>
+</p>
 
 <p>
-  <strong>Image url:</strong>
-  <%= @listing.image_url %>
+  <strong>Apartment Photos:</strong> <br>
+  <% @listing.listingphotos.each do |image| %>
+  <div class="listing_preview col-md-3">
+    <%= link_to(image_tag(image.photo.url(:medium)), image) %>
+  </div>
+  <% end %>
 </p>
 
 <p>
   <strong>Description:</strong>
   <%= @listing.description %>
 </p>
+
 
 <div id="map"></div>
 
@@ -47,5 +53,10 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
     async defer></script>
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
+
+<%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>
+<% if current_user.listing.listingphotos.size != 0 && current_user.listing.listingphotos.size < 12 %>
+| <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
+<% else %>
+| <%= link_to 'Edit Your Apartment Photos', listingphoto_path %>
+<% end %>

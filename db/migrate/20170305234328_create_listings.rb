@@ -6,7 +6,7 @@ class CreateListings < ActiveRecord::Migration[5.0]
       t.string :rent
       t.string :amenities
       t.string :rules
-      t.string :image_url
+      t.string :photo
       t.text :description
 
       t.timestamps
