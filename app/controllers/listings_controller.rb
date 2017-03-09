@@ -31,7 +31,7 @@ class ListingsController < ApplicationController
   # GET /listings/1/edit
   def edit
     @listingphoto = Listingphoto.new
-    @listing = current_user.listing.destroy
+    # @listing = current_user.listing.destroy
   end
 
   # POST /listings
