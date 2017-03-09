@@ -12,7 +12,7 @@
   </script>
   <% @listings.each do |listing| %>
     <% unless listing.user_id == current_user.id %>
-      <% if listing.user_id %>
+      <!-- <% if listing %> -->
         <script>
           window.addresses.push("<%= [listing.address, listing.city, listing.state, listing.zipcode].join(",") %>");
         </script>
@@ -24,7 +24,7 @@
           <%= listing.state %>
           <%= listing.zipcode %>
         </p>
-      <% end %>
+      <!-- <% end %> -->
     <% end %>
   <% end %>
 <% end %>

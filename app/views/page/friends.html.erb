@@ -23,12 +23,13 @@
         | <%= link_to current_user.similarity_with(user), response_path(user) %>
       <% end %>
       | <%= link_to "Accept", accept_path(user) %> | <%=link_to "Ignore Request", ignore_path(user) %> <br>
-    <% else %>
-      <%= link_to user.name, user %>
-      <% if user.responses.last %>
-  | <%= link_to current_user.similarity_with(user), response_path(user) %>
-<% end %>
-      |<%= link_to "Add Friend", request_path(user) %><br>
+    <%# else %>
+      <%#= link_to user.name, user %>
+      <%# if user.responses.last %>
+  <%#= link_to current_user.similarity_with(user), response_path(user) %>
+<%# end %>
+      <%#= link_to "Add Friend", request_path(user) %>
+      <br>
     <% end %>
   <% end %>
 <% else %>

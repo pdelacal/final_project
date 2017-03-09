@@ -1,22 +1,23 @@
-<%= link_to "Home", root_path %> |
+<nav class= "navbar navbar-default">
+<%= link_to "Home", root_path %>
 <% if current_user %>
-   Signed in as <%= link_to current_user.name, current_user %>
-   <% if current_user.listing %>
-  | <%= link_to 'Your Apartment', listing_path(current_user.listing) %>
-  <% else %>
-  | <%= link_to 'List Your Apartment', '/listings/new' %>
-  <% end %>
-  | <%= link_to "Logout", logout_path %>
-  | <%= link_to "Friends", friends_path %>
+  Signed in as <%= link_to current_user.name, current_user %>
   <% if current_user.listing %>
-    | <%= link_to 'Your Listing', listing_path(current_user.listing) %>
+  <%= link_to 'Your Apartment', listing_path(current_user.listing) %>
   <% else %>
-    | <%= link_to 'List Your Apartment', new_listing_path %>
+  <%= link_to 'List Your Apartment', '/listings/new' %>
+  <% end %>
+  <%= link_to "Logout", logout_path %>
+  <%= link_to "Friends", friends_path %>
+  <% if current_user.listing %>
+    <%= link_to 'Your Listing', listing_path(current_user.listing) %>
+  <% else %>
+    <%= link_to 'List Your Apartment', new_listing_path %>
   <% end %>
 <% else %>
 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Login
-</button> |
+</button>
 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#signup">
   Signup
 </button>
@@ -24,7 +25,8 @@
 <% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: name %>
 <% end -%>
-<hr>
+</nav>
+
 
 
 

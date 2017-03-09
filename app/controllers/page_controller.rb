@@ -6,12 +6,12 @@ class PageController < ApplicationController
     # @results = "REGEXP_MATCHES(city, ?)", "#{params[:term.split(",").first]}"
     if [:term]
     @listings = Listing.where("city LIKE ?", "%#{params[:term].split(",").first}%")
-    @listings.each do |listing|
-      if listing.user_id == current_user.id
-        @listings.delete(listing)
-      end
+    # @listings.each do |listing|
+      # if listing.user_id == current_user.id
+        # @listings.delete(listing)
+      # end
+    # end
     end
-  end
     # @users = User.where "name LIKE ?", "%#{params[:term]}%"
     # Listing.where("address LIKE ?", "%#{params[:term]}%")
     # unless @listings.nil? || @users.nil?

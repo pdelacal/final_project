@@ -43,6 +43,7 @@ $(document).on('turbolinks:load', function() {
         }
       },
       {scope: 'public_profile,email,user_likes'}
+      {image_size: 'large'}
     );
   });
 });
