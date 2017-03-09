@@ -1,6 +1,6 @@
 class ListingphotosController < ApplicationController
   def show
-    @listing = Listing.find_by(params[:id])
+    @listing = Listing.find(params[:id])
     @photos = @listing.listingphotos
   end
 
@@ -21,7 +21,8 @@ class ListingphotosController < ApplicationController
 
 # post
   def create
-    @photo = current_user.listing.listingphotos.new(photo_params)
+    @photo = Listingphoto.new(photo_params)
+    current_user.listing.listingphotos << @photo
     respond_to do |format|
       if @photo.save!
         format.html { redirect_to listing_path(current_user.listing.id), notice: 'Image upload successful.' }

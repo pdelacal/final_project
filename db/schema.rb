@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20170309043517) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "listing_id"
-    t.index ["listing_id"], name: "index_listingphotos_on_listing_id"
+    t.index ["listing_id"], name: "index_listingphotos_on_listing_id", using: :btree
   end
 
   create_table "listings", force: :cascade do |t|
@@ -71,6 +71,10 @@ ActiveRecord::Schema.define(version: 20170309043517) do
     t.string   "no_late_nights"
     t.string   "no_drinking"
     t.string   "no_house_guests"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.index ["user_id"], name: "index_listings_on_user_id", using: :btree
   end
 
@@ -127,17 +131,13 @@ ActiveRecord::Schema.define(version: 20170309043517) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.string   "reset_digest"
-    t.string   "activation_digest"
-    t.boolean  "activated",         default: false
-    t.datetime "activated_at"
-    t.datetime "reset_sent_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "facebook_id"
     t.string   "picture"
   end
 
+  add_foreign_key "listingphotos", "listings"
   add_foreign_key "listings", "users"
   add_foreign_key "responses", "users"
 end

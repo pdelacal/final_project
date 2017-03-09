@@ -55,7 +55,7 @@
 
 
 <%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>
-<% if current_user.listing.listingphotos.size != 0 && current_user.listing.listingphotos.size < 12 %>
+<% if current_user.listing.listingphotos.size == 0 && current_user.listing.listingphotos.size < 12 %>
 | <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
 <% else %>
 | <%= link_to 'Edit Your Apartment Photos', listingphoto_path %>
