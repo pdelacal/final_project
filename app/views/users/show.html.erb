@@ -10,7 +10,7 @@
     <h1>
       <%= current_user.similarity_with(@user) %>
     </h1>
-
+  <!-- </div> -->
     <div class="profile_info">
       <h2>
         <%= @user.name %>
@@ -19,6 +19,7 @@
 
     <% if current_user.friends.include?(@user) %>
         <%= link_to "Email Friend", @user.email, class: "btn btn-danger" %>
+        <br>
         <br>
         <%= link_to "Remove Friend", remove_path %>
         <br>

@@ -4,9 +4,11 @@
 
 body {
   margin: 0;
+  // margin-top: 3.5em;
+
 }
 .homepageimg {
-  margin-top: 3.5em;
+  // margin-top: 3.5em;
   height: 75em;
   background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/assets/people.jpg) 100% no-repeat;
   background-position: center;
@@ -63,6 +65,11 @@ body {
   background: white;
   background-image: none;
   text-decoration: none;
+  height: 4em;
+  box-shadow: 1px 1px 2px;
+  & a {
+
+  }
 }
 
 a:visited {
@@ -87,7 +94,7 @@ a:hover {
   font-size: 1.2em;
   color: gray;
   background: white;
-  padding: 10px 0px 10px 0px;
+  padding: 22px 0px 22px 0px;
   text-decoration: none;
   margin-left: 0.75em;
 }
@@ -101,38 +108,19 @@ a:hover {
   margin-right: 0.75em;
 }
 
-#navbtn {
+.navbtn {
   color: gray;
   background: white;
-  padding: 10px 0px 10px 20px;
+  padding: 22px 0px 22px 20px;
   text-decoration: none;
   color: #000;
-}
 
-#navbtn:hover {
-  background: white;
-  background-image: none;
-  text-decoration: none;
-}
+  &:hover {
+    background: white;
+    background-image: none;
+    text-decoration: none;
+  }
 
-#userbtn {
-  color: gray;
-  background: white;
-  padding: 10px 0px 10px 10px;
-  text-decoration: none;
-}
-
-#userbtn:hover {
-  background: white;
-  background-image: none;
-  text-decoration: none;
-}
-
-#welcome {
-  color: gray;
-  background: white;
-  padding: 10px 0px 10px 20px;
-  text-decoration: none;
 }
 
 .jumbotron {
@@ -208,8 +196,6 @@ label {
    }
 }
 
-
-
 .btn-primary {
    font-size: 1.5em;
    padding: 0.5em 1em;
@@ -232,8 +218,4 @@ label {
    margin: 0.5em 0 0;
   //  background-color: lightgrey;
    border: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-hr {
- border-color: #fff;
 }

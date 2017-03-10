@@ -1,24 +1,17 @@
 <div id="navbar">
   <div class="navbar-left">
-    <%= link_to "Home", root_path %>
+    <%= link_to "Home", root_path, class: "navbtn" %>
   </div>
   <div class="navbar-right">
     <% if current_user %>
-      <span id='welcome'>Welcome back, </span><span id='userbtn'><%= link_to current_user.name, current_user %></span>
-      <span id='navbtn'>
+      <span class="navbtn">Welcome back, </span><%= link_to current_user.name, current_user, class: "navbtn" %>
        <% if current_user.listing %>
-        <%= link_to 'Your Listing', listing_path(current_user.listing) %>
-      </span>
-        <span id='navbtn'>
+        <%= link_to 'Your Listing', listing_path(current_user.listing), class: "navbtn" %>
        <% else %>
-        <%= link_to 'List Your Apartment', new_listing_path %>
-      </span>
+        <%= link_to 'List Your Apartment', new_listing_path, class: "navbtn" %>
        <% end %>
-       <span id='navbtn'>
-        <%= link_to "Friends", friends_path %>
-      </span>
-        <span id='navbtn'>
-       <%= link_to "Logout", logout_path %>
+        <%= link_to "Friends", friends_path, class: "navbtn" %>
+       <%= link_to "Logout", logout_path, class: "navbtn" %>
     </span>
     <% else %>
     <span id="navbutton">
@@ -35,7 +28,6 @@
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>
-    <hr>
 </div>
 
 
