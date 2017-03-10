@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   # registration
   get '/register' => 'users#new'
+  post '/register' => 'users#create'
 
   # routes for login form, logging in, and logging out
   get '/login' => 'sessions#new'

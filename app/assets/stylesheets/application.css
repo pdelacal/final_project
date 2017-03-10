@@ -14,7 +14,66 @@
  *= require_self
  */
 
-html {
-  margin: 0;
-  padding: 0;
+ html {
+   margin: 0;
+   padding: 0;
+ }
+
+ .modal-body {
+  text-align: center;
+ }
+
+#login_body {
+  display: inline-flex;
+  margin: auto;
+}
+
+.login_buttons {
+  font-size: 1.5em;
+  margin: 0.8em;
+  padding: 1em;
+}
+
+#mobile_login_buttons {
+  display: none;
+}
+
+.tab-pane {
+  padding: 2em;
+}
+
+input {
+  font-size: 1.5em;
+  padding: 0.5em;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+label {
+  font-size: 1.5em;
+  padding: 0.3em 0 0.3em
+}
+
+.btn-default {
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+    margin: 0.5em 0 0;
+    background-color: lightgrey;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+
+
+@media (max-width: 700px) {
+
+  #login_body {
+    display: block;
+  }
+
+  #mobile_login_buttons {
+    display: block;
+  }
+
+  .login_buttons {
+    font-size: 2em;
+  }
 }

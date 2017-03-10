@@ -48,9 +48,11 @@
         <h4 class="modal-title" id="signupLabel">Hello and Welcome! <br>Please Signup</h4>
       </div>
       <div class="modal-body">
-        <%= link_to 'Signup with Email', 'javascript:void(0)', type: "button", class: "btn btn-danger register", "data-toggle" => "tab", role: "tab  " %>
-        <br>
-        <%= link_to "Sign up with Facebook", facebook_login_path, type: "button", class: "btn btn-primary" %>
+        <span id="login_body">
+          <%= link_to 'Signup with Email', 'javascript:void(0)', type: "button", class: "btn btn-danger signup_email login_buttons", "data-toggle" => "tab", role: "tab  " %>
+          <br>
+          <%= link_to "Sign up with Facebook", facebook_login_path, type: "button", class: "btn btn-primary login_buttons" %>
+        </span>
         <br>
         Already have an account?
         <%= link_to 'Login with Email', login_path %>
@@ -58,9 +60,9 @@
       <div class="tab-content">
         <!-- Login with Email -->
         <div class="tab-pane" id="register" role="tabpanel">
-          <h1>Register</h1>
+          <!-- <h1>Register</h1> -->
           <% unless current_user %>
-            <%= form_tag '/register' do %>
+            <%= form_tag register_path, user: @user do %>
               <%# if @user.errors.full_messages.any? %>
                 <%# @user.errors.full_messages.each do |error_message| %>
                 <%#= error_message if @user.errors.full_messages.first == error_message %> <br />
@@ -88,7 +90,7 @@
               </div>
 
               <div class="actions">
-                <%= submit_tag 'Register' %>
+                <%= submit_tag 'Register', type: "button", class: "btn btn-default register_button" %>
               </div>
             <% end %>
           <% end %>
@@ -107,20 +109,23 @@
         <h4 class="modal-title" id="myModalLabel">Welcome Back, <br>Please Login</h4>
       </div>
       <div class="modal-body">
-        <%= link_to 'Login with Email', 'javascript:void(0)', type: "button", class: "btn btn-danger login", "data-toggle" => "tab", role: "tab" %>
+        <span id="login_body">
+          <%= link_to 'Login with Email', 'javascript:void(0)', type: "button", class: "btn btn-danger login login_buttons", "data-toggle" => "tab", role: "tab" %>
+          <br id="mobile_button_spacing">
+          <%= button_to "Login with Facebook", facebook_login_path, type: "button", class: "btn btn-primary login_buttons"  %>
+        </span>
         <br>
-        <%= button_to "Login with Facebook", facebook_login_path, type: "button", class: "btn btn-primary"  %>
         <br>
         Don't have an account?
-        <%= link_to 'Register', register_path %>
+        <%#= link_to 'Register', register_path %>
       </div>
       <div class="tab-content">
         <!-- Login with Email -->
         <div class="tab-pane" id="login" role="tabpanel">
-          <h1>Login</h1>
+          <!-- <h1>Login</h1> -->
 
           <% unless current_user %>
-            <%= form_tag '/login' do %>
+            <%= form_tag login_path do %>
               <div class="field">
                 <%= label_tag :email %>
                 <%= text_field_tag :email %>
@@ -130,7 +135,7 @@
                 <%= label_tag :password %>
                 <%= password_field_tag :password %>
               </div>
-              <%= submit_tag "Login" %>
+              <%= submit_tag "Login", type: "button", class: "btn btn-default" %>
               <br>
             <% end %>
           <% end %>
