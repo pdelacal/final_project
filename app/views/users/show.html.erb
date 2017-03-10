@@ -31,7 +31,11 @@
     <% else %>
         <%= link_to "Add Friend", request_path, class: "btn btn-info" %>
     <% end %>
-      <%= link_to "Questionnaire", response_path, class: "btn btn-success" %>
+    <%= link_to "Questionnaire", response_path, class: "btn btn-success" %>
+    <% if @user == current_user %>
+      <br>
+      <%= link_to 'Edit Profile', edit_user_path(@user),  class: "btn btn-default edit_profile"%>
+    <% end %>
   </div>
 </div>
 
@@ -46,8 +50,3 @@
     Move-in Date
   </h3>
 </div>
-
-
-<% if @user == current_user %>
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-<% end %>

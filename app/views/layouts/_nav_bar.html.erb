@@ -15,11 +15,11 @@
     </span>
     <% else %>
     <span id="navbutton">
-    <button type="button" class="btn btn-primary btn-md btn-square" data-toggle="modal" data-target="#myModal">
+    <button type="button" class="btn-primary btn-md btn-square" data-toggle="modal" data-target="#myModal">
       Login
     </button></span>
     <span id="navbutton">
-    <button type="button" class="btn btn-primary btn-md btn-square" data-toggle="modal" data-target="#signup">
+    <button type="button" class="btn-primary btn-md btn-square" data-toggle="modal" data-target="#signup">
       Signup
     </button>
     </span>
@@ -41,9 +41,9 @@
       </div>
       <div class="modal-body">
         <span id="login_body">
-          <%= link_to 'Signup with Email', 'javascript:void(0)', type: "button", class: "btn btn-danger signup_email login_buttons", "data-toggle" => "tab", role: "tab  " %>
+          <%= link_to 'Signup with Email', 'javascript:void(0)', type: "button", class: "btn-danger signup_email login_buttons", "data-toggle" => "tab", role: "tab  " %>
           <br>
-          <%= link_to "Sign up with Facebook", facebook_login_path, type: "button", class: "btn btn-primary login_buttons" %>
+          <%= link_to "Sign up with Facebook", facebook_login_path, type: "button", class: "btn-primary login_buttons" %>
         </span>
         <br>
         Already have an account?
@@ -82,7 +82,7 @@
               </div>
 
               <div class="actions">
-                <%= submit_tag 'Register', type: "button", class: "btn btn-submit register_button" %>
+                <%= submit_tag 'Register', type: "button", class: "btn-submit register_button" %>
               </div>
             <% end %>
           <% end %>
@@ -102,9 +102,9 @@
       </div>
       <div class="modal-body">
         <span id="login_body">
-          <%= link_to 'Login with Email', 'javascript:void(0)', type: "button", class: "btn btn-danger login login_buttons", "data-toggle" => "tab", role: "tab" %>
+          <%= link_to 'Login with Email', 'javascript:void(0)', type: "button", class: "btn-danger login login_buttons", "data-toggle" => "tab", role: "tab" %>
           <br id="mobile_button_spacing">
-          <%= button_to "Login with Facebook", facebook_login_path, type: "button", class: "btn btn-primary login_buttons"  %>
+          <%= button_to "Login with Facebook", facebook_login_path, type: "button", class: "btn-primary login_buttons"  %>
         </span>
         <br>
         <br>
@@ -127,7 +127,7 @@
                 <%= label_tag :password %>
                 <%= password_field_tag :password %>
               </div>
-              <%= submit_tag "Login", type: "button", class: "btn  btn-submit" %>
+              <%= submit_tag "Login", type: "button", class: " btn-submit" %>
               <br>
             <% end %>
           <% end %>
