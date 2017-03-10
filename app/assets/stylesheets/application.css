@@ -61,7 +61,9 @@ label {
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-
+hr {
+  border-color: #fff;
+}
 
 @media (max-width: 700px) {
 

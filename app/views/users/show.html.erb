@@ -25,7 +25,7 @@
       </p>
     <% elsif current_user.requests_from.include?(@user) %>
       <p>
-        <%= link_to "Accept", accept_path %>
+        <%= link_to "Accept", accept_path %><br>
         <%= link_to "Ignore", ignore_path %>
       </p>
     <% elsif current_user == @user %>
