@@ -1,25 +1,25 @@
 <nav class= "navbar navbar-default">
-<%= link_to "Home", root_path %>
-<% if current_user %>
-   Signed in as <%= link_to current_user.name, current_user %>
-   <% if current_user.listing %>
-   | <%= link_to 'Your Listing', listing_path(current_user.listing) %>
-   <% else %>
-   | <%= link_to 'List Your Apartment', new_listing_path %>
-   <% end %>
-   | <%= link_to "Friends", friends_path %>
+  <%= link_to "Home", root_path %>
+  <% if current_user %>
+  Signed in as <%= link_to current_user.name, current_user %>
+  <% if current_user.listing %>
+  | <%= link_to 'Your Listing', listing_path(current_user.listing) %>
+  <% else %>
+  | <%= link_to 'List Your Apartment', new_listing_path %>
+  <% end %>
+  | <%= link_to "Friends", friends_path %>
   | <%= link_to "Logout", logout_path %>
-<% else %>
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-  Login
-</button>
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#signup">
-  Signup
-</button>
-<% end %>
-<% flash.each do |name, msg| -%>
+  <% else %>
+  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+    Login
+  </button>
+  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#signup">
+    Signup
+  </button>
+  <% end %>
+  <% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: name %>
-<% end -%>
+  <% end -%>
 </nav>
 
 
@@ -34,12 +34,51 @@
         <h4 class="modal-title" id="signupLabel">Hello and Welcome! <br>Please Signup</h4>
       </div>
       <div class="modal-body">
-        <%= link_to 'Signup', register_path %>
+        <%= link_to 'Signup with Email', 'javascript:void(0)', type: "button", class: "btn btn-danger register", "data-toggle" => "tab", role: "tab  " %>
         <br>
-        <%= link_to "Sign up with Facebook", facebook_login_path %>
+        <%= link_to "Sign up with Facebook", facebook_login_path, type: "button", class: "btn btn-primary" %>
         <br>
         Already have an account?
         <%= link_to 'Login with Email', login_path %>
+      </div>
+      <div class="tab-content">
+        <!-- Login with Email -->
+        <div class="tab-pane" id="register" role="tabpanel">
+          <h1>Register</h1>
+          <% unless current_user %>
+            <%= form_tag '/register' do %>
+              <%# if @user.errors.full_messages.any? %>
+                <%# @user.errors.full_messages.each do |error_message| %>
+                <%#= error_message if @user.errors.full_messages.first == error_message %> <br />
+                <%# end %>
+              <%# end %>
+
+              <div class="field">
+                <%= label_tag :name %>
+                <%= text_field_tag :name %>
+              </div>
+
+              <div class="field">
+                <%= label_tag :email %>
+                <%= text_field_tag :email %>
+              </div>
+
+              <div class="field">
+                <%= label_tag :password %>
+                <%= password_field_tag :password %>
+              </div>
+
+              <div class="field">
+                <%= label_tag :password_confirmation %>
+                <%= password_field_tag :password_confirmation %>
+              </div>
+
+              <div class="actions">
+                <%= submit_tag 'Register' %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -67,26 +106,24 @@
           <h1>Login</h1>
 
           <% unless current_user %>
-          <%= form_tag '/login' do %>
+            <%= form_tag '/login' do %>
+              <div class="field">
+                <%= label_tag :email %>
+                <%= text_field_tag :email %>
+              </div>
 
-          <div class="field">
-            <%= label_tag :email %>
-            <%= text_field_tag :email %>
-          </div>
-
-          <div class="field">
-            <%= label_tag :password %>
-            <%= password_field_tag :password %>
-          </div>
-          <%= submit_tag "Login" %> | <%= link_to "Sign in with Facebook", facebook_login_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
-          <br>
-
+              <div class="field">
+                <%= label_tag :password %>
+                <%= password_field_tag :password %>
+              </div>
+              <%= submit_tag "Login" %>
+              <br>
+            <% end %>
           <% end %>
-          <% end %>
-
-          <%= link_to 'Return to Home Page', root_path %>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Login with Email -->
