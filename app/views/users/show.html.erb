@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <div class="profile_picture">
-  <%= image_tag @user.picture if @user.picture %>
+  <% if @user.picture %>
+    <%= image_tag @user.picture %>
+  <% else %>
+    <img src="http://placehold.it/350x150">
+  <% end %>
   <div class="similarity_info">
     <h1>
       <%= current_user.similarity_with(@user) %>
@@ -14,31 +18,21 @@
     </div>
 
     <% if current_user.friends.include?(@user) %>
-      <p>
-        <strong>Email:</strong>
-        <%= link_to "Email Friend", @user.email %>
+        <%= link_to "Email Friend", @user.email, class: "btn btn-danger" %>
+        <br>
         <%= link_to "Remove Friend", remove_path %>
-      </p>
+        <br>
     <% elsif current_user.requests_to.include?(@user)%>
-      <p>
-        <%= link_to "Cancel Request", cancel_path(@user) %>
-      </p>
+        <%= link_to "Cancel Request", cancel_path(@user), class: "btn btn-default" %>
     <% elsif current_user.requests_from.include?(@user) %>
-      <p>
-        <%= link_to "Accept", accept_path %><br>
-        <%= link_to "Ignore", ignore_path %>
-      </p>
+        <%= link_to "Accept", accept_path, class: "btn btn-primary" %><br>
+        <%= link_to "Ignore", ignore_path, class: "btn btn-default" %>
     <% elsif current_user == @user %>
-      <p>
-      </p>
+      <br>
     <% else %>
-      <p>
-        <%= link_to "Add Friend", request_path, class: "btn btn-success" %>
-      </p>
+        <%= link_to "Add Friend", request_path, class: "btn btn-info" %>
     <% end %>
-    <p>
-      <%= link_to "Questionnaire", response_path %>
-    </p>
+      <%= link_to "Questionnaire", response_path, class: "btn btn-success" %>
   </div>
 </div>
 
