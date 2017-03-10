@@ -11,14 +11,12 @@
       <%= current_user.similarity_with(@user) %>
     </h1>
   <!-- </div> -->
-    <div class="profile_info">
       <h2>
         <%= @user.name %>
       </h2>
-    </div>
 
     <% if current_user.friends.include?(@user) %>
-        <%= link_to "Email Friend", @user.email, class: "btn btn-danger" %>
+        <%= link_to "Email Friend", @user, class: "btn btn-danger" %>
         <br>
         <br>
         <%= link_to "Remove Friend", remove_path %>
@@ -37,8 +35,19 @@
   </div>
 </div>
 
+<div class="profile_info">
+  <h3>
+    Neighborhood
+  </h3>
+  <h3>
+    Budget
+  </h3>
+  <h3>
+    Move-in Date
+  </h3>
+</div>
+
 
 <% if @user == current_user %>
   <%= link_to 'Edit', edit_user_path(@user) %> |
 <% end %>
-<%= link_to 'Return to Home Page', root_path %>
