@@ -13,10 +13,27 @@
       </h2>
     </div>
 
-    <% if @user == current_user || current_user.friends.include?(@user) %>
+    <% if current_user.friends.include?(@user) %>
       <p>
         <strong>Email:</strong>
-        <%= @user.email %>
+        <%= link_to "Email Friend", @user.email %>
+        <%= link_to "Remove Friend", remove_path %>
+      </p>
+    <% elsif current_user.requests_to.include?(@user)%>
+      <p>
+        <%= link_to "Cancel Request", cancel_path(@user) %>
+      </p>
+    <% elsif current_user.requests_from.include?(@user) %>
+      <p>
+        <%= link_to "Accept", accept_path %>
+        <%= link_to "Ignore", ignore_path %>
+      </p>
+    <% elsif current_user == @user %>
+      <p>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to "Add Friend", request_path, class: "btn btn-success" %>
       </p>
     <% end %>
     <p>

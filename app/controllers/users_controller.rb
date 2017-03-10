@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy,
+    :request_friend, :add_friend, :cancel_request, :ignore_request, :remove_friend]
 
   # GET /users
   # GET /users.json
@@ -18,40 +19,42 @@ class UsersController < ApplicationController
   end
 
   def request_friend #send request
-    user = User.find(params[:id])
-    current_user.requests_to << user
-    user.requests_from << current_user
-    redirect_to friends_path
+    # user = User.find(params[:id])
+    user = @user
+    current_user.requests_to << @user
+    @user.requests_from << current_user
+    redirect_to @user
   end
 
   def add_friend #created association when confirmed
-    user = User.find(params[:id])
+    # user = User.find(params[:id])
+    user = @user
     current_user.friends << user
     current_user.requests_from.delete(user)
     user.friends << current_user
     user.requests_to.delete(current_user)
-    redirect_to friends_path
+    redirect_to user
   end
 
   def cancel_request #cancel association
-    user = User.find(params[:id])
-    current_user.requests_to.delete(user)
-    user.requests_from.delete(current_user)
-    redirect_to friends_path
+    # user = @user
+    current_user.requests_to.delete(@user)
+    @user.requests_from.delete(current_user)
+    redirect_to @user
   end
 
   def ignore_request #ignore send request association
-    user = User.find(params[:id])
+    user = @user
     current_user.requests_from.delete(user)
     user.requests_to.delete(current_user)
-    redirect_to friends_path
+    redirect_to user
   end
 
   def remove_friend #remove association
-    user = User.find(params[:id])
+    user = @user
     current_user.friends.delete(user)
     user.friends.delete(current_user)
-    # redirect_to friends_path
+    redirect_to user
   end
 
   # GET /users/1/edit
