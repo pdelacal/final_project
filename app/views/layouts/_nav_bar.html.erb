@@ -1,26 +1,42 @@
-<%= link_to "Home", root_path %> |
-<% if current_user %>
-   Signed in as <%= link_to current_user.name, current_user %>
-   <% if current_user.listing %>
-   | <%= link_to 'Your Listing', listing_path(current_user.listing) %>
-   <% else %>
-   | <%= link_to 'List Your Apartment', new_listing_path %>
-   <% end %>
-   | <%= link_to "Friends", friends_path %>
-  | <%= link_to "Logout", logout_path %>
-<% else %>
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-  Login
-</button> |
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#signup">
-  Signup
-</button>
-<% end %>
-<% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: name %>
-<% end -%>
-<hr>
-
+<div id="navbar">
+  <div class="navbar-left">
+    <%= link_to "Home", root_path %>
+  </div>
+  <div class="navbar-right">
+    <% if current_user %>
+      <span id='welcome'>Welcome back, </span><span id='userbtn'><%= link_to current_user.name, current_user %></span>
+      <span id='navbtn'>
+       <% if current_user.listing %>
+        <%= link_to 'Your Listing', listing_path(current_user.listing) %>
+      </span>
+        <span id='navbtn'>
+       <% else %>
+        <%= link_to 'List Your Apartment', new_listing_path %>
+      </span>
+       <% end %>
+       <span id='navbtn'>
+        <%= link_to "Friends", friends_path %>
+      </span>
+        <span id='navbtn'>
+       <%= link_to "Logout", logout_path %>
+    </span>
+    <% else %>
+    <span id="navbutton">
+    <button type="button" class="btn btn-primary btn-md btn-square" data-toggle="modal" data-target="#myModal">
+      Login
+    </button></span>
+    <span id="navbutton">
+    <button type="button" class="btn btn-primary btn-md btn-square" data-toggle="modal" data-target="#signup">
+      Signup
+    </button>
+    </span>
+    <% end %>
+  </div>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+    <hr>
+</div>
 
 
 
