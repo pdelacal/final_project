@@ -4,9 +4,11 @@
 
 body {
   margin: 0;
+  // margin-top: 3.5em;
+
 }
 .homepageimg {
-  margin-top: 3.5em;
+  // margin-top: 3.5em;
   height: 75em;
   background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/assets/people.jpg) 100% no-repeat;
   background-position: center;
@@ -26,7 +28,7 @@ body {
 }
 
 #hometitle {
-  padding-top:3.0em;
+  padding-top:2.0em;
   text-align:center;
   font-family: 'Roboto', sans-serif;
   color: white;
@@ -57,24 +59,25 @@ body {
 }
 
 #navbar {
-  color: #4d4d4d;
+  color: #000;
   font-family: 'Marcellus SC', serif;
   font-size: medium;
   background: white;
   background-image: none;
   text-decoration: none;
+  height: 4em;
+  box-shadow: 1px 1px 2px;
+  & a {
+
+    &:hover {
+      background-image: none;
+      text-decoration: none;
+      background-color: #ccc;
+    }
+
+  }
 }
 
-a:visited {
-  color: #4d4d4d;
-}
-
-a:hover {
-  background: white;
-  background-image: none;
-  text-decoration: none;
-  color: red;
-}
 
 .btn-square {
   border-radius: 0;
@@ -87,7 +90,7 @@ a:hover {
   font-size: 1.2em;
   color: gray;
   background: white;
-  padding: 10px 0px 10px 0px;
+  padding: 22px 0px 22px 0px;
   text-decoration: none;
   margin-left: 0.75em;
 }
@@ -101,38 +104,24 @@ a:hover {
   margin-right: 0.75em;
 }
 
-#navbtn {
-  color: gray;
+.navbtn {
   background: white;
-  padding: 10px 0px 10px 20px;
+  padding: 14px 8px;
   text-decoration: none;
+  margin: 8px;
   color: #000;
-}
 
-#navbtn:hover {
-  background: white;
-  background-image: none;
-  text-decoration: none;
-}
 
-#userbtn {
-  color: gray;
-  background: white;
-  padding: 10px 0px 10px 10px;
-  text-decoration: none;
-}
+  &:hover {
+    background: white;
+    background-image: none;
+    text-decoration: none;
+  }
 
-#userbtn:hover {
-  background: white;
-  background-image: none;
-  text-decoration: none;
-}
+  &:visited {
+    color: #000;
+  }
 
-#welcome {
-  color: gray;
-  background: white;
-  padding: 10px 0px 10px 20px;
-  text-decoration: none;
 }
 
 .jumbotron {
@@ -148,11 +137,6 @@ a:hover {
  margin: auto;
 }
 
-.login_buttons {
- font-size: 1.5em;
- margin: 0.8em;
- padding: 1em;
-}
 
 #mobile_login_buttons {
  display: none;
@@ -230,14 +214,6 @@ label {
    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.btn-default {
-   font-size: 1.5em;
-   padding: 0.5em 1em;
-   margin: 0.5em 0 0;
-   background-color: lightgrey;
-   border: 1px solid rgba(0, 0, 0, 0.3);
-}
-
 .btn-danger {
    font-size: 1.5em;
    padding: 0.5em 1em;
@@ -246,6 +222,12 @@ label {
    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-hr {
- border-color: #fff;
+.login_buttons {
+  font-size: 1.5em;
+  margin: 0.8em;
+  padding: 1em;
+
+  &:hover {
+    text-decoration: none;
+  }
 }

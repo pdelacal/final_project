@@ -30,7 +30,7 @@ class User < ApplicationRecord
     name: auth['info']['name'],
     email: auth['info']['email'],
     password: "facebook",
-    picture: auth['info']['image']
+    picture: "#{auth['info']['image']}?type=large"
 
     # user_likes: auth['info']['user_likes']
   )
