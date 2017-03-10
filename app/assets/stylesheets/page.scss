@@ -28,7 +28,7 @@ body {
 }
 
 #hometitle {
-  padding-top:3.0em;
+  padding-top:2.0em;
   text-align:center;
   font-family: 'Roboto', sans-serif;
   color: white;
@@ -59,7 +59,7 @@ body {
 }
 
 #navbar {
-  color: #4d4d4d;
+  color: #000;
   font-family: 'Marcellus SC', serif;
   font-size: medium;
   background: white;
@@ -69,15 +69,10 @@ body {
   box-shadow: 1px 1px 2px;
   & a {
 
-    &:visited {
-      color: #4d4d4d;
-    }
-
     &:hover {
-      background: white;
       background-image: none;
       text-decoration: none;
-      color: red;
+      background-color: #ccc;
     }
 
   }
@@ -110,16 +105,21 @@ body {
 }
 
 .navbtn {
-  color: gray;
   background: white;
-  padding: 22px 0px 22px 20px;
+  padding: 14px 8px;
   text-decoration: none;
+  margin: 8px;
   color: #000;
+
 
   &:hover {
     background: white;
     background-image: none;
     text-decoration: none;
+  }
+
+  &:visited {
+    color: #000;
   }
 
 }
