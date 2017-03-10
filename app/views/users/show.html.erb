@@ -2,25 +2,29 @@
 
 <div class="profile_picture">
   <%= image_tag @user.picture if @user.picture %>
+  <div class="similarity_info">
+    <h1>
+      <%= current_user.similarity_with(@user) %>
+    </h1>
+
+    <div class="profile_info">
+      <h2>
+        <%= @user.name %>
+      </h2>
+    </div>
+
+    <% if @user == current_user || current_user.friends.include?(@user) %>
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+    <% end %>
+    <p>
+      <%= link_to "Questionnaire", response_path %>
+    </p>
+  </div>
 </div>
 
-<div class="profile_info">
-  <h2>
-    <%= @user.name %>
-  </h2>
-</div>
-
-<% if @user == current_user || current_user.friends.include?(@user) %>
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-<% else %>
-<%end %>
-
-<p>
-<%= link_to "Questionnaire", response_path %>
-</p>
 
 <% if @user == current_user %>
   <%= link_to 'Edit', edit_user_path(@user) %> |

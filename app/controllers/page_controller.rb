@@ -1,4 +1,8 @@
 class PageController < ApplicationController
+  def index
+    @user = User.new
+  end
+
   def friends
   end
 
@@ -21,4 +25,5 @@ class PageController < ApplicationController
       # end
     # end
   end
+
 end
