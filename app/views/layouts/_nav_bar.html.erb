@@ -25,8 +25,6 @@
 
 
 
-
-
 <!-- Signup modal -->
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signupLabel">
   <div class="modal-dialog" role="document">
@@ -36,14 +34,17 @@
         <h4 class="modal-title" id="signupLabel">Hello and Welcome! <br>Please Signup</h4>
       </div>
       <div class="modal-body">
-        <%= link_to 'Signup', register_path %> <br> <%= link_to "Sign up with Facebook", facebook_login_path %> <br> Already have an account? <%= link_to 'Login', login_path %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= link_to 'Signup', register_path %>
+        <br>
+        <%= link_to "Sign up with Facebook", facebook_login_path %>
+        <br>
+        Already have an account?
+        <%= link_to 'Login with Email', login_path %>
       </div>
     </div>
   </div>
 </div>
+
 <!-- Login Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -53,10 +54,38 @@
         <h4 class="modal-title" id="myModalLabel">Welcome Back, <br>Please Login</h4>
       </div>
       <div class="modal-body">
-        <%= link_to 'Login', login_path %> <br> <%= link_to "Sign in with Facebook", facebook_login_path %> <br> Don't have an account? <%= link_to 'Register', register_path %>
+        <%= link_to 'Login with Email', 'javascript:void(0)', type: "button", class: "btn btn-danger login", "data-toggle" => "tab", role: "tab" %>
+        <br>
+        <%= button_to "Login with Facebook", facebook_login_path, type: "button", class: "btn btn-primary"  %>
+        <br>
+        Don't have an account?
+        <%= link_to 'Register', register_path %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <div class="tab-content">
+        <!-- Login with Email -->
+        <div class="tab-pane" id="login" role="tabpanel">
+          <h1>Login</h1>
+
+          <% unless current_user %>
+          <%= form_tag '/login' do %>
+
+          <div class="field">
+            <%= label_tag :email %>
+            <%= text_field_tag :email %>
+          </div>
+
+          <div class="field">
+            <%= label_tag :password %>
+            <%= password_field_tag :password %>
+          </div>
+          <%= submit_tag "Login" %> | <%= link_to "Sign in with Facebook", facebook_login_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
+          <br>
+
+          <% end %>
+          <% end %>
+
+          <%= link_to 'Return to Home Page', root_path %>
+        </div>
       </div>
     </div>
   </div>
