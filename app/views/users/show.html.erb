@@ -10,10 +10,11 @@
     <h1>
       <%= current_user.similarity_with(@user) %>
     </h1>
-  <!-- </div> -->
-      <h2>
-        <%= @user.name %>
-      </h2>
+  </div>
+  <div class="profile_panel">
+    <h2>
+      <%= @user.name %>
+    </h2>
 
     <% if current_user.friends.include?(@user) %>
         <%= link_to "Email Friend", @user, class: "btn btn-danger" %>
@@ -40,16 +41,45 @@
 </div>
 
 <div class="profile_info">
-  <h3>
-    Neighborhood
-  </h3>
-  <h3>
-    Budget
-  </h3>
-  <h3>
-    Move-in Date
-  </h3>
-  <h3>
-    Questionnaire
-  </h3>
+  <div class="">
+    <h3>
+      Neighborhood
+    </h3>
+  </div>
+
+  <div class="">
+    <h3>
+      Budget
+    </h3>
+  </div>
+
+  <div class="">
+    <h3>
+      Move-in Date
+    </h3>
+  </div>
+
+  <div class="">
+    <h3>
+      Questionnaire
+      <button type="button" name="toggle-questionnaire"><span class="glyphicon glyphicon-chevron-down"></span></button>
+    </h3>
+    <div class="questionnaire">
+      <% if @user.responses.last %>
+        <p>
+          <% @user.responses.last.attributes.each do |response| %>
+            <p>
+              <% unless response[0] == "id" || response[0] == "user_id" || response[0] == "created_at" || response[0] == "updated_at" || response[1] == nil %>
+                <%= response[0].gsub("_", " ").capitalize %> : <%= response[1].gsub("_", " ").capitalize %>
+              <% end %>
+            </p>
+          <% end %>
+        </p>
+      <% else %>
+        <p>
+          Questionnaire hasn't been filled out.
+        </p>
+      <% end %>
+    </div>
+  </div>
 </div>

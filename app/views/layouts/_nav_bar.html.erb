@@ -4,7 +4,7 @@
   </div>
   <div class="navbar-right">
     <% if current_user %>
-      <span class="navbtn">Welcome back, </span><%= link_to current_user.name, current_user, class: "navbtn" %>
+      <%= link_to current_user.name, current_user, class: "navbtn" %>
        <% if current_user.listing %>
         <%= link_to 'Your Listing', listing_path(current_user.listing), class: "navbtn" %>
        <% else %>

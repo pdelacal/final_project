@@ -8,13 +8,17 @@ body {
   height: 60em;
 }
 
-.similarity_info h1 {
-  position: relative;
-  top: -1.4em;
-  left: 2.6em;
-  font-size: 5em;
-  color: white;
-  text-shadow: 1px 1px 2px black;
+.similarity_info {
+  height: 0;
+
+  & h1 {
+    position: relative;
+    top: -1.4em;
+    left: 1.3em;
+    font-size: 5em;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+  }
 }
 
 .profile_picture {
@@ -71,11 +75,31 @@ body {
     float: left;
     background-color: #fff;
     margin: 0.5em 0 0 2em;
+
+    & div {
+      border-bottom: 1px solid #ccc;
+
+
+    & .questionnaire {
+      display: none;
+    }
+
     & h3 {
       padding: 1.5em 40em 1.5em 1em;
       margin: 0 0 0 0;
-      border-bottom: 1px solid #ccc;
       font-size: 1.3em;
+
+        & button {
+          border: none;
+          background: none;
+          position: relative;
+          left: 39em;
+
+          & span.glyphicon {
+            float: right;
+          }
+        }
+      }
 
       &last {
       border-bottom: none;
@@ -87,7 +111,7 @@ body {
   margin-bottom: 1em;
   color: #555;
 
-    &:visited {
-      color: #555;
-    }
+  &:visited {
+    color: #555;
+  }
 }
