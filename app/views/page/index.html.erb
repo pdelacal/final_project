@@ -11,10 +11,25 @@
     </div>
   </div>
 
-<div class="indextext">
 
-</div>
-</div>
+  <% if current_user.listing %>
+   <%= link_to 'Your Listing', listing_path(current_user.listing) %>
+   <div class="indextext">
+     Already Have an Apartment listed?
+   </div>
+   <div id="indextxt">
+     Edit it below as you continue to look at thousands of compatible roommates!
+   </div>
+  <% else %>
+   <%= link_to 'List Your Apartment', new_listing_path %>
+   <div class="indextext">
+     Have an Apartment? Perfect!
+   </div>
+   <div id="indextxt">
+     With our matching algorithm, we'll connect you with thousands of compatible roommates!
+   </div>
+  </span>
+  <% end %>
 
 <div id="map"></div>
 <div id="infowindow-content">
