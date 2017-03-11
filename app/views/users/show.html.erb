@@ -53,6 +53,13 @@
     <h3>
       Budget
     </h3>
+    <% if @user.responses.last.budget_min || @user.responses.last.budget_max %>
+      <p>
+        $<%= @user.responses.last.budget_min %> -
+        $<%= @user.responses.last.budget_max %>
+      </p>
+    <% end %>
+
   </div>
 
   <div class="">
