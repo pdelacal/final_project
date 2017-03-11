@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
-<p>
-<% if @listing = current_user.listing %>
-  <%= link_to "Edit Your Listing", edit_listing_path %>
+<% if @listing == current_user.listing %>
+  <p>
+    <%= link_to "Edit Your Listing", edit_listing_path %>
+  </p>
 <% end %>
-</p>
 <p>
   <strong>User:</strong>
   <%= User.find(@listing.user_id).name %>

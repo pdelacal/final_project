@@ -54,6 +54,13 @@
     <h3>
       Budget
     </h3>
+    <% if @user.responses.last.budget_min || @user.responses.last.budget_max %>
+      <p>
+        $<%= @user.responses.last.budget_min %> -
+        $<%= @user.responses.last.budget_max %>
+      </p>
+    <% end %>
+
   </div>
 
   <div class="">
@@ -62,7 +69,7 @@
     </h3>
     <% if @user.responses.last &&  @user.responses.last.move_in_date%>
       <p>
-        <%= @user.responses.last.move_in_date %>
+        <%= @user.responses.last.move_in_date.gsub("-", " ") %>
       </p>
     <% end %>
   </div>
@@ -90,4 +97,29 @@
       <% end %>
     </div>
   </div>
+</div>
+
+<div class="listing_info">
+  <% if @user.listing && @user.listing.listingphotos.first %>
+    <button type="button" data-toggle="modal" data-target="#preview">
+      <%= image_tag(@user.listing.listingphotos.first.photo.url) %>
+    </button>
+    <% if @user.listing.rent %>
+      <div class="listing_rent">
+        <h2>
+          $<%= @user.listing.rent %>
+        </h2>
+      </div>
+    <% end %>
+    <div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="previewLabel">
+          <div class="preview modal-header">
+            <button type="button" class="preview close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="preview modal-body">
+            <%= image_tag(@user.listing.listingphotos.first.photo.url) %>
+          </div>
+    </div>
+  <% elsif @user == current_user %>
+    <%= link_to 'Add Apartment Photos', new_listingphoto_path, class: "btn btn-success" %>
+  <% end %>
 </div>

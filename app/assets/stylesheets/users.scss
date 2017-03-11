@@ -14,10 +14,12 @@ body {
   & h1 {
     position: relative;
     top: -1.4em;
-    left: 1.3em;
+    left: 2.6em;
     font-size: 5em;
     color: white;
     text-shadow: 1px 1px 2px black;
+    width: 2.4em;
+    background-color: rgba(0,0,0,0.3);
   }
 }
 
@@ -84,9 +86,10 @@ body {
 }
 
 .profile_info {
-    float: left;
+    float: right;
     background-color: #fff;
-    margin: 0.5em 0 0 2em;
+    margin: 0.5em 2em 0 0;
+    clear: right;
 
     & div {
       border-bottom: 1px solid #ccc;
@@ -124,5 +127,37 @@ body {
 
   &:visited {
     color: #555;
+  }
+}
+
+.listing_info {
+    clear: left;
+    border-bottom: 1px solid;
+    /* padding: 2em; */
+    background-color: #fff;
+    float: left;
+    margin: 1em 0 0 4em;
+
+    & button {
+      padding: 0;
+      border: none;
+
+      & img {
+        height: 19em;
+      }
+    }
+
+}
+
+.listing_rent {
+  h2 {
+    font-size: 3em;
+    color: #fff;
+    position: relative;
+    text-shadow: 1px 1px 2px #000;
+    top: -1.7em;
+    float: left;
+    background-color: rgba(0,0,0,0.3);
+    padding-bottom: 0.1em;
   }
 }
