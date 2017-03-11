@@ -1,14 +1,9 @@
-<%= form_for(@user, remote: true) do |f| %>
+<%= form_for(logout_path, remote: true) do |f| %>
   <% if @user.errors.full_messages.any? %>
     <% @user.errors.full_messages.each do |error_message| %>
     <%= error_message if @user.errors.full_messages.first == error_message %> <br />
     <% end %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
 
   <div class="field">
     <%= f.label :email %>
@@ -20,12 +15,7 @@
     <%= f.password_field :password %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
   <div class="actions">
-    <%= f.submit 'Register', class: 'btn btn-default' %>
+    <%= f.submit 'Login', class: 'btn btn-default' %>
   </div>
 <% end %>
