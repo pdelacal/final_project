@@ -135,13 +135,8 @@ body {
     float: left;
     margin: 1em 0 0 4em;
 
-    & button {
-      padding: 0;
-      border: none;
-
-      & img {
-        height: 19em;
-      }
+    & img {
+      height: 19em;
     }
 
 }
