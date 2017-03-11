@@ -16,14 +16,14 @@
               <%= link_to image_tag(listing.listingphotos.first.photo.url), listing, class: "listing_photo" %>
             </p>
           <% elsif listing.user_id %>
-            <p>
+            <!-- <p>
               <%= link_to User.find(listing.user_id).name, User.find(listing.user_id) %> |
               <%= current_user.similarity_with(User.find(listing.user_id)) %> |
               <%= link_to listing.address, listing %>
               <%= listing.city %>
               <%= listing.state %>
               <%= listing.zipcode %>
-            </p>
+            </p> -->
           <% end %>
         <% end %>
       <% else %>

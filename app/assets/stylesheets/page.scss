@@ -278,4 +278,14 @@ label {
 
 .search_results {
   float: left;
+  width: 60%;
+  display: inline-flex;
+}
+
+.listing_photo {
+
+  img {
+    height: 23em;
+    width: 23em;
+  }
 }

@@ -52,10 +52,16 @@
   </div>
 
   <div class="field">
-    <%= f.label :stay_duration, 'Preferred Length of Stay' %>
-    <%= range_field_tag :stay_duration_min, in: 1..13, step: 1 %>
+    Stay Duration:
+    <%= f.label :stay_duration_short, "Short (0-3 Months)" %>
+    <%= f.radio_button :stay_duration, "short" %>
+    <%= f.label :stay_duration_mid, "Mid (3-12 months)" %>
+    <%= f.radio_button :stay_duration, "mid" %>
+    <%= f.label :stay_duration_long, "Long (12+ months)" %>
+    <%= f.radio_button :stay_duration, "long"%>
   </div>
 
+Amenities:
   <div class="field">
     <%= f.label :in_unit_washer, 'In-Unit Washer' %>
     <%= f.check_box :in_unit_washer %>
@@ -131,6 +137,7 @@
     <%= f.check_box :kitchen %>
   </div>
 
+Rules:
   <div class="field">
     <%= f.label :no_pets, 'No Pets' %>
     <%= f.check_box :no_pets %>
