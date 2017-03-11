@@ -103,7 +103,7 @@
 <div class="listing_info">
   <% if @user.listing && @user.listing.listingphotos.first %>
     <!-- <button type="button" data-toggle="modal" data-target="#preview"> -->
-      <%= link_to image_tag(@user.listing.listingphotos.first.photo.url), @user.listing %>
+    <%= link_to image_tag(@user.listing.listingphotos.first.photo.url), @user.listing %>
     <!-- </button> -->
     <% if @user.listing.rent %>
       <div class="listing_rent">

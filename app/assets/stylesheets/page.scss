@@ -280,12 +280,42 @@ label {
   float: left;
   width: 60%;
   display: inline-flex;
-}
 
-.listing_photo {
+  & .listing_result {
+    margin: 3em;
 
-  img {
-    height: 23em;
-    width: 23em;
+    & .listing_photo {
+
+      & img {
+        height: 23em;
+        width: 23em;
+
+      }
+
+      & .listing_rent {
+        
+        & h2 {
+          font-size: 3em;
+          color: #fff;
+          position: relative;
+          text-shadow: 1px 1px 2px #000;
+          top: -1.7em;
+          float: left;
+          background-color: rgba(0,0,0,0.3);
+          padding-bottom: 0.1em;
+        }
+      }
+    }
+
+    .user_photo {
+      & img {
+        border-radius: 50%;
+        height: 8em;
+        border: 4px solid white;
+        float: right;
+        position: relative;
+        top: -4em;
+      }
+    }
   }
 }
