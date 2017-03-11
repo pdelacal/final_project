@@ -1,43 +1,45 @@
-<h2>Search Results</h2>
-
-<br>
-
-<h3>Listings</h3>
-
 <% if @listings.nil? %>
   No results found.
-  <% else %>
+<% else %>
   <script>
     window.addresses = [];
   </script>
-  <% @listings.each do |listing| %>
-  <% if current_user %>
-    <% unless listing.user_id == current_user.id %>
+  <div class="search_results">
+    <% @listings.each do |listing| %>
+      <% if current_user %>
+        <% unless listing.user_id == current_user.id %>
+          <script>
+            window.addresses.push("<%= [listing.address, listing.city, listing.state, listing.zipcode].join(",") %>");
+          </script>
+          <% if listing.listingphotos.first %>
+            <p>
+              <%= link_to image_tag(listing.listingphotos.first.photo.url), listing, class: "listing_photo" %>
+            </p>
+          <% elsif listing.user_id %>
+            <!-- <p>
+              <%= link_to User.find(listing.user_id).name, User.find(listing.user_id) %> |
+              <%= current_user.similarity_with(User.find(listing.user_id)) %> |
+              <%= link_to listing.address, listing %>
+              <%= listing.city %>
+              <%= listing.state %>
+              <%= listing.zipcode %>
+            </p> -->
+          <% end %>
+        <% end %>
+      <% else %>
         <script>
           window.addresses.push("<%= [listing.address, listing.city, listing.state, listing.zipcode].join(",") %>");
         </script>
         <p>
           <%= link_to User.find(listing.user_id).name, User.find(listing.user_id) %> |
-          <%= current_user.similarity_with(User.find(listing.user_id)) %> |
           <%= link_to listing.address, listing %>
           <%= listing.city %>
           <%= listing.state %>
           <%= listing.zipcode %>
         </p>
       <% end %>
-    <% else %>
-      <script>
-        window.addresses.push("<%= [listing.address, listing.city, listing.state, listing.zipcode].join(",") %>");
-      </script>
-      <p>
-        <%= link_to User.find(listing.user_id).name, User.find(listing.user_id) %> |
-        <%= link_to listing.address, listing %>
-        <%= listing.city %>
-        <%= listing.state %>
-        <%= listing.zipcode %>
-      </p>
     <% end %>
-  <% end %>
+  </div>
 <% end %>
 <!-- <h3>Users</h3>
 <% if @users.nil? %>
