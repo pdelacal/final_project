@@ -7,9 +7,11 @@
     <img src="http://placehold.it/350x150">
   <% end %>
   <div class="similarity_info">
-    <h1>
-      <%= current_user.similarity_with(@user) %>
-    </h1>
+    <% unless @user == current_user %>
+      <h1>
+        <%= current_user.similarity_with(@user) %>
+      </h1>
+    <% end %>
   </div>
   <div class="profile_panel">
     <h2>
@@ -53,13 +55,14 @@
     <h3>
       Budget
     </h3>
-    <% if @user.responses.last.budget_min || @user.responses.last.budget_max %>
-      <p>
-        $<%= @user.responses.last.budget_min %> -
-        $<%= @user.responses.last.budget_max %>
-      </p>
+    <% if @user.responses.last %>
+      <% if @user.responses.last.budget_min || @user.responses.last.budget_max %>
+        <p>
+          $<%= @user.responses.last.budget_min %> -
+          $<%= @user.responses.last.budget_max %>
+        </p>
+      <% end %>
     <% end %>
-
   </div>
 
   <div class="">
