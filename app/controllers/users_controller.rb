@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     else
       render :new
     end
-       
+
   #   if @user.name.empty?
   #     flash[:notice] = "Name cannot be blank."
   #     # redirect_to register_path
@@ -97,7 +97,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user}
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }

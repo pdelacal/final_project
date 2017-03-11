@@ -11,9 +11,14 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-    @photos = current_user.listing.listingphotos
-    message = "photos is nil"
-    raise RuntimeError.new message unless @photos
+
+    @listing = Listing.find(params[:id])
+    # if @photos
+      # @photos = @listing.listingphotos
+    # else
+    #   message = "photos is nil"
+    #   raise RuntimeError.new message
+    # end
   end
 
   # GET /listings/new
