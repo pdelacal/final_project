@@ -61,7 +61,7 @@
     </h3>
     <% if @user.responses.last &&  @user.responses.last.move_in_date%>
       <p>
-        <%= @user.responses.last.move_in_date %>
+        <%= @user.responses.last.move_in_date.gsub("-", " ") %>
       </p>
     <% end %>
   </div>
