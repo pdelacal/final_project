@@ -1,13 +1,8 @@
 class SessionsController < ApplicationController
   def new
-    if current_user
-      redirect_to root_path
-    else
-      respond_to do |format|
-        format.html
-        format.js
-      end
-    end
+      @user = User.new
+      # redirect_to root_path
+      @session = Session.new
   end
 
   def create
@@ -20,7 +15,7 @@ class SessionsController < ApplicationController
         redirect_to root_path
       else
         # If user's login doesn't work, send them back to the login form.
-        redirect_to login_path
+        render :new
       end
     elsif auth['provider'] == "facebook"
       user = User.find_by(email: auth['info']['email']) ||

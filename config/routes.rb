@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :listingphotos
 
   root 'page#index'
+  # post '/' => 'sessions#create'
 
   #
 

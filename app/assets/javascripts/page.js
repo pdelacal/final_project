@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  $('.login').click(function(e) {
+  $('.login_email').click(function(e) {
     e.preventDefault();
 
     if ($('.tab-pane:visible').length == 0) {
@@ -8,10 +8,7 @@ $(document).on('turbolinks:load', function() {
       $('.tab-pane').slideUp();
     }
   });
-});
 
-
-$(document).on('turbolinks:load', function() {
   $('.signup_email').click(function(e) {
     e.preventDefault();
 
@@ -24,11 +21,11 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
-$(document).on('turbolinks:load', function() {
-  $('.register_button').click(function(e) {
-    $.ajax({
-      url: "/register",
-      type: 'POST'
-    });
-  });
-});
+// $(document).on('turbolinks:load', function() {
+//   $('.register_button').click(function(e) {
+//     $.ajax({
+//       url: "/register",
+//       type: 'POST'
+//     });
+//   });
+// });
