@@ -1,4 +1,3 @@
-
 <div class="jumbotron jumbotron-fluid homepageimg">
   <div class="container">
     <h1 id="hometitle">Live in Harmony</h1>
@@ -10,25 +9,40 @@
       <%= params[:term] %>
     </div>
   </div>
-
-
+<% if current_user %>
   <% if current_user.listing %>
-   <%= link_to 'Your Listing', listing_path(current_user.listing) %>
    <div class="indextext">
      Already Have an Apartment listed?
    </div>
    <div id="indextxt">
      Edit it below as you continue to look at thousands of compatible roommates!
    </div>
+   <div class="fuckcss">
+     <%= link_to 'Edit Your Listing', listing_path(current_user.listing), class: 'editlistbtn' %>
+   </div>
   <% else %>
-   <%= link_to 'List Your Apartment', new_listing_path %>
    <div class="indextext">
      Have an Apartment? Perfect!
    </div>
    <div id="indextxt">
      With our matching algorithm, we'll connect you with thousands of compatible roommates!
    </div>
-  </span>
+   <div class="fuckcss">
+     <%= link_to 'List Your Apartment', new_listing_path, class: 'listbtn' %>
+   </div>
+  <% end %>
+  <% else %>
+  <div class="indextext">
+    Have an Apartment? Looking for a roommate?
+  </div>
+  <div id="indextxt">
+    With our matching algorithm, we'll connect you with thousands of compatible roommates!
+  </div>
+  <div id="fuckcss">
+    <button type="button" class="btn-primary btn-md btn-square listbtn" data-toggle="modal" data-target="#signup">
+      Register Today
+    </button>
+  </div>
   <% end %>
 
 <div id="map"></div>
