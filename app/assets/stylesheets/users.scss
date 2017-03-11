@@ -6,6 +6,7 @@ body {
   background-color: #DEF5FF;
   // background-color: #E5E4E2;
   height: 60em;
+  background-size: cover;
 }
 
 .similarity_info {
@@ -129,11 +130,13 @@ body {
 
 .listing_info {
     clear: left;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #ccc;
     /* padding: 2em; */
     background-color: #fff;
     float: left;
     margin: 1em 0 0 4em;
+    width: 25em;
+    text-align: center;
 
     & img {
       height: 19em;
