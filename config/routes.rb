@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # post '/' => 'sessions#create'
 
   #
+  get 'users/profile/:id' => 'users#profile', as: 'avatar'
 
   # search
   get '/search' => 'page#search'

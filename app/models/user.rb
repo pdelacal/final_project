@@ -1,12 +1,14 @@
 class User < ApplicationRecord
   validates :email, uniqueness: {case_sensitive: false}
   validates :name, :password, :email, presence: true
-
+  has_attached_file :avatar, :styles => { :medium => "350x150>", :thumb => "100x100#" }, :default_url => "/assets/missing.jpg"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   has_secure_password
 
   # responses
   has_many :responses
   has_one :listing
+  has_one :avatar
 
   # friends
   has_and_belongs_to_many :friends,

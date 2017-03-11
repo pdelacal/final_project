@@ -15,6 +15,14 @@ body {
   background-repeat: no-repeat;
 }
 
+.featuresimg {
+  margin-top: 12.5em;
+  height: 50em;
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/assets/college.jpg) 100% no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 #homebody {
   text-align:center;
   font-family: 'Roboto', sans-serif;
@@ -197,7 +205,7 @@ label {
   font-size: 2.5em;
   color: #4d4d4d;
   text-align: center;
-  margin-top: 2.5em;
+  margin-top: 6em;
 }
 
 #indextxt {
@@ -265,13 +273,13 @@ label {
   text-decoration: none;
 }
 
-.fuckcss {
+.mainpagebtn {
   width: 100%;
   text-align: center;
   margin-top: 3.5em;
 }
 
-#fuckcss {
+#mainpagebtn {
   width: 100%;
   text-align: center;
 }

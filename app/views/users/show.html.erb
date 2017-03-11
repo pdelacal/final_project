@@ -4,12 +4,14 @@
   <% if @user.picture %>
     <%= image_tag @user.picture %>
   <% else %>
-    <img src="http://placehold.it/350x150">
+    <img src="/assets/missing.jpg">
   <% end %>
   <div class="similarity_info">
-    <h1>
-      <%= current_user.similarity_with(@user) %>
-    </h1>
+    <div>
+      <h1>
+        <%= current_user.similarity_with(@user) %>
+      </h1>
+    </div>
   </div>
   <div class="profile_panel">
     <h2>
@@ -36,8 +38,7 @@
       <%= link_to "Complete Questionnaire", response_path, class: "btn btn-success" %>
     <% end %>
     <% if @user == current_user %>
-      <br>
-      <%= link_to 'Edit Profile', edit_user_path(@user),  class: "btn btn-default edit_profile"%>
+      <%= link_to 'Edit Login', edit_user_path(@user),  class: "btn btn-default edit_profile"%> <span>  <%= link_to 'Edit Avatar', avatar_path(@user),  class: "btn btn-default edit_profile avatar_btn"%></span>
     <% end %>
   </div>
 </div>

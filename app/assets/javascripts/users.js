@@ -6,4 +6,13 @@ $(document).on('turbolinks:load', function() {
       $('.questionnaire').slideUp();
     }
   });
+
+  // $(".profile_picture").hover(
+  //   function(){
+  //     $('.avatar_btn').css({"display": "inline-flex", "position": "absolute", "top": "36rem", "left": "10rem"});
+  //   },
+  //   function() {
+  //     $('.avatar_btn').css({"display": "none"});
+  //   }
+  // );
 });

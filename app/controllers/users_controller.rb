@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     else
       render :new
     end
-       
+
   #   if @user.name.empty?
   #     flash[:notice] = "Name cannot be blank."
   #     # redirect_to register_path

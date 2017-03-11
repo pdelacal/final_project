@@ -17,7 +17,7 @@
    <div id="indextxt">
      Edit it below as you continue to look at thousands of compatible roommates!
    </div>
-   <div class="fuckcss">
+   <div class="mainpagebtn">
      <%= link_to 'Edit Your Listing', listing_path(current_user.listing), class: 'editlistbtn' %>
    </div>
   <% else %>
@@ -27,7 +27,7 @@
    <div id="indextxt">
      With our matching algorithm, we'll connect you with thousands of compatible roommates!
    </div>
-   <div class="fuckcss">
+   <div class="mainpagebtn">
      <%= link_to 'List Your Apartment', new_listing_path, class: 'listbtn' %>
    </div>
   <% end %>
@@ -38,12 +38,16 @@
   <div id="indextxt">
     With our matching algorithm, we'll connect you with thousands of compatible roommates!
   </div>
-  <div id="fuckcss">
+  <div id="mainpagebtn">
     <button type="button" class="btn-primary btn-md btn-square listbtn" data-toggle="modal" data-target="#signup">
       Register Today
     </button>
   </div>
   <% end %>
+
+  <div class="featuresimg">
+
+  </div>
 
 <div id="map"></div>
 <div id="infowindow-content">
