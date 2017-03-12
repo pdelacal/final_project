@@ -19,6 +19,21 @@ $(document).on('turbolinks:load', function() {
       $('.tab-pane').slideUp();
     }
   });
+  var showPopup2 = false;
+  $('#loginpopup').on('hidden.bs.modal', function () {
+      if (showPopup2) {
+          $('#signuppopup').modal('show');
+          showPopup2 = false;
+      }
+  });
+
+  $("#signuppopup").click(function() {
+      $('#loginpopup').modal('hide');
+      showPopup2 = true;
+  });
+  // $('#signuppopup').click(function(e) {
+  //   e.preventDefault();
+  // });
 });
 
 // $(document).on('turbolinks:load', function() {

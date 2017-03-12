@@ -1,7 +1,8 @@
 <div class="jumbotron jumbotron-fluid homepageimg">
   <div class="container">
-    <h1 id="hometitle">Live in Harmony</h1>
-    <h4 id="homebody">Find Your Ideal Roommate, Your Ideal Apartment</h4>
+    <h1 id="hometitle">New Beginnings, Endless Possibilities</h1>
+    <h4 id="homebody">New in town? Find your ideal roommate and browse through thousands of available listings.
+</h4>
       <%= form_tag page_search_path, method: :get, class: 'search-form' do %>
       <span><%= search_field_tag :term, nil, class: 'form-control' %>
       <button type="submit" class="btn btn-primary searchbar">Search</button></span>
@@ -15,40 +16,40 @@
      Already Have an Apartment listed?
    </div>
    <div id="indextxt">
-     Edit it below as you continue to look at thousands of compatible roommates!
+     Edit your listing as you continue to search for that perfect roommate!
    </div>
    <div class="mainpagebtn">
      <%= link_to 'Edit Your Listing', listing_path(current_user.listing), class: 'editlistbtn' %>
    </div>
-  <% else %>
+  <% elsif %>
    <div class="indextext">
-     Have an Apartment? Perfect!
+     You Made the Move, Now What?
    </div>
    <div id="indextxt">
-     With our matching algorithm, we'll connect you with thousands of compatible roommates!
+     Post your listing in front of thousands of verified roommates.
    </div>
    <div class="mainpagebtn">
-     <%= link_to 'List Your Apartment', new_listing_path, class: 'listbtn' %>
+     <%= link_to 'List It', new_listing_path, class: 'listbtn' %>
    </div>
   <% end %>
   <% else %>
   <div class="indextext">
-    Have an Apartment? Looking for a Roommate?
+    You Made the Move, Now What?
   </div>
   <div id="indextxt">
-    With our matching algorithm, we'll connect you with thousands of compatible roommates!
+    Post your listing in front of thousands of verified roommates.
   </div>
   <div id="mainpagebtn">
     <button type="button" class="btn-primary btn-md btn-square listbtn" data-toggle="modal" data-target="#signup">
-      Register Today
+      List It
     </button>
   </div>
   <% end %>
 
   <div class="jumbotron jumbotron-fluid featuresimg">
     <div class="container">
-      <h1 id="hometitle2">Bring Balance Back to Your Home</h1>
-      <h4 id="homebody2">Securely search through users with our compatibility search.</h4>
+      <h1 id="hometitle2">Restore Balance to Your Home</h1>
+      <h4 id="homebody2">Connect with thousands of potential roommates with our compatibility test.</h4>
       </div>
     </div>
   <div class="">
@@ -91,10 +92,10 @@
 
 <div class="footer">
   <div class="navbar-left">
-    <%= link_to "Return to Top", root_path, class: "navbtn" %>
+    <%= link_to "Return to Top", root_path, class: "navbtnbottom" %>
   </div>
   <div id="footctr">
-    <%= link_to 'About Us', 'page/about', class: "navbtn" %>
+    <%= link_to 'About Us', 'page/about', class: "navbtnbottom" %>
   </div>
   <div class="navbar-right">
     Copyright (c) 2017
