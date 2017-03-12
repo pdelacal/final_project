@@ -1,5 +1,7 @@
-<h1>Friends</h1>
-
+<div class="jumbotron jumbotron-fluid friendsimg">
+  <h1 id="friendtitle">Friends</h1>
+</div>
+<h2>Friends</h2>
 <% if current_user %>
   <% other_users.each do |user| %>
     <% if current_user.friends.include?(user) %>
@@ -35,5 +37,6 @@
 <% else %>
   You need to login to have friends!
 <% end %>
-
+<div id="rootpath">
 <%= link_to 'Return to Home Page', root_path %>
+</div>
