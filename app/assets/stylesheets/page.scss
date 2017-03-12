@@ -489,3 +489,42 @@ label {
   }
 }
 }
+
+#rootpath {
+  margin-left: 0.1em;
+  color: #000;
+  font-family: 'Marcellus SC', serif;
+  font-size: medium;
+  background-image: none;
+  text-decoration: none;
+  & a {
+
+    &:hover {
+      background-image: none;
+      text-decoration: none;
+    }
+
+  }
+}
+
+.friendsimg {
+  height: 20em;
+  background: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url(/assets/chill.jpg) 100% no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#friendtitle {
+  font-size: 8em;
+  color: white;
+  font-family: 'Libre Baskerville';
+  text-align: center;
+}
+
+#flashbar {
+  padding-top: 1.7em;
+  color: green;
+  font-family: 'Libre Baskerville';
+  text-align: center;
+}
+>>>>>>> 39ecfb131696c8636099d65e0fd70daf07fbd1de
