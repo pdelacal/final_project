@@ -1,4 +1,4 @@
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -26,22 +26,25 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
-
-<!-- <div class="owl-carousel">
-  <div>
-    <img src=@listing.listingphotos.first.photo.url, alt="First slide" >
-  </div>
-  <div>
-    <img src=@listing.listingphotos.second.photo.url, alt="Second slide" >
-  </div>
-  <div>
-    <imh src=@listing.listingphotos.third.photo.url, alt="Third slide" >
-  </div>
-  <div>
-    <img src=@listing.listingphotos[3].photo.url, alt="Fourth slide" >
-  </div>
 </div> -->
+
+<div class="listing-slides">
+  <% if @listing.listingphotos.first %>
+    <% if @listing.listingphotos.first %>
+    <%= image_tag @listing.listingphotos.first.photo.url, alt:"First slide", class: "photo-slide photo-slide-1 active"%>
+    <% end %>
+
+    <% if @listing.listingphotos.second %>
+    <%= image_tag @listing.listingphotos.second.photo.url, alt:"Second slide", class: "photo-slide photo-slide-2"%>
+    <% end %>
+
+    <% if @listing.listingphotos.third %>
+    <%= image_tag @listing.listingphotos.third.photo.url, alt:"Third slide", class: "photo-slide photo-slide-3"%>
+    <% end %>
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  <% end %>
+</div>
 
 <!-- <p id="notice"><%= notice %></p>
 <% if @listing == current_user.listing %>
@@ -98,9 +101,9 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
     async defer></script> -->
 
-<% if @listing == current_user.listing %>
+<% if current_user.listing && @listing == current_user.listing %>
   <%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>
-  <% if current_user.listing.listingphotos == nil %>
+  <% if current_user.listing.listingphotos == 0 %>
     | <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
   <% elsif current_user.listing.listingphotos.size > 0 && current_user.listing.listingphotos.size < 12 %>
     | <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
