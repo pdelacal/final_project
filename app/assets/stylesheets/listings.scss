@@ -43,3 +43,9 @@ img.photo-slide {
     background-color: rgba(0,0,0,0.3);
     padding: 0.3em;
 }
+
+.profile_picture {
+  &.listing-profile {
+    float: right;
+  }
+}
