@@ -1,4 +1,4 @@
-<!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -6,16 +6,16 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <%= image_tag @listing.listingphotos.first.photo.url, class:"d-block img-fluid", alt:"First slide" %>
+      <img src= @listing.listingphotos.first.photo.url , alt="First slide", class="d-block img-fluid">
     </div>
     <div class="carousel-item">
-      <%= image_tag @listing.listingphotos.second.photo.url, class:"d-block img-fluid", alt:"First slide" %>
+      <img src=@listing.listingphotos[1].photo.url , alt="First slide", class="d-block img-fluid" >
     </div>
     <div class="carousel-item">
-      <%= image_tag @listing.listingphotos.third.photo.url, class:"d-block img-fluid", alt:"First slide" %>
+      <img src=@listing.listingphotos[2].photo.url , alt="First slide", class="d-block img-fluid" >
     </div>
     <div class="carousel-item">
-      <%= image_tag @listing.listingphotos[3].photo.url, class:"d-block img-fluid", alt:"First slide" %>
+      <img src=@listing.listingphotos[3].photo.url , alt="First slide", class="d-block img-fluid" >
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -26,22 +26,22 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div> -->
-
-<div class="owl-carousel">
-  <div>
-    <%= image_tag @listing.listingphotos.first.photo.url, alt:"First slide" %>
-  </div>
-  <div>
-    <%= image_tag @listing.listingphotos.second.photo.url, alt:"Second slide" %>
-  </div>
-  <div>
-    <%= image_tag @listing.listingphotos.third.photo.url, alt:"Third slide" %>
-  </div>
-  <div>
-    <%= image_tag @listing.listingphotos[3].photo.url, alt:"Fourth slide" %>
-  </div>
 </div>
+
+<!-- <div class="owl-carousel">
+  <div>
+    <img src=@listing.listingphotos.first.photo.url, alt="First slide" >
+  </div>
+  <div>
+    <img src=@listing.listingphotos.second.photo.url, alt="Second slide" >
+  </div>
+  <div>
+    <imh src=@listing.listingphotos.third.photo.url, alt="Third slide" >
+  </div>
+  <div>
+    <img src=@listing.listingphotos[3].photo.url, alt="Fourth slide" >
+  </div>
+</div> -->
 
 <!-- <p id="notice"><%= notice %></p>
 <% if @listing == current_user.listing %>
@@ -88,7 +88,7 @@
 </p> -->
 
 
-<div id="map"></div>
+<!-- <div id="map"></div>
 
 <script>
   window.addresses = [];
@@ -96,7 +96,7 @@
 </script>
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
-    async defer></script>
+    async defer></script> -->
 
 <% if @listing == current_user.listing %>
   <%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>
