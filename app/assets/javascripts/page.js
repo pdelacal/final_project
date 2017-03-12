@@ -19,21 +19,28 @@ $(document).on('turbolinks:load', function() {
       $('.tab-pane').slideUp();
     }
   });
-  var showPopup2 = false;
-  $('#loginpopup').on('hidden.bs.modal', function () {
-      if (showPopup2) {
-          $('#signuppopup').modal('show');
-          showPopup2 = false;
-      }
-  });
 
-  $("#signuppopup").click(function() {
-      $('#loginpopup').modal('hide');
-      showPopup2 = true;
-  });
+  // var showPopup2 = false;
+  // $('#loginpopup').on('hidden.bs.modal', function (e) {
+  //     if (showPopup2) {
+  //         $('#signuppopup').modal('show');
+  //         showPopup2 = false;
+  //     }
+  // });
+
+  $("#signuppopup").click(function(e) {
+      e.preventDefault();
+      $('#myModal').modal('hide');
+      $('#signup').modal('show');
+    });
   // $('#signuppopup').click(function(e) {
   //   e.preventDefault();
   // });
+  $("#loginpopup").click(function(e) {
+      e.preventDefault();
+      $('#signup').modal('hide');
+      $('#myModal').modal('show');
+    });
 });
 
 // $(document).on('turbolinks:load', function() {
