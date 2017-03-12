@@ -83,9 +83,24 @@
     <div class="questionnaire">
       <% if @user.responses.last %>
         <p>
+          <% if @user.responses.last.age_early_20s || @user.responses.last.age_late_20s ||
+             @user.responses.last.age_30s || @user.responses.last.age_40s_older %>
+             Age:
+             <% if @user.responses.last.age_early_20s %>
+              Early 20s
+             <% elsif @user.responses.last.age_late_20s %>
+              Late 20s
+              <% elsif @user.responses.last.age_30s %>
+              30s
+             <% @user.responses.last.age_40s_olders %>
+             40s and Older
+             <% end %>
+            <% end %>
           <% @user.responses.last.attributes.each do |response| %>
             <p>
-              <% unless response[0] == "id" || response[0] == "user_id" || response[0] == "created_at" || response[0] == "updated_at" || response[0] == "move_in_date" || response[1] == nil %>
+              <% unless response[0] == "id" || response[0] == "user_id" ||
+                 response[0] == "created_at" || response[0] == "updated_at" ||
+                 response[0] == "move_in_date" || response[0] == "age_early_20s" || response[0] == "age_late_20s" || response[0] == "age_30s" || response[0] == "age_40s_older" || response[1] == nil %>
                 <%= response[0].gsub("_", " ").capitalize %> : <%= response[1].gsub("_", " ").capitalize %>
               <% end %>
             </p>
