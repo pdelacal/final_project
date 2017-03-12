@@ -4,13 +4,14 @@
 
 body {
   margin: 0;
+  height: 100%;
   // margin-top: 3.5em;
 
 }
 .homepageimg {
   // margin-top: 3.5em;
   height: 75em;
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/assets/people.jpg) 100% no-repeat;
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/assets/decor.jpg) 100% no-repeat;
   background-position: center;
   background-repeat: no-repeat;
 }
