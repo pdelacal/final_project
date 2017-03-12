@@ -1,7 +1,8 @@
 <div class="jumbotron jumbotron-fluid homepageimg">
   <div class="container">
-    <h1 id="hometitle">Live in Harmony</h1>
-    <h4 id="homebody">Find Your Ideal Roommate, Your Ideal Apartment</h4>
+    <h1 id="hometitle">New Beginnings, Endless Possibilities</h1>
+    <h4 id="homebody">New in town? Find your ideal roommate and browse through thousands of available listings.
+</h4>
       <%= form_tag page_search_path, method: :get, class: 'search-form' do %>
       <span><%= search_field_tag :term, nil, class: 'form-control' %>
       <button type="submit" class="btn btn-primary searchbar">Search</button></span>
@@ -15,40 +16,40 @@
      Already Have an Apartment listed?
    </div>
    <div id="indextxt">
-     Edit it below as you continue to look at thousands of compatible roommates!
+     Edit your listing as you continue to search for that perfect roommate!
    </div>
    <div class="mainpagebtn">
      <%= link_to 'Edit Your Listing', listing_path(current_user.listing), class: 'editlistbtn' %>
    </div>
-  <% else %>
+  <% elsif %>
    <div class="indextext">
-     Have an Apartment? Perfect!
+     You Made the Move, Now What?
    </div>
    <div id="indextxt">
-     With our matching algorithm, we'll connect you with thousands of compatible roommates!
+     Post your listing in front of thousands of verified roommates.
    </div>
    <div class="mainpagebtn">
-     <%= link_to 'List Your Apartment', new_listing_path, class: 'listbtn' %>
+     <%= link_to 'List It', new_listing_path, class: 'listbtn' %>
    </div>
   <% end %>
   <% else %>
   <div class="indextext">
-    Have an Apartment? Looking for a Roommate?
+    You Made the Move, Now What?
   </div>
   <div id="indextxt">
-    With our matching algorithm, we'll connect you with thousands of compatible roommates!
+    Post your listing in front of thousands of verified roommates.
   </div>
   <div id="mainpagebtn">
     <button type="button" class="btn-primary btn-md btn-square listbtn" data-toggle="modal" data-target="#signup">
-      Register Today
+      List It
     </button>
   </div>
   <% end %>
 
   <div class="jumbotron jumbotron-fluid featuresimg">
     <div class="container">
-      <h1 id="hometitle2">Bringing Balance Back to Your Home</h1>
-      <h4 id="homebody2">Securely search through users with our compatibility search.</h4>
+      <h1 id="hometitle2">Roommate Hunting Without the Hassle.</h1>
+      <h4 id="homebody2">Connect with thousands of potential roommates with our compatibility test.</h4>
       </div>
     </div>
   <div class="">
@@ -68,18 +69,18 @@
 					</div>
 					<div id="col2">
             <img src="/assets/iconhouse.png" alt="House" style="width:49px;height:46px;">
-            <h4 id="tag">Simplify the Process</h2>
-            <p id="tagtext">Quickly create your profile and start finding apartments and roommates who you match with.</p>
+            <h4 id="tag">Save Time</h2>
+            <p id="tagtext">Looking for a room? Create your profile in minutes and search for compatible roommates by location.</p>
 					</div>
 					<div id="col3">
             <img src="/assets/iconsearch.png" alt="House" style="width:45px;height:46px;">
-            <h4 id="tag">Save Time and Heartbreak</h2>
-            <p id="tagtext">Discover the rules of apartments you're interested in.</p>
+            <h4 id="tag">Simplify the Process</h2>
+            <p id="tagtext">Opening a room in your apartment? Input your listing then establish living criteria and house rules.</p>
 					</div>
 					<div id="col4">
             <img src="/assets/iconfriends.png" alt="House" style="width:49px;height:46px;">
-            <h4 id="tag">Simple Compatibility Searching</h2>
-            <p id="tagtext">Search through users by city and compatibility and save users you like.</p>
+            <h4 id="tag">Accurate Compatibility Matching</h2>
+            <p id="tagtext">Browse through matches and start connecting! Save user profiles that you like for easy reference.</p>
 					</div>
 					<div id="col5">
 					</div>
@@ -91,10 +92,18 @@
 
 <div class="footer">
   <div class="navbar-left">
-    <%= link_to "Return to Top", root_path, class: "navbtn" %>
+    <%= link_to root_path, class: "navbtnbottompic" do %>
+    <%= image_tag '/assets/movein.png', width: 300, height: 250, alt: 'MoveIn Logo'%>
+<% end %>
   </div>
   <div id="footctr">
-    <%= link_to 'About Us', 'page/about', class: "navbtn" %>
+    <%= link_to 'What Can We Do For You?', 'page/about', class: "navbtnbottom" %>
+    <div id='aboutus'>
+MoveIn is an all-inclusive app that connects you to potential roommates that match well with your living habits and personality while helping you find the perfect place to live. Our app offers thousands of available listings to browse through and our compatibility test allows you to view roommate profiles that are catered to your preferences.
+<br>
+<br>
+All users undergo background checks which help to verify roommate profiles and ensure your safety. Whether you're new to town or planning a move, MoveIn turns the problem of roommate hunting into a simple and fun way of connecting with those in your area and restoring balance to your home.
+  </div>
   </div>
   <div class="navbar-right">
     Copyright (c) 2017

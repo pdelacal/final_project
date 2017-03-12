@@ -1,7 +1,11 @@
-<div id="navbar">
+<div id="navbar-leftpic">
   <div class="navbar-left">
-    <%= link_to "Home", root_path, class: "navbtn" %>
+    <%= link_to root_path, class: "navbtnpic" do %>
+    <%= image_tag '/assets/logosmall.png', width: 140, height: 90, alt: 'MoveIn Logo'%>
+    <% end %>
   </div>
+</div>
+<div id="navbar">
   <div class="navbar-right">
     <% if current_user %>
       <%= link_to current_user.name, current_user, class: "navbtn" %>
@@ -45,7 +49,7 @@
         </span>
         <br>
         Already have an account?
-        <%= link_to 'Login with Email', login_path %>
+        <%= link_to 'Login with Email', login_path, id: 'loginpopup' %>
       </div>
       <div class="tab-content">
         <!-- Login with Email -->
@@ -76,7 +80,7 @@
         </span>
         <br>
         <br>
-        <%= link_to "Don't have an account?", register_path %>
+        <%= link_to "Don't have an account?", register_path, id: 'signuppopup' %>
       </div>
       <div class="tab-content">
         <!-- Login with Email -->

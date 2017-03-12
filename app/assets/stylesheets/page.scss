@@ -4,13 +4,14 @@
 
 body {
   margin: 0;
+  height: 100em;
   // margin-top: 3.5em;
 
 }
 .homepageimg {
   // margin-top: 3.5em;
   height: 75em;
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/assets/people.jpg) 100% no-repeat;
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/assets/move.jpg) 100% no-repeat;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -36,7 +37,7 @@ body {
 }
 
 #hometitle {
-  padding-top:2.5em;
+  padding-top:3.5em;
   text-align:center;
   font-family: 'Roboto', sans-serif;
   color: white;
@@ -54,6 +55,8 @@ body {
   padding: 20px 0;
   text-align:center;
   border-radius: 0;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .searchbar {
@@ -115,9 +118,32 @@ body {
   color: #000;
   display: inline-flex;
 
-
   &:hover {
     background: white;
+    background-image: none;
+    text-decoration: none;
+  }
+
+  &:visited {
+    color: #000;
+  }
+
+}
+
+
+.navbtnbottom {
+  font-size: 1.2em;
+  background: #DEF5FF;
+  padding: 23px 16px;
+  text-decoration: none;
+  // margin: 0 8px;
+  color: #000;
+  display: inline-flex;
+  padding-right: 9em;
+
+
+  &:hover {
+    // background: #337ab7;
     background-image: none;
     text-decoration: none;
   }
@@ -286,7 +312,7 @@ label {
 	float:left;
 	width:100%;
 	overflow:hidden;
-	background:#eee; /* column 5 background colour */
+	background:#DEF5FF; /* column 5 background colour */
 }
 #container4 {
 	clear:left;
@@ -295,7 +321,7 @@ label {
 	position:relative;
   text-align: center;
 	right:20%;
-	background:#eee; /* column 4 background colour */
+	background:#DEF5FF; /* column 4 background colour */
 }
 #container3 {
 	clear:left;
@@ -303,7 +329,7 @@ label {
 	width:100%;
 	position:relative;
 	right:20%;
-	background:#eee; /* column 3 background colour */
+	background:#DEF5FF; /* column 3 background colour */
 }
 #container2 {
 	clear:left;
@@ -311,14 +337,14 @@ label {
 	width:100%;
 	position:relative;
 	right:20%;
-	background:#eee; /* column 2 background colour */
+	background:#DEF5FF; /* column 2 background colour */
 }
 #container1 {
 	float:left;
 	width:100%;
 	position:relative;
 	right:20%;
-	background:#eee; /* column 1 background colour */
+	background:#DEF5FF; /* column 1 background colour */
 }
 #col1 {
 	float:left;
@@ -526,4 +552,32 @@ label {
   color: green;
   font-family: 'Libre Baskerville';
   text-align: center;
+}
+
+#aboutus {
+  font-size: 1.1em;
+  margin-left: 10em;
+  margin-right: 10em;
+  line-height: 1;
+}
+
+.navbtnbottompic {
+  font-size: 1.2em;
+  background: #DEF5FF;
+  padding: 23px 16px;
+  text-decoration: none;
+  // margin: 0 8px;
+  color: #000;
+  display: inline-flex;
+}
+
+.navbtnpic img {
+  color: #000;
+  display: inline-flex;
+  padding-bottom: 2em;
+}
+
+#navbar-leftpic {
+  & a {
+  }
 }
