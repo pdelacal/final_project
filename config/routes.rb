@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'page#index'
   # post '/' => 'sessions#create'
-
+  get 'page/about'
   #
   get 'users/profile/:id' => 'users#profile', as: 'avatar'
 

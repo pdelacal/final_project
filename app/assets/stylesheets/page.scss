@@ -18,7 +18,7 @@ body {
 .featuresimg {
   margin-top: 12.5em;
   height: 50em;
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/assets/college.jpg) 100% no-repeat;
+  background: linear-gradient( rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55) ), url(/assets/college.jpg) 100% no-repeat;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -284,16 +284,166 @@ label {
   text-align: center;
 }
 
-.search_results {
-  float: left;
-  width: 60%;
-  display: inline-flex;
+
+/* Start of Column CSS */
+#container5 {
+  margin-top: 3em;
+	clear:left;
+	float:left;
+	width:100%;
+	overflow:hidden;
+	background:#eee; /* column 5 background colour */
+}
+#container4 {
+	clear:left;
+	float:left;
+	width:100%;
+	position:relative;
+  text-align: center;
+	right:20%;
+	background:#eee; /* column 4 background colour */
+}
+#container3 {
+	clear:left;
+	float:left;
+	width:100%;
+	position:relative;
+	right:20%;
+	background:#eee; /* column 3 background colour */
+}
+#container2 {
+	clear:left;
+	float:left;
+	width:100%;
+	position:relative;
+	right:20%;
+	background:#eee; /* column 2 background colour */
+}
+#container1 {
+	float:left;
+	width:100%;
+	position:relative;
+	right:20%;
+	background:#eee; /* column 1 background colour */
+}
+#col1 {
+	float:left;
+	width:16%;
+	position:relative;
+	left:82%;
+	overflow:hidden;
+}
+#col2 {
+	float:left;
+	width:16%;
+	position:relative;
+	left:86%;
+	overflow:hidden;
+}
+#col3 {
+	float:left;
+	width:16%;
+	position:relative;
+	left:90%;
+	overflow:hidden;
+}
+#col4 {
+	float:left;
+	width:16%;
+	position:relative;
+	left:94%;
+	overflow:hidden;
+}
+#col5 {
+	float:left;
+	width:16%;
+	position:relative;
+	left:98%;
+	overflow:hidden;
 }
 
-.listing_photo {
+#tag {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  color: #337ab7;
+}
 
-  img {
-    height: 23em;
-    width: 23em;
-  }
+#tagtext {
+  margin-top: 0.5em;
+  margin: 14px;
+  margin-bottom: 10.5em;
+}
+
+#homebody2 {
+  text-align:center;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+#hometitle2 {
+  padding-top:2.5em;
+  text-align:center;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 3.5em;
+}
+
+#indexmap {
+  height: 0;
+}
+
+.footer, .push {
+    height: 155px; /* .push must be the same height as .footer */
+}
+
+#footctr {
+  text-align: center;
+  font-family: 'Marcellus SC', serif;
+  font-size: 1.5em;
+  margin-right: 7em;
+  margin-top: 0em;
+}
+
+#content {
+  padding-top: 1em;
+  float:left;
+  width:50%;
+  text-align: center;
+  text-align: left;
+}
+
+#sidebar {
+  padding-top: 1em;
+  float:left;
+  width:50%;
+  text-align: center;
+}
+
+.center {
+  padding-top:1em;
+  text-align:center;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: 3.5em;
+}
+
+.center2 {
+  text-align:center;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: 2.75em;
+}
+
+#phone {
+  text-align: left;
+  margin-left: 15em;
+  font-size: 0.60em;
+  padding-top: 0.5em;
+}
+
+#phone2 {
+  text-align: right;
+  margin-right: 14em;
+  font-size: 0.60em;
+  padding-top: 0.5em;
 }

@@ -33,7 +33,7 @@
   <% end %>
   <% else %>
   <div class="indextext">
-    Have an Apartment? Looking for a roommate?
+    Have an Apartment? Looking for a Roommate?
   </div>
   <div id="indextxt">
     With our matching algorithm, we'll connect you with thousands of compatible roommates!
@@ -45,11 +45,63 @@
   </div>
   <% end %>
 
-  <div class="featuresimg">
-
+  <div class="jumbotron jumbotron-fluid featuresimg">
+    <div class="container">
+      <h1 id="hometitle2">Bringing Balance Back to Your Home</h1>
+      <h4 id="homebody2">Securely search through users with our compatibility search.</h4>
+      </div>
+    </div>
+  <div class="">
   </div>
+  <div class="indextext">
+    The Ideal Roommate, the Perfect Place
+  </div>
+  <br>
+  <div id="container5">
+	<div id="container4">
+		<div id="container3">
+			<div id="container2">
+				<div id="container1">
+					<div id="col1">
+						<h2></h2>
+						<p></p>
+					</div>
+					<div id="col2">
+            <img src="/assets/iconhouse.png" alt="House" style="width:49px;height:46px;">
+            <h4 id="tag">Simplify the Process</h2>
+            <p id="tagtext">Quickly create your profile and start finding apartments and roommates who you match with.</p>
+					</div>
+					<div id="col3">
+            <img src="/assets/iconsearch.png" alt="House" style="width:45px;height:46px;">
+            <h4 id="tag">Save Time and Heartbreak</h2>
+            <p id="tagtext">Discover the rules of apartments you're interested in.</p>
+					</div>
+					<div id="col4">
+            <img src="/assets/iconfriends.png" alt="House" style="width:49px;height:46px;">
+            <h4 id="tag">Simple Compatibility Searching</h2>
+            <p id="tagtext">Search through users by city and compatibility and save users you like.</p>
+					</div>
+					<div id="col5">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-<div id="map"></div>
+<div class="footer">
+  <div class="navbar-left">
+    <%= link_to "Return to Top", root_path, class: "navbtn" %>
+  </div>
+  <div id="footctr">
+    <%= link_to 'About Us', 'page/about', class: "navbtn" %>
+  </div>
+  <div class="navbar-right">
+    Copyright (c) 2017
+  </div>
+</div>
+
+<div id="map indexmap"></div>
 <div id="infowindow-content">
   <img src="" width="16" height="16" id="place-icon">
   <span id="place-name"  class="title"></span><br>
