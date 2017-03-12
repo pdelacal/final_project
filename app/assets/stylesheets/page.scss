@@ -139,7 +139,7 @@ body {
   // margin: 0 8px;
   color: #000;
   display: inline-flex;
-  padding-right: 0em;
+  padding-right: 9em;
 
 
   &:hover {
@@ -558,4 +558,26 @@ label {
   font-size: 1.1em;
   margin-left: 10em;
   margin-right: 10em;
+  line-height: 1;
+}
+
+.navbtnbottompic {
+  font-size: 1.2em;
+  background: #DEF5FF;
+  padding: 23px 16px;
+  text-decoration: none;
+  // margin: 0 8px;
+  color: #000;
+  display: inline-flex;
+}
+
+.navbtnpic img {
+  color: #000;
+  display: inline-flex;
+  padding-bottom: 2em;
+}
+
+#navbar-leftpic {
+  & a {
+  }
 }
