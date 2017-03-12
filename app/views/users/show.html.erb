@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="profile_picture">
-  <% if @user.picture %>
+  <% if @user && @user.picture %>
     <%= image_tag @user.picture %>
   <% else %>
     <img src="/assets/missing.jpg">
@@ -38,7 +38,7 @@
       <%= link_to "Complete Questionnaire", response_path, class: "btn btn-success" %>
     <% end %>
     <% if @user == current_user %>
-      <%= link_to 'Edit Login', edit_user_path(@user),  class: "btn btn-default edit_profile"%> <span>  <%= link_to 'Edit Avatar', avatar_path(@user),  class: "btn btn-default edit_profile avatar_btn"%></span>
+      <%= link_to 'Edit Login', edit_user_path(@user),  class: "btn btn-default edit_profile"%>
     <% end %>
   </div>
 </div>
