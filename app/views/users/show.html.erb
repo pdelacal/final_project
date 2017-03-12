@@ -104,7 +104,7 @@
 <div class="listing_info">
   <% if @user.listing && @user.listing.listingphotos.first %>
     <!-- <button type="button" data-toggle="modal" data-target="#preview"> -->
-      <%= link_to image_tag(@user.listing.listingphotos.first.photo.url), @user.listing %>
+    <%= link_to image_tag(@user.listing.listingphotos.first.photo.url), @user.listing %>
     <!-- </button> -->
     <% if @user.listing.rent %>
       <div class="listing_rent">
@@ -121,7 +121,7 @@
             <%= image_tag(@user.listing.listingphotos.first.photo.url) %>
           </div>
     </div> -->
-  <% elsif @user == current_user %>
+  <% elsif @user == current_user && current_user.listing && current_user.listing.listingphotos.nil? %>
     <%= link_to 'Add Apartment Photos', new_listingphoto_path, class: "btn btn-success" %>
   <% end %>
 </div>

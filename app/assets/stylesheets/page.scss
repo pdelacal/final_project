@@ -95,17 +95,10 @@ body {
 #navbutton {
 }
 
-.navbar-left {
-  font-size: 1.2em;
-  color: gray;
-  background: white;
-  padding: 22px 0px 22px 0px;
-  text-decoration: none;
-  margin-left: 0.75em;
-}
+
 
 .navbar-right {
-  font-size: 1.2em;
+  // font-size: 1.2em;
   margin-right: 0.05em;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -114,11 +107,13 @@ body {
 }
 
 .navbtn {
+  font-size: 1.2em;
   background: white;
-  padding: 14px 8px;
+  padding: 23px 16px;
   text-decoration: none;
-  margin: 8px;
+  // margin: 0 8px;
   color: #000;
+  display: inline-flex;
 
 
   &:hover {
@@ -284,7 +279,6 @@ label {
   text-align: center;
 }
 
-
 /* Start of Column CSS */
 #container5 {
   margin-top: 3em;
@@ -446,4 +440,51 @@ label {
   margin-right: 14em;
   font-size: 0.60em;
   padding-top: 0.5em;
+
+.search_results {
+  float: left;
+  width: 60%;
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  & .listing_result {
+    margin: 3em 0;
+    height: 23em;
+
+    & .listing_photo {
+
+      & img {
+        height: 23em;
+        width: 23em;
+        border: 4px solid #fff;
+      }
+
+      & .listing_rent {
+
+        & h2 {
+          font-size: 3em;
+          color: #fff;
+          position: relative;
+          text-shadow: 1px 1px 2px #000;
+          top: -1.8em;
+          left: 0.1em;
+          float: left;
+          background-color: rgba(0,0,0,0.3);
+          padding-bottom: 0.1em;
+        }
+      }
+    }
+
+    .user_photo {
+      & img {
+        border-radius: 50%;
+        height: 8em;
+        border: 4px solid white;
+        float: right;
+        position: relative;
+        top: 18em;
+        right: 4em;
+      }
+    }
+  }
 }

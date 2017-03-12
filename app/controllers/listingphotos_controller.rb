@@ -1,6 +1,6 @@
 class ListingphotosController < ApplicationController
   def show
-    # @listing = Listing.find(params[:id])
+    @listing = Listing.find(params[:id])
     @photos = @listing.listingphotos
   end
 

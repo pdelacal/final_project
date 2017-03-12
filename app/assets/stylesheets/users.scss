@@ -5,8 +5,8 @@
 body {
   background-color: #DEF5FF;
   // background-color: #E5E4E2;
-  height: 60em;
-  background-size: cover;
+  height: 100em;
+  // background-size: cover;
 }
 
 .similarity_info {
@@ -142,7 +142,7 @@ body {
     text-align: center;
 
     & img {
-      height: 19em;
+      width: 25em;
     }
 
 }

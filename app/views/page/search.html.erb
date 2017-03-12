@@ -4,7 +4,7 @@
   <script>
     window.addresses = [];
   </script>
-  <div class="search_results">
+  <div class="search_results col-md-8">
     <% @listings.each do |listing| %>
       <% if current_user %>
         <% unless listing.user_id == current_user.id %>
@@ -12,9 +12,19 @@
             window.addresses.push("<%= [listing.address, listing.city, listing.state, listing.zipcode].join(",") %>");
           </script>
           <% if listing.listingphotos.first %>
-            <p>
+            <div class="listing_result">
               <%= link_to image_tag(listing.listingphotos.first.photo.url), listing, class: "listing_photo" %>
-            </p>
+              <% if listing.user && listing.user.picture %>
+              <%= link_to image_tag(listing.user.picture), listing.user, class: "user_photo" %>
+              <% end %>
+              <% if listing.rent %>
+                <div class="listing_rent">
+                  <h2>
+                    $<%= listing.rent %>
+                  </h2>
+                </div>
+              <% end %>
+            </div>
           <% elsif listing.user_id %>
             <!-- <p>
               <%= link_to User.find(listing.user_id).name, User.find(listing.user_id) %> |
@@ -56,6 +66,6 @@
 <% end %> -->
 
 
-<div id="map"></div>
+<div id="map" class="col-md-4"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
     async defer></script>
