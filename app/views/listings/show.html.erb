@@ -28,18 +28,23 @@
   </a>
 </div> -->
 
-<!-- <div>
-  <img src=@listing.listingphotos.first.photo.url, alt="First slide" >
+<div class="listing-slides">
+  <% if @listing.listingphotos.first %>
+    <% if @listing.listingphotos.first %>
+    <%= image_tag @listing.listingphotos.first.photo.url, alt:"First slide", class: "photo-slide photo-slide-1 active"%>
+    <% end %>
+
+    <% if @listing.listingphotos.second %>
+    <%= image_tag @listing.listingphotos.second.photo.url, alt:"Second slide", class: "photo-slide photo-slide-2"%>
+    <% end %>
+
+    <% if @listing.listingphotos.second %>
+    <%= image_tag @listing.listingphotos.third.photo.url, alt:"Third slide", class: "photo-slide photo-slide-3"%>
+    <% end %>
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  <% end %>
 </div>
-<div>
-  <img src=@listing.listingphotos.second.photo.url, alt="Second slide" >
-</div>
-<div>
-  <imh src=@listing.listingphotos.third.photo.url, alt="Third slide" >
-</div>
-<div>
-  <img src=@listing.listingphotos[3].photo.url, alt="Fourth slide" >
-</div> -->
 
 <!-- <p id="notice"><%= notice %></p>
 <% if @listing == current_user.listing %>
