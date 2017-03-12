@@ -5,6 +5,7 @@
   width: 40%;
   float: right;
   margin-top: 0.12em;
+  position: fixed;
 }
 
 /* Optional: Makes the sample page fill the window. */

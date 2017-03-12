@@ -1,4 +1,49 @@
-<p id="notice"><%= notice %></p>
+<!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <%= image_tag @listing.listingphotos.first.photo.url, class:"d-block img-fluid", alt:"First slide" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag @listing.listingphotos.second.photo.url, class:"d-block img-fluid", alt:"First slide" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag @listing.listingphotos.third.photo.url, class:"d-block img-fluid", alt:"First slide" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag @listing.listingphotos[3].photo.url, class:"d-block img-fluid", alt:"First slide" %>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div> -->
+
+<div class="owl-carousel">
+  <div>
+    <%= image_tag @listing.listingphotos.first.photo.url, alt:"First slide" %>
+  </div>
+  <div>
+    <%= image_tag @listing.listingphotos.second.photo.url, alt:"Second slide" %>
+  </div>
+  <div>
+    <%= image_tag @listing.listingphotos.third.photo.url, alt:"Third slide" %>
+  </div>
+  <div>
+    <%= image_tag @listing.listingphotos[3].photo.url, alt:"Fourth slide" %>
+  </div>
+</div>
+
+<!-- <p id="notice"><%= notice %></p>
 <% if @listing == current_user.listing %>
   <p>
     <%= link_to "Edit Your Listing", edit_listing_path %>
@@ -40,7 +85,7 @@
 <p>
   <strong>Description:</strong>
   <%= @listing.description %>
-</p>
+</p> -->
 
 
 <div id="map"></div>
@@ -54,9 +99,14 @@
     async defer></script>
 
 
-<%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>
-<% if current_user.listing.listingphotos.size == 0 && current_user.listing.listingphotos.size < 12 %>
-| <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
-<% else %>
-| <%= link_to 'Edit Your Apartment Photos', listingphoto_path %>
+<% if @listing == current_user.listing %>
+  <%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>
+  <% if current_user.listing.listingphotos == nil %>
+    | <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
+  <% elsif current_user.listing.listingphotos.size > 0 && current_user.listing.listingphotos.size < 12 %>
+    | <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
+    | <%= link_to 'Edit Your Apartment Photos', listingphoto_path %>
+  <% else %>
+    | <%= link_to 'Edit Your Apartment Photos', listingphoto_path %>
+  <% end %>
 <% end %>

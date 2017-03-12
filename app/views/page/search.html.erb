@@ -4,7 +4,7 @@
   <script>
     window.addresses = [];
   </script>
-  <div class="search_results">
+  <div class="search_results col-md-8">
     <% @listings.each do |listing| %>
       <% if current_user %>
         <% unless listing.user_id == current_user.id %>
@@ -66,6 +66,6 @@
 <% end %> -->
 
 
-<div id="map"></div>
+<div id="map" class="col-md-4"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
     async defer></script>

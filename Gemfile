@@ -12,6 +12,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 gem 'pg'
+gem 'owlcarousel-rails'
 
 gem "paperclip", "~> 5.0.0"
 

@@ -120,7 +120,7 @@
             <%= image_tag(@user.listing.listingphotos.first.photo.url) %>
           </div>
     </div> -->
-  <% elsif @user == current_user %>
+  <% elsif @user == current_user && current_user.listing && current_user.listing.listingphotos.nil? %>
     <%= link_to 'Add Apartment Photos', new_listingphoto_path, class: "btn btn-success" %>
   <% end %>
 </div>
