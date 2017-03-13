@@ -7,6 +7,8 @@ end
 
 # gem 'devise'
 gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
+
 
 gem 'omniauth'
 gem 'omniauth-facebook'
