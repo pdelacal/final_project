@@ -134,12 +134,14 @@
 </div>
 
 <div class="profile_listing_info">
-  <% if @user.listing && @user.listing.listingphotos.first %>
-    <!-- <button type="button" data-toggle="modal" data-target="#preview"> -->
-    <div class="profile-listing-photo">
+  <% if @user.listing %>
+  <div class="profile-listing-photo">
+    <% if @user.listing.listingphotos.first %>
       <%= link_to image_tag(@user.listing.listingphotos.first.photo.url), @user.listing %>
-    </div>
-    <!-- </button> -->
+    <% else %>
+      <%= link_to image_tag("listing_placeholder.jpg"), @user.listing %>
+    <% end %>
+  </div>
     <% if @user.listing.rent %>
       <div class="listing_rent">
         <h2>
@@ -147,14 +149,6 @@
         </h2>
       </div>
     <% end %>
-    <!-- <div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="previewLabel">
-          <div class="preview modal-header">
-            <button type="button" class="preview close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
-          <div class="preview modal-body">
-            <%= image_tag(@user.listing.listingphotos.first.photo.url) %>
-          </div>
-    </div> -->
   <% elsif @user == current_user && current_user.listing && current_user.listing.listingphotos.first.nil? %>
     <%= link_to 'Add Apartment Photos', new_listingphoto_path, class: "btn btn-success" %>
   <% end %>
