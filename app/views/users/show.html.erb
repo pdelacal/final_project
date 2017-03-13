@@ -110,17 +110,50 @@
              <% @user.responses.last.age_40s_olders %>
              40s and Older
              <% end %>
-            <% end %>
+          <% end %>
+        </p>
           <% @user.responses.last.attributes.each do |response| %>
             <p>
               <% unless response[0] == "id" || response[0] == "user_id" ||
                  response[0] == "created_at" || response[0] == "updated_at" ||
-                 response[0] == "move_in_date" || response[0] == "age_early_20s" || response[0] == "age_late_20s" || response[0] == "age_30s" || response[0] == "age_40s_older" || response[1] == nil %>
+                 response[0] == "move_in_date" || response[0] == "age_early_20s" ||
+                 response[0] == "age_late_20s" || response[0] == "age_30s" ||
+                 response[0] == "age_40s_older" || response[0] == "pet_cat" ||
+                 response[0] == "pet_dog" || response[0] == "pet_other" ||
+                 response[0] == "like_pet_dog" || response[0] == "like_pet_cat" ||
+                 response[0] == "like_pet_other" || response[1] == nil %>
                 <%= response[0].gsub("_", " ").capitalize %> : <%= response[1].gsub("_", " ").capitalize %>
               <% end %>
             </p>
           <% end %>
-        </p>
+          <p>
+            <% if @user.responses.last.pet_dog || @user.responses.last.pet_cat ||
+               @user.responses.last.pet_other != nil %>
+               Has a Pet:
+               <% if @user.responses.last.pet_dog %>
+                Dog
+               <% elsif @user.responses.last.pet_cat %>
+                Cat
+                <% end %>
+                <% unless @user.responses.last.pet_other.nil? %>
+                <%= @user.responses.last.pet_other %>
+               <% end %>
+            <% end %>
+          </p>
+          <p>
+            <% if @user.responses.last.like_pet_dog || @user.responses.last.like_pet_cat ||
+               @user.responses.last.like_pet_other != nil %>
+                Likes Pet:
+               <% if @user.responses.last.like_pet_dog %>
+                Dog
+               <% elsif @user.responses.last.like_pet_cat %>
+                Cat
+                <% end %>
+                <% unless @user.responses.last.like_pet_other.nil? %>
+                <%= @user.responses.last.like_pet_other %>
+               <% end %>
+            <% end %>
+          </p>
         <% if @user == current_user %>
           <p>
             <%= link_to "Edit Questionnaire", questionnaire_path %>
