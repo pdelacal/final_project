@@ -3,6 +3,8 @@
 <div class="profile_picture">
   <% if @user && @user.picture %>
     <%= image_tag @user.picture %>
+  <% elsif @user && @user.avatar.url %>
+    <%= image_tag @user.avatar.url(:square) %>
   <% else %>
     <img src="/assets/missing.jpg">
   <% end %>
@@ -39,6 +41,9 @@
     <% end %>
     <% if @user == current_user %>
       <%= link_to 'Edit Login', edit_user_path(@user),  class: "btn btn-default edit_profile"%>
+      <span>
+      <%= link_to 'Edit Profile Picture', avatar_path, class: "btn btn-default edit_profile" %>
+      </span>
     <% end %>
   </div>
 </div>

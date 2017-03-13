@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy,
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :set_avatar,
     :request_friend, :add_friend, :cancel_request, :ignore_request, :remove_friend]
 
   # GET /users
@@ -95,8 +95,10 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    set_user
+    @user.avatar = params['user']['avatar']
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.save
         format.html { redirect_to @user}
         format.json { render :show, status: :ok, location: @user }
       else
@@ -106,6 +108,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def avatar
+    set_user
+  end
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy

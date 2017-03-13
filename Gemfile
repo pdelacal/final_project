@@ -14,6 +14,7 @@ gem 'pg'
 gem 'owlcarousel-rails'
 
 gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '~> 2.3'
 
 gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

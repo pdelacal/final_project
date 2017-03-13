@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # post '/' => 'sessions#create'
   get 'page/about'
   #
-  get 'users/profile/:id' => 'users#profile', as: 'avatar'
+  get 'users/:id/avatar' => 'users#avatar', as: 'avatar'
 
   # search
   get '/search' => 'page#search'
@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get "/assets/stylesheets/goog_maps.css" => 'page#search'
   get '/assets/javascripts/google_maps.js' => 'page#search'
   get '/assets/stylesheets/goog_maps.css' => 'page#search'
-
 
   # questionnaire
   get '/questionnaire' => 'responses#new'

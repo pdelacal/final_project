@@ -1,0 +1,20 @@
+<div class="profile_picture2">
+  <% if @user && @user.picture %>
+    <%= image_tag @user.picture %>
+  <% elsif @user && @user.avatar.url %>
+    <%= image_tag @user.avatar.url(:square) %>
+  <% else %>
+    <img src="/assets/missing.jpg">
+  <% end %>
+
+  <%= form_for(@user) do |f| %>
+    <div class="field">
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Update Profile Picture' %>
+    </div>
+  <% end %>
+  <%= link_to "Return to Profile", user_path, class: "btn btn-default edit_avatar" %>
+</div>
