@@ -39,7 +39,9 @@
         <%= link_to "Add Friend", request_path, class: "btn btn-info" %>
     <% end %>
     <% if @user.responses.last.nil? && @user == current_user %>
-      <%= link_to "Complete Questionnaire", response_path, class: "btn btn-success" %>
+      <%= link_to "Complete Questionnaire", questionnaire_path, class: "btn btn-success" %>
+      <% else %>
+      <%= link_to "Edit Questionnaire", questionnaire_path, class: "btn btn-success" %>
     <% end %>
     <% if @user == current_user %>
       <%= link_to 'Edit Login', edit_user_path(@user),  class: "btn btn-default edit_profile"%>
@@ -92,7 +94,7 @@
       <% if @user.responses.last %>
         <% if @user == current_user %>
           <p>
-            <%= link_to "Edit Questionnaire", edit_response_path %>
+            <%= link_to "Edit Questionnaire", questionnaire_path %>
           </p>
         <% end %>
         <p>
@@ -121,7 +123,7 @@
         </p>
         <% if @user == current_user %>
           <p>
-            <%= link_to "Edit Questionnaire", edit_response_path %>
+            <%= link_to "Edit Questionnaire", questionnaire_path %>
           </p>
         <% end %>
       <% else %>
