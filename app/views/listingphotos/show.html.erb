@@ -20,3 +20,4 @@
 <% photo += 1 %>
 <% end %>
 <%= link_to 'Return to Apartment Listing', listing_path(current_user.listing.id) %>
+<%= link_to 'Add Apartment Photos', new_listingphoto_path, class: "btn btn-success" %>
