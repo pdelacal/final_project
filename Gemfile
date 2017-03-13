@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # gem 'devise'
+gem 'carrierwave', '~> 1.0'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
