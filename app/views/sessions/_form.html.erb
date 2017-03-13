@@ -1,10 +1,9 @@
 <%= form_for(login_path, remote: true) do |f| %>
-<!-- byebug -->
-  <%# if @user.errors.full_messages.any? %>
-    <%# @user.errors.full_messages.each do |error_message| %>
-    <%#= error_message if @user.errors.full_messages.first == error_message %>
-    <%# end %>
-  <%# end %>
+  <% if @user.errors.full_messages.any? %>
+    <% @user.errors.full_messages.each do |error_message| %>
+    <%= error_message if @user.errors.full_messages.first == error_message %>
+    <% end %>
+  <% end %>
 
   <div class="field">
     <%= f.label :email %>
