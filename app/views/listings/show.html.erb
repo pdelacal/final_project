@@ -33,7 +33,7 @@
   <% end %>
   <div class="profile_panel">
     <h2>
-      <%= @listing.user.name %>
+      <%= link_to @listing.user.name, @listing.user %>
     </h2>
 
     <% if current_user.friends.include?(@listing.user) %>
@@ -62,44 +62,46 @@
 </div>
 
 <div class="listing_info info-rent">
+  <h3>$
   <% if @listing && @listing.rent %>
-    <h3>
-      $<%= @listing.rent %>
+    <%= @listing.rent %>
     </h3>
     <p>
       /month
     </p>
+  <% else %>
+    </h3>
   <% end %>
 </div>
 <div class="listing_info info-date">
+  <p>
+  Move-in:
   <% if @listing.move_in_day %>
-    <p>
-      Move-in: <%= @listing.move_in_day %>
-    </p>
+      <%= @listing.move_in_day %>
   <% elsif @listing.user.responses.last && @listing.user.responses.last.move_in_date %>
-    <p>
-      Move-in: <%= @listing.user.responses.last.move_in_date %>
-    </p>
+    <%= @listing.user.responses.last.move_in_date %>
   <% end %>
+</p>
 </div>
 <div class="listing_info info-duration">
+  <p>
+  Duration:
   <% if @listing.stay_duration %>
-    <p>
-      Duration: <%= @listing.stay_duration %>
-    </p>
+    <%= @listing.stay_duration %>
   <% elsif @listing.user.responses.last && @listing.user.responses.last.duration %>
-    <p>
-      <% @listing.user.responses.last.duration %>
-    </p>
+    <% @listing.user.responses.last.duration %>
   <% end %>
+</p>
 </div>
 
 <div id="map" style="
-    overflow: hidden;
-    float: left;
-    margin: -20em 0 0 15em;
-    width: 45%;
-    height: 30em;"></div>
+  overflow: hidden;
+  float: left;
+  margin: -22.9em 0px 0px 18.4em;
+  width: 51.1%;
+  height: 40em;
+  position: relative;">
+</div>
 
 <script>
   window.addresses = [];
