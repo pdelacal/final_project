@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312024225) do
+ActiveRecord::Schema.define(version: 20170313011244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20170312024225) do
     t.string   "state"
     t.string   "zipcode"
     t.string   "deposit"
-    t.string   "move_in_date"
     t.string   "stay_duration"
     t.string   "in_unit_washer"
     t.string   "wifi_included"
@@ -75,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170312024225) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "move_in_day"
     t.index ["user_id"], name: "index_listings_on_user_id", using: :btree
   end
 
@@ -131,10 +131,14 @@ ActiveRecord::Schema.define(version: 20170312024225) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "facebook_id"
     t.string   "picture"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_foreign_key "listingphotos", "listings"

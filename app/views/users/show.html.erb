@@ -6,6 +6,7 @@
   <% else %>
     <img src="/assets/missing.jpg">
   <% end %>
+  <% unless @user == current_user %>
   <div class="similarity_info">
     <div>
       <h1>
@@ -13,6 +14,7 @@
       </h1>
     </div>
   </div>
+  <% end %>
   <div class="profile_panel">
     <h2>
       <%= @user.name %>
