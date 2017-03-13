@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="profile_picture">
+<div class="profile_picture profile">
   <% if @user && @user.avatar.url %>
   <%= image_tag @user.avatar.url %>
   <% elsif @user && @user.picture %>
@@ -90,6 +90,11 @@
     </h3>
     <div class="questionnaire">
       <% if @user.responses.last %>
+        <% if @user == current_user %>
+          <p>
+            <%= link_to "Edit Questionnaire", edit_response_path %>
+          </p>
+        <% end %>
         <p>
           <% if @user.responses.last.age_early_20s || @user.responses.last.age_late_20s ||
              @user.responses.last.age_30s || @user.responses.last.age_40s_older %>
@@ -114,6 +119,11 @@
             </p>
           <% end %>
         </p>
+        <% if @user == current_user %>
+          <p>
+            <%= link_to "Edit Questionnaire", edit_response_path %>
+          </p>
+        <% end %>
       <% else %>
         <p>
           Questionnaire hasn't been filled out.
@@ -123,10 +133,12 @@
   </div>
 </div>
 
-<div class="listing_info">
+<div class="profile_listing_info">
   <% if @user.listing && @user.listing.listingphotos.first %>
     <!-- <button type="button" data-toggle="modal" data-target="#preview"> -->
-    <%= link_to image_tag(@user.listing.listingphotos.first.photo.url), @user.listing %>
+    <div class="profile-listing-photo">
+      <%= link_to image_tag(@user.listing.listingphotos.first.photo.url), @user.listing %>
+    </div>
     <!-- </button> -->
     <% if @user.listing.rent %>
       <div class="listing_rent">

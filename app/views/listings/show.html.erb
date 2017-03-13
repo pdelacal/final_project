@@ -13,6 +13,8 @@
     <% end %>
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  <% else %>
+    <%= image_tag "listing_placeholder.png", atl: "No Photos Added", class: "photo-slide active" %>
   <% end %>
 </div>
 
@@ -61,48 +63,48 @@
   </div>
 </div>
 
-<div class="listing_info info-rent">
-  <h3>$
-  <% if @listing && @listing.rent %>
-    <%= @listing.rent %>
-    </h3>
+<div class="listing-info-bar">
+  <div class="listing_info info-rent">
+    <h3>$
+    <% if @listing && @listing.rent %>
+      <%= @listing.rent %>
+      </h3>
+      <p>
+        /month
+      </p>
+    <% else %>
+      </h3>
+    <% end %>
+  </div>
+  <div class="listing_info info-date">
     <p>
-      /month
+    Move-in:
+    <% if @listing.move_in_day %>
+        <%= @listing.move_in_day %>
+    <% elsif @listing.user.responses.last && @listing.user.responses.last.move_in_date %>
+      <%= @listing.user.responses.last.move_in_date %>
+    <% end %>
     </p>
-  <% else %>
-    </h3>
-  <% end %>
-</div>
-<div class="listing_info info-date">
-  <p>
-  Move-in:
-  <% if @listing.move_in_day %>
-      <%= @listing.move_in_day %>
-  <% elsif @listing.user.responses.last && @listing.user.responses.last.move_in_date %>
-    <%= @listing.user.responses.last.move_in_date %>
-  <% end %>
-</p>
-</div>
-<div class="listing_info info-duration">
-  <p>
-  Duration:
-  <% if @listing.stay_duration %>
-    <%= @listing.stay_duration %>
-  <% elsif @listing.user.responses.last && @listing.user.responses.last.duration %>
-    <% @listing.user.responses.last.duration %>
-  <% end %>
-</p>
+  </div>
+  <div class="listing_info info-duration">
+    <p>
+    Duration:
+    <% if @listing.stay_duration %>
+      <%= @listing.stay_duration %>
+    <% elsif @listing.user.responses.last && @listing.user.responses.last.duration %>
+      <% @listing.user.responses.last.duration %>
+    <% end %>
+    </p>
+  </div>
 </div>
 
 <div id="map" style="
-overflow: hidden;
-float: left;
-margin: -22.9em 0px 0px 18.4em;
-width: 51.5%;
-height: 40em;
-position: relative;
-border: 6px solid #fff;
-border-top: 0px;">
+  overflow: hidden;
+  width: 54.5em;
+  height: 40em;
+  position: relative;
+  border-top: 0px;
+  margin-right: -0.5em;">
 </div>
 
 <script>
@@ -112,7 +114,7 @@ border-top: 0px;">
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
     async defer></script>
 
-<% if current_user.listing && @listing == current_user.listing %>
+<!-- <% if current_user.listing && @listing == current_user.listing %>
   <%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>
   <% if current_user.listing.listingphotos == 0 %>
     | <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
@@ -122,4 +124,4 @@ border-top: 0px;">
   <% else %>
     | <%= link_to 'Edit Your Apartment Photos', listingphoto_path %>
   <% end %>
-<% end %>
+<% end %> -->

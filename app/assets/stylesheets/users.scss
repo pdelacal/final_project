@@ -14,8 +14,8 @@ body {
 
   & h1 {
     position: relative;
-    top: -1.4em;
-    left: 2.6em;
+    top: -1.5em;
+    left: 2.5em;
     font-size: 5em;
     color: white;
     text-shadow: 1px 1px 2px black;
@@ -25,8 +25,8 @@ body {
 }
 
 .profile_picture {
-  margin: 0.5em 0 0 4em;
-  width: 25.4%;
+  // margin: 0.5em 0 0 4em;
+  width: 25em;
   // width: 25em;
   // box-shadow: 1px 1px 2px 2px grey;
   background-color: #fff;
@@ -145,7 +145,7 @@ body {
   }
 }
 
-.listing_info {
+.profile_listing_info {
     clear: left;
     border-bottom: 1px solid #ccc;
     /* padding: 2em; */
@@ -155,10 +155,15 @@ body {
     width: 25em;
     text-align: center;
 
+    .profile-listing-photo {
+      height: 20em;
+
     & img {
       width: 25em;
+      height: 20em;
     }
 
+  }
 }
 
 .listing_rent {
@@ -191,4 +196,8 @@ body {
 
   & h2 {
   }
+}
+
+.profile {
+    margin: 0.5em 0 2em 4em;
 }
