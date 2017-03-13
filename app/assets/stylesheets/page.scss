@@ -582,3 +582,21 @@ label {
   & a {
   }
 }
+
+#tagline {
+  font-family: 'Oregano', cursive;
+  padding-left: 0.5em;
+  font-size: 2.1em;
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    background-image: none;
+    text-decoration: none;
+    background-color: none;
+  }
+
+  &:visited {
+    text-decoration: none;
+  }
+}

@@ -2,7 +2,7 @@
 
 <div class="profile_picture">
   <% if @user && @user.avatar.url %>
-    <%= image_tag @user.avatar.url(:square) %>
+  <%= image_tag @user.avatar.url %>
   <% elsif @user && @user.picture %>
     <%= image_tag @user.picture %>
   <% else %>
