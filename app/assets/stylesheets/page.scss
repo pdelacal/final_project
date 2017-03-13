@@ -473,9 +473,10 @@ label {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-left: -11em;
 
   & .listing_result {
-    margin: 3em 0.6em;
+    margin: 3em;
     height: 23em;
 
     & .listing_photo {

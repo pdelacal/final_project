@@ -71,10 +71,25 @@
     </p>
   <% end %>
 </div>
-<div class="login_body info-date">
-  <% if @listing.user.responses.last && @list.user.responses.last.move_in_date %>
+<div class="listing_info info-date">
+  <% if @listing.move_in_day %>
+    <p>
+      Move-in: <%= @listing.move_in_day %>
+    </p>
+  <% elsif @listing.user.responses.last && @listing.user.responses.last.move_in_date %>
     <p>
       Move-in: <%= @listing.user.responses.last.move_in_date %>
+    </p>
+  <% end %>
+</div>
+<div class="listing_info info-duration">
+  <% if @listing.stay_duration %>
+    <p>
+      Duration: <%= @listing.stay_duration %>
+    </p>
+  <% elsif @listing.user.responses.last && @listing.user.responses.last.duration %>
+    <p>
+      <% @listing.user.responses.last.duration %>
     </p>
   <% end %>
 </div>

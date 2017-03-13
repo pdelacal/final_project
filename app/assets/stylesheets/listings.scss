@@ -62,4 +62,14 @@ img.photo-slide {
       margin: auto -0.7em auto 1em;
     }
   }
+
+  &.info-date {
+    width: 18em;
+    margin: -7em 0 0 31em;
+  }
+
+  &.info-duration {
+    width: 18em;
+    margin: -7em 0 0 49em;
+  }
 }

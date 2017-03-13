@@ -1,14 +1,14 @@
 <% if @listings.nil? %>
   No results found.
 <% else %>
-<%= form_tag page_search_path, method: :get, class: 'search-form' do %>
+<!-- <%= form_tag page_search_path, method: :get, class: 'search-form' do %>
 <span><%= search_field_tag :term, nil, class: 'form-control' %>
 <button type="submit" class="btn btn-primary searchbar">Search</button></span>
-<% end %>
+<% end %> -->
   <script>
     window.addresses = [];
   </script>
-  <div class="search_results col-md-8">
+  <div class="search_results">
     <% @listings.each do |listing| %>
       <% if current_user %>
         <% unless listing.user_id == current_user.id %>
@@ -70,6 +70,6 @@
 <% end %> -->
 
 
-<div id="map" class="col-md-4"></div>
+<div id="map"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
     async defer></script>
