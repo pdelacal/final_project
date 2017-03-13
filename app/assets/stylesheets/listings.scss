@@ -27,7 +27,12 @@ img.photo-slide {
     border-radius: 50%;
     background-color: rgba(0,0,0,0.3);
     padding: 0.3em;
+
+    &:hover {
+      box-shadow: 1px 1px 3px 6px #99e0ff;
+    }
 }
+
 
 .glyphicon-chevron-right {
     /* float: left; */
@@ -42,6 +47,10 @@ img.photo-slide {
     text-shadow: 0 0 2px #bbb;
     background-color: rgba(0,0,0,0.3);
     padding: 0.3em;
+
+    &:hover {
+      box-shadow: 1px 1px 3px 6px #99e0ff;
+    }
 }
 
 .profile_picture {

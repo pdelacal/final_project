@@ -34,18 +34,14 @@ body {
   float: left;
   border-bottom: 1px solid #ccc;
 
+
   & img {
     height: 25em;
     width: 25em;
     border: 6px solid #fff;
 
-    &:hover {
-      box-shadow: 1px 1px 3px #DEF5FF;
-    }
-  }
 
-  & h2 {
-  }
+    }
 }
 
 // .avatar_btn {
