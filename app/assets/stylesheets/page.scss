@@ -11,7 +11,8 @@ body {
 .homepageimg {
   // margin-top: 3.5em;
   height: 75em;
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), image-url(move.jpg) 100% no-repeat;
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), 100% no-repeat;
+  background-image: image-url(move);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -19,7 +20,8 @@ body {
 .featuresimg {
   margin-top: 12.5em;
   height: 50em;
-  background: linear-gradient( rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55) ), image-url(college.jpg) 100% no-repeat;
+  background: linear-gradient( rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55) ), 100% no-repeat;
+  background-image: image-url(college);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -71,7 +73,7 @@ body {
 }
 
 @media (max-width: 475px) {
-  .homepageimg: image-url(decor.jpg/400/600);
+  .homepageimg: image-url(decor/400/600);
   background-size:100%;
   width:100%;
 }
@@ -551,7 +553,8 @@ label {
 
 .friendsimg {
   height: 20em;
-  background: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), image-url(chill.jpg) 100% no-repeat;
+  background: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), 100% no-repeat;
+  background-image: image-url(chill);
   background-position: center;
   background-repeat: no-repeat;
 }
