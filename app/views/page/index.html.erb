@@ -1,6 +1,7 @@
 <div class="jumbotron jumbotron-fluid homepageimg">
   <div class="container">
     <h1 id="hometitle">New Beginnings, Endless Possibilities</h1>
+    <br>
     <h4 id="homebody">New in town? Find your ideal roommate and browse through thousands of available listings.
 </h4>
       <%= form_tag page_search_path, method: :get, class: 'search-form' do %>
@@ -16,20 +17,22 @@
      Already Have an Apartment listed?
    </div>
    <div id="indextxt">
+     <br>
      Edit your listing as you continue to search for that perfect roommate!
    </div>
    <div class="mainpagebtn">
-     <%= link_to 'Edit Your Listing', listing_path(current_user.listing), class: 'editlistbtn' %>
+     <%= link_to 'Edit Your Listing', listing_path(current_user.listing), class: 'btn btn-primary searchbar' %>
    </div>
   <% elsif %>
    <div class="indextext">
      You Made the Move, Now What?
    </div>
    <div id="indextxt">
+     <br>
      Post your listing in front of thousands of verified roommates.
    </div>
    <div class="mainpagebtn">
-     <%= link_to 'List It', new_listing_path, class: 'listbtn' %>
+     <%= link_to 'List It', new_listing_path, class: 'btn btn-primary searchbar' %>
    </div>
   <% end %>
   <% else %>
@@ -37,10 +40,11 @@
     You Made the Move, Now What?
   </div>
   <div id="indextxt">
+    <br>
     Post your listing in front of thousands of verified roommates.
   </div>
   <div id="mainpagebtn">
-    <button type="button" class="btn-primary btn-md btn-square listbtn" data-toggle="modal" data-target="#signup">
+    <button type="button" class="btn btn-primary searchbar" data-toggle="modal" data-target="#signup">
       List It
     </button>
   </div>
@@ -50,6 +54,16 @@
     <div class="container">
       <h1 id="hometitle2">Roommate Hunting Without the Hassle.</h1>
       <h4 id="homebody2">Connect with thousands of potential roommates with our compatibility test.</h4>
+      </div>
+      <br>
+      <div id="mainpagebtn">
+      <% if current_user %>
+           <%= link_to "Let's Go", friends_path, class: 'btn btn-primary searchbar two' %>
+        <% else %>
+          <a class="btn btn-primary searchbar two" data-toggle="modal" data-target="#signup">
+            Let's Go
+          </a>
+        <% end %>
       </div>
     </div>
   <div class="">
