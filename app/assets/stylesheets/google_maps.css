@@ -5,8 +5,11 @@
   width: 40%;
   float: right;
   margin-top: 0.12em;
-  position: fixed !important;
   right: 0em;
+}
+
+.search-map {
+  position: fixed !important;
 }
 
 /* Optional: Makes the sample page fill the window. */
