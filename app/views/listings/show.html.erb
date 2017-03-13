@@ -144,7 +144,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
     async defer></script> -->
 
-<% if current_user.listing && @listing == current_user.listing %>
+<!-- <% if current_user.listing && @listing == current_user.listing %>
   <%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>
   <% if current_user.listing.listingphotos == 0 %>
     | <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
@@ -154,4 +154,4 @@
   <% else %>
     | <%= link_to 'Edit Your Apartment Photos', listingphoto_path %>
   <% end %>
-<% end %>
+<% end %> -->

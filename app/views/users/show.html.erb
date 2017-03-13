@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <div class="profile_picture">
-  <% if @user && @user.picture %>
-    <%= image_tag @user.picture %>
-  <% elsif @user && @user.avatar.url %>
+  <% if @user && @user.avatar.url %>
     <%= image_tag @user.avatar.url(:square) %>
+  <% elsif @user && @user.picture %>
+    <%= image_tag @user.picture %>
   <% else %>
     <img src="/assets/missing.jpg">
   <% end %>
+  <% unless @user == current_user %>
   <div class="similarity_info">
     <div>
       <h1>
@@ -15,6 +16,7 @@
       </h1>
     </div>
   </div>
+  <% end %>
   <div class="profile_panel">
     <h2>
       <%= @user.name %>
