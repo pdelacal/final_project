@@ -4,7 +4,7 @@
     <h4 id="homebody">New in town? Find your ideal roommate and browse through thousands of available listings.
 </h4>
       <%= form_tag page_search_path, method: :get, class: 'search-form' do %>
-      <span><%= search_field_tag :term, nil, class: 'form-control' %>
+      <span><%= search_field_tag :term, nil, placeholder: "Enter a City", class: 'form-control' %>
       <button type="submit" class="btn btn-primary searchbar">Search</button></span>
       <% end %>
       <%= params[:term] %>
