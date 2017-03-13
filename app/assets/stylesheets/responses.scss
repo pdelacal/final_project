@@ -5,3 +5,23 @@
 .respname {
   text-align: left;
 }
+
+.form_field {
+  display: inline-flex;
+  background-color: #fff;
+  border-radius: 2em;
+  flex-wrap: wrap;
+}
+
+h3, .form_field {
+  margin: 0.5em 2em;
+}
+
+#btn-responses {
+  margin-left: 4em;
+}
+
+textarea#listing_description {
+    height: 10em;
+    width: 40em;
+}

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'page/about'
   #
   get 'users/:id/avatar' => 'users#avatar', as: 'avatar'
+  get '/avatar/destroy' => 'users#destroy_avatar'
 
   # search
   get '/search' => 'page#search'

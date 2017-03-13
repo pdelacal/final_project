@@ -14,7 +14,11 @@
     </div>
     <div class="actions">
       <%= f.submit 'Update Profile Picture' %>
+      <% if @user.avatar %>
+        <%= button_to "Remove Picture", avatar_destroy_path, class: "btn btn-danger" %>
+      <% end %>
     </div>
+
   <% end %>
   <%= link_to "Return to Profile", user_path, class: "btn btn-default edit_avatar" %>
 </div>
