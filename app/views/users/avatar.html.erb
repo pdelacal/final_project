@@ -1,8 +1,8 @@
 <div class="profile_picture2">
-  <% if @user && @user.picture %>
+  <% if @user && @user.avatar.url %>
+  <%= image_tag @user.avatar.url %>
+  <% elsif @user && @user.picture %>
     <%= image_tag @user.picture %>
-  <% elsif @user && @user.avatar.url %>
-    <%= image_tag @user.avatar.url(:square) %>
   <% else %>
     <img src="/assets/missing.jpg">
   <% end %>
