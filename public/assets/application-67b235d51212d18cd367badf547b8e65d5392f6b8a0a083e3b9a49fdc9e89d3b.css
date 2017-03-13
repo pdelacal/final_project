@@ -8923,7 +8923,7 @@ body {
 /* line 10, /home/lordphiliam/wyncode/final_project/app/assets/stylesheets/page.scss */
 .homepageimg {
   height: 75em;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), image-url(people.jpg) 100% no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), image-url('people.jpg') 100% no-repeat;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -8932,7 +8932,7 @@ body {
 .featuresimg {
   margin-top: 12.5em;
   height: 50em;
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), image-url(college.jpg) 100% no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), image-url('college.jpg') 100% no-repeat;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -8982,7 +8982,7 @@ body {
 }
 
 @media (max-width: 475px) {
-  .homepageimg: image-url(/decor.jpg/400/600);
+  .homepageimg: image-url('/decor.jpg/400/600');
   background-size: 100%;
   width: 100%;
 }
@@ -9783,7 +9783,7 @@ body {
 
 /* mouse grab icon */
 .grabbing {
-    cursor: image-url(grabbing.png) 8 8, move;
+    cursor: image-url('grabbing.png') 8 8, move;
 }
 
 /* fix */

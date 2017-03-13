@@ -9,13 +9,12 @@ body {
 
 }
 
-//= depend_on_asset "home.jpg"
 
 .homepageimg {
   // margin-top: 3.5em;
   height: 75em;
   background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), 100% no-repeat;
-  background-image: image-url('<%= asset_path("move.jpg") %> ');
+  background-image: image-url('move');
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -24,7 +23,7 @@ body {
   margin-top: 12.5em;
   height: 50em;
   background: linear-gradient( rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55) ), 100% no-repeat;
-  background-image: image-url(college);
+  background-image: image-url('college');
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -76,7 +75,7 @@ body {
 }
 
 @media (max-width: 475px) {
-  .homepageimg: image-url(decor/400/600);
+  .homepageimg: image-url('decor/400/600');
   background-size:100%;
   width:100%;
 }
