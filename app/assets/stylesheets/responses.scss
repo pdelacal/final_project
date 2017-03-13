@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.field.form_field {
+.respname {
+  text-align: left;
+}
+
+.form_field {
   display: inline-flex;
   background-color: #fff;
   border-radius: 2em;

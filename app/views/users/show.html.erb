@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <div class="profile_picture profile">
-  <% if @user && @user.avatar.url %>
+  <% if @user && @user.picture %>
+  <%= image_tag @user.picture %>
+  <% elsif @user && @user.avatar.url %>
   <%= image_tag @user.avatar.url %>
-  <% elsif @user && @user.picture %>
-    <%= image_tag @user.picture %>
   <% else %>
     <img src="/assets/missing.jpg">
   <% end %>
