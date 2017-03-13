@@ -4,6 +4,9 @@ class ResponsesController < ApplicationController
     @user = current_user
   end
 
+  def edit
+  end
+
   def create
     # @user.id = current_user.id
     current_user.responses << Response.new(response_params)
@@ -12,7 +15,7 @@ class ResponsesController < ApplicationController
 
     respond_to do |format|
       if @response.save
-        format.html { redirect_to current_user.responses.last, notice: 'Listing was successfully edited.' }
+        format.html { redirect_to @response.user, notice: 'Listing was successfully edited.' }
         format.json { render :show, status: :created, location: @response }
       else
         format.html { render :edit }
