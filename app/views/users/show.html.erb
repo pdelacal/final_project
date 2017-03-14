@@ -60,7 +60,9 @@
       Neighborhood:
     </h3>
     <p>
-    <%= @user.listing.address %>
+    <% if @user.listing %>
+      <%= @user.listing.address %>
+    <% end %>
     </p>
   </div>
 
