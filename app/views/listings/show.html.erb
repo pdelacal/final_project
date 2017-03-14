@@ -24,7 +24,7 @@
   <% else %>
     <img src="/assets/missing.jpg">
   <% end %>
-  <% unless @listing.user == current_user %>
+  <% unless @listing.user == current_user || current_user.nil? %>
   <div class="similarity_info">
     <div>
       <h1>
@@ -37,25 +37,26 @@
     <h2>
       <%= link_to @listing.user.name, @listing.user %>
     </h2>
-
-    <% if current_user.friends.include?(@listing.user) %>
-        <%= link_to "Email Friend", @listing.user, class: "btn btn-danger" %>
+    <% if current_user %>
+      <% if current_user.friends.include?(@listing.user) %>
+          <%= link_to "Email Friend", @listing.user, class: "btn btn-danger" %>
+          <br>
+          <br>
+          <%= link_to "Remove Friend", remove_path %>
+          <br>
+      <% elsif current_user.requests_to.include?(@listing.user)%>
+          <%= link_to "Cancel Request", cancel_path(@listing.user), class: "btn btn-default" %>
+      <% elsif current_user.requests_from.include?(@listing.user) %>
+          <%= link_to "Accept", accept_path, class: "btn btn-primary" %>
+          <%= link_to "Ignore", ignore_path, class: "btn btn-default" %>
+      <% elsif current_user == @listing.user %>
         <br>
-        <br>
-        <%= link_to "Remove Friend", remove_path %>
-        <br>
-    <% elsif current_user.requests_to.include?(@listing.user)%>
-        <%= link_to "Cancel Request", cancel_path(@listing.user), class: "btn btn-default" %>
-    <% elsif current_user.requests_from.include?(@listing.user) %>
-        <%= link_to "Accept", accept_path, class: "btn btn-primary" %>
-        <%= link_to "Ignore", ignore_path, class: "btn btn-default" %>
-    <% elsif current_user == @listing.user %>
-      <br>
-    <% else %>
-        <%= link_to "Add Friend", request_path, class: "btn btn-info" %>
-    <% end %>
-    <% if @listing.user == current_user && @listing.listingphotos.size < 12 %>
-      <%= link_to "Add Apt Photos", new_listingphoto_path, class: "btn btn-success" %>
+      <% else %>
+          <%= link_to "Add Friend", request_path, class: "btn btn-info" %>
+      <% end %>
+      <% if @listing.user == current_user && @listing.listingphotos.size < 12 %>
+        <%= link_to "Add Apt Photos", new_listingphoto_path, class: "btn btn-success" %>
+      <% end %>
     <% end %>
   </div>
 </div>

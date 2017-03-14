@@ -8,7 +8,7 @@
   <% else %>
     <img src="/assets/missing.jpg">
   <% end %>
-  <% unless @user == current_user %>
+  <% unless @user == current_user || current_user.nil? %>
   <div class="similarity_info">
     <div>
       <h1>
@@ -22,32 +22,34 @@
       <%= @user.name %>
     </h2>
 
-    <% if current_user.friends.include?(@user) %>
-        <%= link_to "Email Friend", @user, class: "btn btn-danger" %>
+    <% if current_user %>
+      <% if current_user.friends.include?(@user) %>
+          <%= link_to "Email Friend", @user, class: "btn btn-danger" %>
+          <br>
+          <br>
+          <%= link_to "Remove Friend", remove_path %>
+          <br>
+      <% elsif current_user.requests_to.include?(@user)%>
+          <%= link_to "Cancel Request", cancel_path(@user), class: "btn btn-default" %>
+      <% elsif current_user.requests_from.include?(@user) %>
+          <%= link_to "Accept", accept_path, class: "btn btn-primary" %>
+          <%= link_to "Ignore", ignore_path, class: "btn btn-default" %>
+      <% elsif current_user == @user %>
         <br>
-        <br>
-        <%= link_to "Remove Friend", remove_path %>
-        <br>
-    <% elsif current_user.requests_to.include?(@user)%>
-        <%= link_to "Cancel Request", cancel_path(@user), class: "btn btn-default" %>
-    <% elsif current_user.requests_from.include?(@user) %>
-        <%= link_to "Accept", accept_path, class: "btn btn-primary" %>
-        <%= link_to "Ignore", ignore_path, class: "btn btn-default" %>
-    <% elsif current_user == @user %>
-      <br>
-    <% else %>
-        <%= link_to "Add Friend", request_path, class: "btn btn-info" %>
-    <% end %>
-    <% if @user.responses.last.nil? && @user == current_user %>
-      <%= link_to "Complete Questionnaire", questionnaire_path, class: "btn btn-success" %>
       <% else %>
-      <%= link_to "Edit Questionnaire", questionnaire_path, class: "btn btn-success" %>
-    <% end %>
-    <% if @user == current_user %>
-      <%= link_to 'Edit Login', edit_user_path(@user),  class: "btn btn-default edit_profile"%>
-      <span>
-      <%= link_to 'Edit Profile Picture', avatar_path, class: "btn btn-default edit_profile" %>
-      </span>
+          <%= link_to "Add Friend", request_path, class: "btn btn-info" %>
+      <% end %>
+      <% if @user.responses.last.nil? && @user == current_user %>
+        <%= link_to "Complete Questionnaire", questionnaire_path, class: "btn btn-success" %>
+        <% else %>
+        <%= link_to "Edit Questionnaire", questionnaire_path, class: "btn btn-success" %>
+      <% end %>
+      <% if @user == current_user %>
+        <%= link_to 'Edit Login', edit_user_path(@user),  class: "btn btn-default edit_profile"%>
+        <span>
+        <%= link_to 'Edit Profile Picture', avatar_path, class: "btn btn-default edit_profile" %>
+        </span>
+      <% end %>
     <% end %>
   </div>
 </div>
