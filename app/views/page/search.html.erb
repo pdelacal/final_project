@@ -20,6 +20,8 @@
               <%= link_to image_tag(listing.listingphotos.first.photo.url), listing, class: "listing_photo" %>
               <% if listing.user && listing.user.picture %>
                 <%= link_to image_tag(listing.user.picture), listing.user, class: "user_photo" %>
+              <% elsif listing.user && listing.user.avatar.url %>
+                <%= link_to image_tag(listing.user.avatar.url), listing.user, class: "user_photo" %>
               <% end %>
               <% if listing.rent %>
                 <div class="listing_rent">
@@ -40,6 +42,8 @@
             <%= link_to image_tag(listing.listingphotos.first.photo.url), listing, class: "listing_photo" %>
             <% if listing.user && listing.user.picture %>
               <%= link_to image_tag(listing.user.picture), listing.user, class: "user_photo" %>
+            <% elsif listing.user && listing.user.avatar.url %>
+              <%= link_to image_tag(listing.user.avatar.url), listing.user, class: "user_photo" %>
             <% end %>
             <% if listing.rent %>
               <div class="listing_rent">

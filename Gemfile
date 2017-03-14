@@ -14,7 +14,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 gem 'pg'
-gem 'owlcarousel-rails'
+# gem 'owlcarousel-rails'
 
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3'
@@ -73,7 +73,7 @@ group :development do
 end
 
 group :production do
-  gem 'rails_12factor' 
+  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

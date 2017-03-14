@@ -21,6 +21,8 @@
 <div class="profile_picture listing-profile">
   <% if @listing.user && @listing.user.picture %>
     <%= image_tag @listing.user.picture %>
+  <% elsif @listing.user.avatar.url %>
+    <%= image_tag(@listing.user.avatar.url) %>
   <% else %>
     <img src="/assets/missing.jpg">
   <% end %>
