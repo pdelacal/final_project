@@ -54,8 +54,8 @@
     <% else %>
         <%= link_to "Add Friend", request_path, class: "btn btn-info" %>
     <% end %>
-    <% if @listing.listingphotos.first.nil? && @listing.user == current_user %>
-      <%= link_to "Add Apt Photos", edit_listingphoto_path, class: "btn btn-success" %>
+    <% if @listing.user == current_user && @listing.listingphotos.first.nil? %>
+      <%= link_to "Add Apt Photos", new_listingphoto_path, class: "btn btn-success" %>
     <% end %>
   </div>
 </div>
