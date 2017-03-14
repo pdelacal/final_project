@@ -14,7 +14,8 @@
     </div>
     <div class="actions">
       <%= f.submit 'Update Profile Picture' %>
-      <% if @user.avatar %>
+      <% unless @user.avatar.nil? %>
+        <br>
         <%= button_to "Remove Picture", avatar_destroy_path, class: "btn btn-danger" %>
       <% end %>
     </div>

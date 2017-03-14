@@ -45,9 +45,9 @@
         <%= link_to "Edit Questionnaire", questionnaire_path, class: "btn btn-success" %>
       <% end %>
       <% if @user == current_user %>
-        <%= link_to 'Edit Login', edit_user_path(@user),  class: "btn btn-default edit_profile"%>
         <span>
-        <%= link_to 'Edit Profile Picture', avatar_path, class: "btn btn-default edit_profile" %>
+          <%= link_to 'Edit Login', edit_user_path(@user),  class: "btn btn-default edit_profile"%>
+          <%= link_to 'Edit Profile Picture', avatar_path, class: "btn btn-default edit_profile" %>
         </span>
       <% end %>
     <% end %>
