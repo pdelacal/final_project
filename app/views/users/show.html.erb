@@ -105,13 +105,16 @@
              Age:
              <% if @user.responses.last.age_early_20s %>
               Early 20s
-             <% elsif @user.responses.last.age_late_20s %>
-              Late 20s
-              <% elsif @user.responses.last.age_30s %>
-              30s
-             <% @user.responses.last.age_40s_older %>
-             40s and Older
-             <% end %>
+              <% end %>
+              <% if @user.responses.last.age_late_20s %>
+                Late 20s
+              <% end %>
+              <% if @user.responses.last.age_30s %>
+                30s
+              <% end %>
+              <% if @user.responses.last.age_40s_older %>
+                40s and Older
+              <% end %>
           <% end %>
         </p>
           <% @user.responses.last.attributes.each do |response| %>
