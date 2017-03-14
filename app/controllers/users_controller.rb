@@ -96,7 +96,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     set_user
-    @user.avatar = params['user']['avatar']
+    if params['user'] && params['user']['avatar']
+      @user.avatar = params['user']['avatar']
+    end
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user}
@@ -119,6 +121,15 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def destroy_avatar
+    set_user
+    @user.avatar.destroy
+    @user.avatar_file_name = nil
+    @user.avatar_content_type = nil
+    @user.avatar_file_size = nil
+    redirect_to @user
   end
 
   private

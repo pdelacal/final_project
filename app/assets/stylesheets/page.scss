@@ -8,10 +8,13 @@ body {
   // margin-top: 3.5em;
 
 }
+
+
 .homepageimg {
   // margin-top: 3.5em;
   height: 75em;
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/assets/move-2.png) 100% no-repeat;
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), 100% no-repeat;
+  background-image: url('move-2');
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -19,7 +22,8 @@ body {
 .featuresimg {
   margin-top: 12.5em;
   height: 50em;
-  background: linear-gradient( rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55) ), url(/assets/college.png) 100% no-repeat;
+  background: linear-gradient( rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55) ), 100% no-repeat;
+  background-image: url('college-2');
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -70,11 +74,6 @@ body {
   border-radius: 0;
 }
 
-@media (max-width: 475px) {
-  .homepageimg: url(/assets/decor.jpg/400/600);
-  background-size:100%;
-  width:100%;
-}
 
 #navbar {
   color: #000;
@@ -402,7 +401,7 @@ label {
 #homebody2 {
   text-align:center;
   font-family: 'Roboto', sans-serif;
-  color: white;
+  color: #fff;
   padding-top: 1em;
 }
 
@@ -410,7 +409,7 @@ label {
   padding-top:2.5em;
   text-align:center;
   font-family: 'Roboto', sans-serif;
-  color: white;
+  color: #fff;
   font-size: 3.5em;
 }
 
@@ -551,7 +550,8 @@ label {
 
 .friendsimg {
   height: 20em;
-  background: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url(/assets/chill-2.jpg) 100% no-repeat;
+  background: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), 100% no-repeat;
+  background-image: image-url('chill-2');
   background-position: center;
   background-repeat: no-repeat;
 }

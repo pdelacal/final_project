@@ -54,11 +54,8 @@
     <% else %>
         <%= link_to "Add Friend", request_path, class: "btn btn-info" %>
     <% end %>
-    <% if @listing.user.responses.last.nil? && @listing.user == current_user %>
-      <%= link_to "Complete Questionnaire", response_path, class: "btn btn-success" %>
-    <% end %>
-    <% if @listing.user == current_user %>
-      <%= link_to 'Edit Login', edit_user_path(@listing.user),  class: "btn btn-default edit_profile"%>
+    <% if @listing.user == current_user && @listing.listingphotos.size < 12 %>
+      <%= link_to "Add Apt Photos", new_listingphoto_path, class: "btn btn-success" %>
     <% end %>
   </div>
 </div>
@@ -113,15 +110,3 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPW_yVez7lt-3QKXCXk97t43Q2TdZkQZQ&libraries=places&callback=initMap"
     async defer></script>
-
-<!-- <% if current_user.listing && @listing == current_user.listing %>
-  <%= link_to 'Edit Your Apartment', edit_listing_path(@listing) %>
-  <% if current_user.listing.listingphotos == 0 %>
-    | <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
-  <% elsif current_user.listing.listingphotos.size > 0 && current_user.listing.listingphotos.size < 12 %>
-    | <%= link_to 'Add Photos to Your Apartment', new_listingphoto_path %>
-    | <%= link_to 'Edit Your Apartment Photos', listingphoto_path %>
-  <% else %>
-    | <%= link_to 'Edit Your Apartment Photos', listingphoto_path %>
-  <% end %>
-<% end %> -->

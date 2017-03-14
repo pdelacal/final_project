@@ -11,180 +11,252 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form_field">
+    <p>
     <%= f.label :address %>
     <%= f.text_field :address %>
+    </p>
   </div>
 
-  <div class="field">
+  <div class="field form_field">
+    <p>
     <%= f.label :apt_number, 'Apt #' %>
     <%= f.text_field :apt_number %>
+    </p>
   </div>
 
-  <div class="field">
+  <div class="field form_field">
+    <p>
     <%= f.label :city %>
     <%= f.text_field :city %>
+  </p>
   </div>
 
-  <div class="field">
+  <div class="field form_field">
+    <p>
     <%= f.label :state %>
     <%= f.text_field :state %>
+  </p>
   </div>
 
-  <div class="field">
+  <div class="field form_field">
+    <p>
     <%= f.label :zipcode %>
     <%= f.text_field :zipcode %>
+  </p>
   </div>
 
-  <div class="field">
+  <div class="field form_field">
+    <p>
     <%= f.label :rent, 'Monthly Rent' %>
     <%= f.text_field :rent %>
+  </p>
   </div>
 
-  <div class="field">
+  <div class="field form_field">
+    <p>
     <%= f.label :deposit %>
     <%= f.text_field :deposit %>
+  </p>
   </div>
 
-  <div class="field">
+  <div class="field form_field">
+    <p>
     <%= f.label :move_in_date, 'Move-in Date' %>
     <%= date_field_tag :move_in_date, min: Date.today %>
+  </p>
   </div>
 
-  <div class="field">
-    Stay Duration:
+  <div class="field form_field">
+    <h3><b>Stay Duration: </b></h3>
+    <p>
     <%= f.label :stay_duration_short, "Short (0-3 Months)" %>
     <%= f.radio_button :stay_duration, "short" %>
     <%= f.label :stay_duration_mid, "Mid (3-12 months)" %>
     <%= f.radio_button :stay_duration, "mid" %>
     <%= f.label :stay_duration_long, "Long (12+ months)" %>
     <%= f.radio_button :stay_duration, "long"%>
+  </p>
   </div>
 
-Amenities:
+<div class="form_field">
+
+<h3><b>Amenities: </b></h3>
   <div class="field">
+    <p>
     <%= f.label :in_unit_washer, 'In-Unit Washer' %>
     <%= f.check_box :in_unit_washer %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :wifi_included, 'Wi-fi Included' %>
     <%= f.check_box :wifi_included %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :utilities_included, 'Utilities Included' %>
     <%= f.check_box :utilities_included %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :furnished %>
     <%= f.check_box :furnished %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :elevator %>
     <%= f.check_box :elevator %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :doorman %>
     <%= f.check_box :doorman %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :air_conditioning, 'Air Conditioning' %>
     <%= f.check_box :air_conditioning %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :heating %>
     <%= f.check_box :heating %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :month_to_month, 'Month-to-Month' %>
     <%= f.check_box :month_to_month %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :gym %>
     <%= f.check_box :gym %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :tv, 'TV' %>
     <%= f.check_box :tv %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :own_closet, 'Own Closet' %>
     <%= f.check_box :own_closet %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :pet_friendly, 'Pet Friendly' %>
     <%= f.check_box :pet_friendly %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :private_bathroom, 'Private Bathroom' %>
     <%= f.check_box :private_bathroom %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :kitchen %>
     <%= f.check_box :kitchen %>
+  </p>
   </div>
+</div>
 
-Rules:
+<div class="form_field">
+  <h3><b>Rules: </b></h3>
+
   <div class="field">
+    <p>
     <%= f.label :no_pets, 'No Pets' %>
     <%= f.check_box :no_pets %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :no_smoking, 'No Smoking' %>
     <%= f.check_box :no_smoking %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :no_drugs, 'No Drugs' %>
     <%= f.check_box :no_drugs %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :no_drinking, 'No Drinking' %>
     <%= f.check_box :no_drinking %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :no_loud_music, 'No Loud Music' %>
     <%= f.check_box :no_loud_music %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :no_overnight_guests, 'No Overnight Guests' %>
     <%= f.check_box :no_overnight_guests %>
+  </p>
   </div>
 
   <div class="field">
+    <p>
     <%= f.label :no_late_nights, 'No Late Nights' %>
     <%= f.check_box :no_late_nights %>
+  </p>
   </div>
 
 
   <div class="field">
+    <p>
     <%= f.label :no_house_guests, 'No House Guests' %>
     <%= f.check_box :no_house_guests %>
+  </p>
   </div>
+</div>
 
-  <div class="field">
+  <div class="field form_field">
+    <p>
     <%= f.label :description %>
     <%= f.text_area :description %>
+  </p>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class: "btn btn-primary", id:"btn-responses" %>
 </div>
 <% end %>

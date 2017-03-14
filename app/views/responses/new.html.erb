@@ -5,211 +5,329 @@
   <h3>Nothing is required, but more completion = better matches</h3>
   <br>
 
-  <div class="field">
-    Ages:
-    <br>
+  <h3>Ages: </h3>
+  <div class="field form_field">
+    <!-- <br> -->
+  <p>
     <%= label_tag :age_early_20s, "Early 20s" %>
     <%= check_box_tag :age_early_20s %>
+  </p>
+  <p>
     <%= label_tag :age_late_20s, "Late 20s" %>
     <%= check_box_tag :age_late_20s %>
+  </p>
+  <p>
     <%= label_tag :age_30s, "30s" %>
     <%= check_box_tag :age_30s %>
+  </p>
+  <p>
     <%= label_tag :age_40s_older, "40s and Older" %>
     <%= check_box_tag :age_40s_older %>
+  </p>
   </div>
 
-  <div class="field">
-    Gender:
-    <%= label_tag :gender_male, "Male" %>
-    <%= radio_button_tag :gender, "male" %>
-    <%= label_tag :gender_female, "Female" %>
-    <%= radio_button_tag :gender, "female" %>
-    <%= label_tag :gender_either, "Either" %>
-    <%= radio_button_tag :gender, "either"%>
+  <h3>Gender:</h3>
+  <div class="field form_field">
+    <p>
+      <%= label_tag :gender_male, "Male" %>
+      <%= radio_button_tag :gender, "male" %>
+    </p>
+    <p>
+      <%= label_tag :gender_female, "Female" %>
+      <%= radio_button_tag :gender, "female" %>
+    </p>
+    <p>
+      <%= label_tag :gender_either, "Either" %>
+      <%= radio_button_tag :gender, "either"%>
+    </p>
   </div>
 
-  <div class="field">
-    What's Your Monthly Budget:
+  <h3>What's Your Monthly Budget: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :budget_min, "Min" %>
     <%= number_field_tag :budget_min, in: 0..10000, step: 50 %>
+  </p>
+  <p>
     <%= label_tag :budget_max, "Max" %>
     <%= number_field_tag :budget_max, in: 0..10000, step: 50 %>
+  </p>
   </div>
 
-  <div class="field">
-    <%= label_tag :move_in_date, "When Do You Want to Move In" %>
+  <h3>When Do You Want to Move In: </h3>
+  <div class="field form_field">
+  <p>
     <%= date_field_tag :move_in_date, min: Date.today %>
+  </p>
   </div>
 
-  <div class="field">
-    How Long Do You Want to Stay:
+  <h3>How Long Do You Want to Stay: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :duration_short, "Short (0-3 Months)" %>
     <%= radio_button_tag :duration, "short" %>
+  </p>
+  <p>
     <%= label_tag :duration_mid, "Mid (3-12 months)" %>
     <%= radio_button_tag :duration, "mid" %>
+  </p>
+  <p>
     <%= label_tag :duration_long, "Long (12+ months)" %>
     <%= radio_button_tag :duration, "long"%>
+  </p>
   </div>
 
-  <div class="field">
-    Do You Have a Pet:
+  <h3>Do You Have a Pet: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :pet_dog, "Dog" %>
     <%= check_box_tag :pet_dog %>
+  </p>
+  <p>
     <%= label_tag :pet_cat, "Cat" %>
     <%= check_box_tag :pet_cat %>
+  </p>
+  <p>
     <%= label_tag :pet_other, "Other" %>
     <%= text_field_tag :pet_other %>
+  </p>
   </div>
 
-  <div class="field">
-    Do You Like Pets:
+  <h3>Do You Like Pets: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :like_pet_dog, "Dog" %>
     <%= check_box_tag :like_pet_dog %>
+  </p>
+  <p>
     <%= label_tag :like_pet_cat, "Cat" %>
     <%= check_box_tag :like_pet_cat %>
+  </p>
+  <p>
     <%= label_tag :like_pet_other, "Other" %>
     <%= text_field_tag :like_pet_other %>
+  </p>
   </div>
 
-  <div class="field">
-    What Time Do You Wake Up:
+  <h3>What Time Do You Wake Up: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :wakeup_early, "Early Morning (4-6AM)" %>
     <%= radio_button_tag :wakeup, "early" %>
+  </p>
+  <p>
     <%= label_tag :wakeup_morning, "Morning (7-9AM)" %>
     <%= radio_button_tag :wakeup, "morning" %>
+  </p>
+  <p>
     <%= label_tag :wakeup_late, "Late (10AM+)" %>
     <%= radio_button_tag :wakeup, "late"%>
+  </p>
   </div>
 
-  <div class="field">
-    What Time Do You Go to Sleep:
+  <h3>What Time Do You Go to Sleep: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :bedtime_early, "Early (7-9PM)" %>
     <%= radio_button_tag :bedtime, "early" %>
+  </p>
+  <p>
     <%= label_tag :bedtime_late, "Late (10PM-12AM)" %>
     <%= radio_button_tag :bedtime, "late" %>
+  </p>
+  <p>
     <%= label_tag :bedtime_night_owl, "Night Owl (12PM+)" %>
     <%= radio_button_tag :bedtime, "night_owl"%>
+  </p>
   </div>
 
-  <div class="field">
-    What Is Your Work Schedule:
+  <h3>What Is Your Work Schedule: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :work_standard, "Standard (9AM-5PM)" %>
     <%= radio_button_tag :work, "standard" %>
+  </p>
+  <p>
     <%= label_tag :work_nights, "Nights (7PM-2AM)" %>
     <%= radio_button_tag :work, "nights" %>
+  </p>
+  <p>
     <%= label_tag :work_graveyard, "Graveyard (11PM-8AM)" %>
     <%= radio_button_tag :work, "graveyard"%>
+  </p>
   </div>
 
-  <div class="field">
-    Do You Work From Home:
+  <h3>Do You Work From Home: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :work_from_home_yes, "Yes" %>
     <%= radio_button_tag :work_from_home, "yes" %>
+  </p>
+  <p>
     <%= label_tag :work_from_home_no, "No" %>
     <%= radio_button_tag :work_from_home, "no" %>
+  </p>
   </div>
 
-  <div class="field">
-    Do You Mind Overnight Guests:
+  <h3>Do You Mind Overnight Guests: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :overnight_guests_yes, "Yes" %>
     <%= radio_button_tag :overnight_guests, "yes" %>
+  </p>
+  <p>
     <%= label_tag :overnight_guests_no, "No" %>
     <%= radio_button_tag :overnight_guests, "no" %>
+  </p>
   </div>
 
-  <div class="field">
-    Are You in a Relationship:
+  <h3>Are You in a Relationship: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :relationship_yes, "Yes" %>
     <%= radio_button_tag :relationship, "yes" %>
+  </p>
+  <p>
     <%= label_tag :relationship_no, "No" %>
     <%= radio_button_tag :relationship, "no" %>
+  </p>
   </div>
 
-  <div class="field">
-    If Yes:
+  <h3>If Yes: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :relationship_type_casual, "Casual" %>
     <%= radio_button_tag :relationship_type, "casual" %>
+  </p>
+  <p>
     <%= label_tag :relationship_type_serious, "Serious" %>
     <%= radio_button_tag :relationship_type, "serious" %>
+  </p>
   </div>
 
-  <div class="field">
-    Do You Smoke:
+  <h3>Do You Smoke: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :smoking_yes, "Yes" %>
     <%= radio_button_tag :smoking, "yes" %>
+  </p>
+  <p>
     <%= label_tag :smoking_no, "No" %>
     <%= radio_button_tag :smoking, "no" %>
+  </p>
+  <p>
     <%= label_tag :smoking_420, "Not Cigarettes..." %>
     <%= radio_button_tag :smoking, "420" %>
+  </p>
   </div>
 
-  <div class="">
-    Could You Live With Someone Who Was Messy:
+  <h3>Could You Live With Someone Who Was Messy: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :messy_yes, "Yes" %>
     <%= radio_button_tag :messy, "yes" %>
+  </p>
+  <p>
     <%= label_tag :messy_no, "No" %>
     <%= radio_button_tag :messy, "no" %>
+  </p>
   </div>
 
-  <div class="field">
-    What Environment Are You Looking for:
+  <h3>What Environment Are You Looking for: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :environment_loud, "Loud" %>
     <%= radio_button_tag :environment, "loud" %>
+  </p>
+  <p>
     <%= label_tag :environment_quiet, "Quiet" %>
     <%= radio_button_tag :environment, "quiet" %>
+  </p>
+  <p>
     <%= label_tag :environment_both, "A Bit of Both" %>
     <%= radio_button_tag :environment, "both" %>
+  </p>
   </div>
 
-  <div class="field">
-    Are You More of a:
+  <h3>Are You More of a: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :party_yes, "Party Animal" %>
     <%= radio_button_tag :party, "yes" %>
+  </p>
+  <p>
     <%= label_tag :party_no, "Homebody" %>
     <%= radio_button_tag :party, "no" %>
+  </p>
   </div>
 
-  <div class="field">
-    Are You a Good Communicator:
+  <h3>Are You a Good Communicator: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :communicator_yes, "Yes" %>
     <%= radio_button_tag :communicator, "yes" %>
+  </p>
+  <p>
     <%= label_tag :communicator_no, "No" %>
     <%= radio_button_tag :communicator, "no" %>
+  </p>
   </div>
 
-  <div class="field">
-    How Often Do You Have Friends Over:
+  <h3>How Often Do You Have Friends Over: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :friends_over_never, "Never" %>
     <%= radio_button_tag :friends_over, "never" %>
+  </p>
+  <p>
     <%= label_tag :friends_over_rarely, "Rarely" %>
     <%= radio_button_tag :friends_over, "rarely" %>
+  </p>
+  <p>
     <%= label_tag :friends_over_sometimes, "Sometimes" %>
     <%= radio_button_tag :friends_over, "sometimes" %>
+  </p>
+  <p>
     <%= label_tag :friends_over_often, "Often" %>
     <%= radio_button_tag :friends_over, "often" %>
+  </p>
   </div>
 
-  <div class="field">
-    How Often Do You Drink at Home:
+  <h3>How Often Do You Drink at Home: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :drink_never, "Never" %>
     <%= radio_button_tag :drink, "never" %>
+  </p>
+  <p>
     <%= label_tag :drink_1_or_2_days, "1 or 2 Days a Week" %>
     <%= radio_button_tag :drink, "1_or_2_days" %>
+  </p>
+  <p>
     <%= label_tag :drink_3_to_5_days, "3-5 Days a Week" %>
     <%= radio_button_tag :drink, "3_to_5_days" %>
+  </p>
+  <p>
     <%= label_tag :drink_everyday, "Everyday" %>
     <%= radio_button_tag :drink, "everyday" %>
+  </p>
   </div>
 
-  <div class="field">
-    Do You Expect Any Out-of-Town Visitors:
+  <h3>Do You Expect Any Out-of-Town Visitors: </h3>
+  <div class="field form_field">
+  <p>
     <%= label_tag :visitors_yes, "Yes" %>
     <%= radio_button_tag :visitors, "yes" %>
+  </p>
+  <p>
     <%= label_tag :visitors_no, "No" %>
     <%= radio_button_tag :visitors, "no" %>
+  </p>
   </div>
 
-  <%= submit_tag "Submit" %>
+  <p>
+  <%= submit_tag "Submit", class: "btn btn-primary" %>
+  </p>
 
 <% end %>
 <%= link_to 'Return to Home Page', root_path %>
