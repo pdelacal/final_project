@@ -59,6 +59,9 @@
       <% if @listing.user == current_user && @listing.listingphotos.size < 12 %>
         <%= link_to "Add Apt Photos", new_listingphoto_path, class: "btn btn-success" %>
       <% end %>
+      <% if @listing.user == current_user %>
+        <%= link_to "Edit Listing", edit_listing_path, class: "btn btn-default" %>
+      <% end %>
     <% end %>
   </div>
 </div>

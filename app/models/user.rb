@@ -74,7 +74,7 @@ class User < ApplicationRecord
         end
       end
 
-      @total_responses = @current_resp.size - 8.0
+      @total_responses = @current_resp.size - 9.0
       @compatibility = @matches/@total_responses*100.round
       if @compatibility
         p "#{@compatibility.round.to_s}%"
