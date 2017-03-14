@@ -41,7 +41,7 @@
       <% end %>
       <% if @user.responses.last.nil? && @user == current_user %>
         <%= link_to "Complete Questionnaire", questionnaire_path, class: "btn btn-success" %>
-        <% else %>
+      <% elsif @user == current_user %>
         <%= link_to "Edit Questionnaire", questionnaire_path, class: "btn btn-success" %>
       <% end %>
       <% if @user == current_user %>

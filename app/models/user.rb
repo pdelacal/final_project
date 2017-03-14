@@ -66,7 +66,7 @@ class User < ApplicationRecord
       @current_resp.each do |my_response|
         @compare_resp.each do |compare_response|
           if my_response == compare_response
-            @matches += 1 unless my_response[1].nil? || my_response[1] == ""
+            @matches += 1 unless my_response[1].nil? || my_response[1] == "" || compare_response[1].nil? || compare_response[1] == ""
           end
         end
       end
