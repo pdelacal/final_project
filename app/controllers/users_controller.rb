@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :set_avatar,
+  before_action :set_user, only: [:show, :edit, :update, :set_avatar,
     :request_friend, :add_friend, :cancel_request, :ignore_request, :remove_friend]
 
   # GET /users
@@ -116,9 +116,19 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user = current_user
+    if @user.listing && @user.listing.listingphotos.last
+      @user.listing.listingphotos.destroy_all
+    end
+    if @user.listing
+      @user.listing.destroy
+    end
+    if @user.responses.last
+      @user.responses.destroy_all
+    end
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to logout_path, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

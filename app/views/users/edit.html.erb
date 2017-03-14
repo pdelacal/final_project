@@ -1,5 +1,13 @@
 <h1>Editing User</h1>
 
-<%= render 'form', user: @user %>
+<p>
+  <%= render 'form', user: @user %>
+</p>
 
-<%= link_to "Return to Profile", user_path, class: "btn btn-default edit_avatar" %>
+<p>
+  <%= link_to "Delete Profile", profile_delete_path, class: "btn btn-d edit_avatar" %>
+</p>
+
+<p>
+  <%= link_to "Return to Profile", user_path, class: "btn btn-default edit_avatar" %>
+</p>
