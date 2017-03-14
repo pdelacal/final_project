@@ -77,7 +77,8 @@
       </div>
       <div class="modal-body">
         <span id="login_body">
-          <%= link_to 'Login with Email', 'javascript:void(0)', type: "button", class: "btn-danger login_email login_buttons", "data-toggle" => "tab", role: "tab" %>
+          <%= link_to 'Login with Email', 'javascript:void(0)', type: "button",
+          class: "btn-danger login_email login_buttons", "data-toggle" => "tab", role: "tab" %>
           <br id="mobile_button_spacing">
           <%= button_to "Login with Facebook", facebook_login_path, type: "button", class: "btn-primary login_buttons"  %>
         </span>
@@ -89,9 +90,7 @@
         <!-- Login with Email -->
         <div class="tab-pane" id="login" role="tabpanel">
           <!-- <h1>Login</h1> -->
-          <!-- <% unless current_user %> -->
             <%= render 'sessions/form' %>
-          <!-- <% end %> -->
         </div>
       </div>
     </div>
