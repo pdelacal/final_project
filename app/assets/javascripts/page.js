@@ -2,21 +2,21 @@ $(document).on('turbolinks:load', function() {
   $('.login_email').click(function(e) {
     e.preventDefault();
 
-    if ($('.tab-pane:visible').length == 0) {
-      $('.tab-pane').slideDown();
+    if ($('.tab-pane2:visible').length == 0) {
+      $('.tab-pane2').slideDown();
     } else {
-      $('.tab-pane').slideUp();
+      $('.tab-pane2').slideUp();
     }
   });
 
   $('.signup_email').click(function(e) {
     e.preventDefault();
 
-    if ($('.tab-pane:visible').length == 0) {
+    if ($('.tab-pane1:visible').length == 0) {
       // $('.tab-pane').html("<%= j render 'users/form', user: @user %>")
-      $('.tab-pane').slideDown();
+      $('.tab-pane1').slideDown();
     } else {
-      $('.tab-pane').slideUp();
+      $('.tab-pane1').slideUp();
     }
   });
 
