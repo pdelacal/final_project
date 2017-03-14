@@ -32,6 +32,9 @@
           <% end %>
         <% end %>
       <% elsif listing.user_id %>
+        <script>
+          window.addresses.push("<%= [listing.address, listing.city, listing.state, listing.zipcode].join(",") %>");
+        </script>
         <% if listing.listingphotos.first %>
           <div class="listing_result">
             <%= link_to image_tag(listing.listingphotos.first.photo.url), listing, class: "listing_photo" %>
