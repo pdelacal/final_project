@@ -11,33 +11,15 @@
   <div class="search_results">
     <% @listings.each do |listing| %>
       <% if current_user %>
-      <% unless listing.user_id == current_user.id %>
-        <script>
-          window.addresses.push("<%= [listing.address, listing.city, listing.state, listing.zipcode].join(",") %>");
-        </script>
-        <% if listing.listingphotos.first %>
-          <div class="listing_result">
-            <%= link_to image_tag(listing.listingphotos.first.photo.url), listing, class: "listing_photo" %>
-            <% if listing.user && listing.user.picture %>
-            <%= link_to image_tag(listing.user.picture), listing.user, class: "user_photo" %>
-            <% end %>
-            <% if listing.rent %>
-              <div class="listing_rent">
-                <h2>
-                  $<%= listing.rent %>
-                </h2>
-              </div>
-            <% end %>
-          </div>
-        <% elsif listing.user_id %>
+        <% unless listing.user_id == current_user.id %>
           <script>
-          window.addresses.push("<%= [listing.address, listing.city, listing.state, listing.zipcode].join(",") %>");
+            window.addresses.push("<%= [listing.address, listing.city, listing.state, listing.zipcode].join(",") %>");
           </script>
           <% if listing.listingphotos.first %>
             <div class="listing_result">
               <%= link_to image_tag(listing.listingphotos.first.photo.url), listing, class: "listing_photo" %>
               <% if listing.user && listing.user.picture %>
-              <%= link_to image_tag(listing.user.picture), listing.user, class: "user_photo" %>
+                <%= link_to image_tag(listing.user.picture), listing.user, class: "user_photo" %>
               <% end %>
               <% if listing.rent %>
                 <div class="listing_rent">
@@ -49,8 +31,22 @@
             </div>
           <% end %>
         <% end %>
-      <% end %>
-      <%# else %>
+      <% elsif listing.user_id %>
+        <% if listing.listingphotos.first %>
+          <div class="listing_result">
+            <%= link_to image_tag(listing.listingphotos.first.photo.url), listing, class: "listing_photo" %>
+            <% if listing.user && listing.user.picture %>
+              <%= link_to image_tag(listing.user.picture), listing.user, class: "user_photo" %>
+            <% end %>
+            <% if listing.rent %>
+              <div class="listing_rent">
+                <h2>
+                  $<%= listing.rent %>
+                </h2>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
